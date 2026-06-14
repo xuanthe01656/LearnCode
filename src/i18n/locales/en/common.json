@@ -1,0 +1,15 @@
+{
+  "appName": "Code Explorer",
+  "slogan": "Learn coding from zero",
+  "home": "Home",
+  "thinkingTest": "Thinking Test",
+  "courses": "Courses",
+  "roadmap": "Roadmap",
+  "login": "Login",
+  "register": "Register",
+  "logout": "Logout",
+  "startTest": "Start placement test",
+  "viewCourses": "View courses",
+  "viewRoadmap": "View roadmap",
+  "language": "Language"
+}

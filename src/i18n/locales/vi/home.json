@@ -1,0 +1,114 @@
+{
+  "badge": "Nền tảng học lập trình cho mọi người",
+  "title": "Học lập trình từ con số 0 đến làm được sản phẩm thật",
+  "subtitle": "Code Explorer là nền tảng học lập trình hiện đại dành cho học sinh, sinh viên, người mới bắt đầu, người đi làm và người muốn chuyển ngành. Bắt đầu bằng tư duy, học bằng thực hành, tiến tới dự án thực tế.",
+  "stats": {
+    "questions": "câu test tư duy",
+    "roadmap": "lộ trình nhập môn",
+    "audiences": "nhóm người học"
+  },
+  "codeCard": {
+    "comment": "# Bài học đầu tiên",
+    "message": "Tôi có thể học lập trình!",
+    "resultLabel": "Kết quả:"
+  },
+  "badgeCard": {
+    "label": "Huy hiệu",
+    "title": "Logic Explorer",
+    "desc": "Hoàn thành test đầu vào"
+  },
+  "progressCard": {
+    "label": "Tiến độ học",
+    "value": "8/12 bài đầu tiên"
+  },
+  "audienceSection": {
+    "badge": "Ai có thể học?",
+    "title": "Không chỉ cho học sinh, nền tảng phù hợp với nhiều mục tiêu học tập",
+    "desc": "Mỗi nhóm người học sẽ có cách tiếp cận khác nhau: học sinh cần trực quan, người mới cần dễ hiểu, người đi làm cần ứng dụng thực tế, người chuyển ngành cần lộ trình rõ."
+  },
+  "audiences": {
+    "students": {
+      "title": "Học sinh lớp 6-12",
+      "desc": "Học từ tư duy logic, làm quen lập trình và tạo sản phẩm nhỏ.",
+      "tag": "Kids & Teens"
+    },
+    "beginners": {
+      "title": "Người mới bắt đầu",
+      "desc": "Không cần nền tảng trước, học từng bước từ con số 0.",
+      "tag": "Beginner"
+    },
+    "workingAdults": {
+      "title": "Người đi làm",
+      "desc": "Học Python, automation, xử lý Excel, dữ liệu và công cụ thực tế.",
+      "tag": "Working Adults"
+    },
+    "careerSwitchers": {
+      "title": "Người muốn chuyển ngành",
+      "desc": "Có lộ trình nền tảng để tiến tới Web, AI, Data hoặc Automation.",
+      "tag": "Career Switch"
+    }
+  },
+  "pathSection": {
+    "badge": "Hệ thống học theo lộ trình",
+    "title": "Từ tư duy lập trình đến Python, Web, AI và Automation",
+    "desc": "Trang học được thiết kế để mở rộng nhiều ngôn ngữ và nhiều khóa học. Sau này bạn có thể thêm JavaScript, C++, Java, SQL, AI hoặc khóa học xử lý dữ liệu mà không cần thay đổi toàn bộ cấu trúc."
+  },
+  "features": [
+    "Test tư duy đầu vào trước khi học",
+    "Lộ trình học theo từng cấp độ",
+    "Bài học ngắn, dễ hiểu, có ví dụ trực quan",
+    "Quiz và bài tập sau mỗi bài",
+    "Theo dõi tiến độ học tập",
+    "Mở rộng nhiều ngôn ngữ lập trình"
+  ],
+  "learningPaths": [
+    {
+      "title": "Python Foundation",
+      "desc": "Biến, điều kiện, vòng lặp, hàm, list, file và project cơ bản.",
+      "status": "Đang xây dựng"
+    },
+    {
+      "title": "JavaScript Web",
+      "desc": "HTML, CSS, JavaScript, React và xây dựng website hiện đại.",
+      "status": "Sắp có"
+    },
+    {
+      "title": "Data & Automation",
+      "desc": "Xử lý Excel, file, dữ liệu, tự động hóa công việc văn phòng.",
+      "status": "Sắp có"
+    },
+    {
+      "title": "AI Beginner",
+      "desc": "Nền tảng Python, dữ liệu, machine learning và ứng dụng AI đơn giản.",
+      "status": "Sắp có"
+    }
+  ],
+  "methodSection": {
+    "badge": "Cách học hiệu quả",
+    "title": "Học lập trình không bắt đầu bằng học thuộc cú pháp",
+    "desc": "Người học được dẫn dắt theo quy trình: hiểu vấn đề, chia nhỏ, viết thử, kiểm tra kết quả và cải thiện sản phẩm."
+  },
+  "steps": [
+    {
+      "title": "Đánh giá đầu vào",
+      "desc": "Làm bài test tư duy để xác định khả năng logic và hướng học phù hợp."
+    },
+    {
+      "title": "Chọn lộ trình",
+      "desc": "Chọn Python, Web, AI, Automation hoặc ngôn ngữ khác theo mục tiêu."
+    },
+    {
+      "title": "Học và thực hành",
+      "desc": "Học từng bài, làm quiz, viết code và hoàn thành bài tập nhỏ."
+    },
+    {
+      "title": "Làm dự án",
+      "desc": "Tạo sản phẩm thật để củng cố kiến thức và có portfolio cá nhân."
+    }
+  ],
+  "cta": {
+    "badge": "Bắt đầu đúng trình độ",
+    "title": "Chưa biết bắt đầu từ đâu? Hãy làm test tư duy trước",
+    "desc": "Bài test giúp xác định người học nên bắt đầu từ tư duy cơ bản, Python Foundation hay lộ trình tăng tốc."
+  }
+}

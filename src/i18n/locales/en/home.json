@@ -1,0 +1,114 @@
+{
+  "badge": "A coding platform for everyone",
+  "title": "Learn programming from zero to real-world projects",
+  "subtitle": "Code Explorer is a modern programming learning platform for students, beginners, working professionals, and career switchers. Start with logical thinking, learn through practice, and build real projects.",
+  "stats": {
+    "questions": "thinking test questions",
+    "roadmap": "beginner roadmaps",
+    "audiences": "learner groups"
+  },
+  "codeCard": {
+    "comment": "# First lesson",
+    "message": "I can learn programming!",
+    "resultLabel": "Output:"
+  },
+  "badgeCard": {
+    "label": "Badge",
+    "title": "Logic Explorer",
+    "desc": "Completed the placement test"
+  },
+  "progressCard": {
+    "label": "Learning Progress",
+    "value": "8/12 lessons completed"
+  },
+  "audienceSection": {
+    "badge": "Who can learn?",
+    "title": "Not just for students, this platform supports many learning goals",
+    "desc": "Each learner group needs a different approach: students need visual learning, beginners need simple explanations, working adults need practical applications, and career switchers need a clear roadmap."
+  },
+  "audiences": {
+    "students": {
+      "title": "Students (Grades 6-12)",
+      "desc": "Learn logical thinking, programming basics, and build small projects.",
+      "tag": "Kids & Teens"
+    },
+    "beginners": {
+      "title": "Absolute Beginners",
+      "desc": "Start from zero with step-by-step guidance and no prior experience required.",
+      "tag": "Beginner"
+    },
+    "workingAdults": {
+      "title": "Working Professionals",
+      "desc": "Learn Python, automation, Excel processing, data analysis, and practical tools.",
+      "tag": "Working Adults"
+    },
+    "careerSwitchers": {
+      "title": "Career Switchers",
+      "desc": "Build a solid foundation before moving into Web Development, AI, Data, or Automation.",
+      "tag": "Career Switch"
+    }
+  },
+  "pathSection": {
+    "badge": "Structured Learning Paths",
+    "title": "From Computational Thinking to Python, Web Development, AI, and Automation",
+    "desc": "The platform is designed to support multiple programming languages and courses. In the future, you can add JavaScript, C++, Java, SQL, AI, or Data courses without changing the overall architecture."
+  },
+  "features": [
+    "Placement test before starting",
+    "Level-based learning paths",
+    "Short and easy-to-understand lessons",
+    "Quizzes and exercises after every lesson",
+    "Track learning progress",
+    "Support for multiple programming languages"
+  ],
+  "learningPaths": [
+    {
+      "title": "Python Foundation",
+      "desc": "Variables, conditions, loops, functions, lists, files, and beginner projects.",
+      "status": "In Development"
+    },
+    {
+      "title": "JavaScript Web",
+      "desc": "HTML, CSS, JavaScript, React, and modern web application development.",
+      "status": "Coming Soon"
+    },
+    {
+      "title": "Data & Automation",
+      "desc": "Excel processing, file handling, data analysis, and office automation.",
+      "status": "Coming Soon"
+    },
+    {
+      "title": "AI Beginner",
+      "desc": "Python fundamentals, data handling, machine learning basics, and AI applications.",
+      "status": "Coming Soon"
+    }
+  ],
+  "methodSection": {
+    "badge": "Effective Learning Method",
+    "title": "Programming does not start with memorizing syntax",
+    "desc": "Learners are guided through understanding problems, breaking them into smaller tasks, writing solutions, testing results, and improving their projects."
+  },
+  "steps": [
+    {
+      "title": "Placement Assessment",
+      "desc": "Take a thinking test to evaluate logic skills and identify the most suitable learning path."
+    },
+    {
+      "title": "Choose a Learning Path",
+      "desc": "Select Python, Web Development, AI, Automation, or another programming track."
+    },
+    {
+      "title": "Learn and Practice",
+      "desc": "Study lessons, complete quizzes, write code, and solve practical exercises."
+    },
+    {
+      "title": "Build Projects",
+      "desc": "Create real projects to reinforce knowledge and build your personal portfolio."
+    }
+  ],
+  "cta": {
+    "badge": "Start at the Right Level",
+    "title": "Not sure where to begin? Take the thinking test first",
+    "desc": "The placement test helps determine whether a learner should start with logical thinking fundamentals, Python Foundation, or an accelerated learning path."
+  }
+}
