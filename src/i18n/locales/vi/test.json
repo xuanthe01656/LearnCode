@@ -1,0 +1,400 @@
+{
+  "thinking": {
+    "badge": "Test tư duy lập trình",
+    "title": "Đánh giá tư duy trước khi học lập trình",
+    "subtitle": "Bài test này không kiểm tra Python hay kiến thức code. Mục tiêu là đánh giá logic, quy luật, điều kiện, thuật toán, dữ liệu, tư duy hệ thống và khả năng tìm lỗi.",
+    "questionsPerRound": "câu mỗi lượt",
+    "learnerInfo": "Thông tin người làm test",
+    "learnerName": "Tên người học",
+    "learnerNamePlaceholder": "Ví dụ: Nguyễn Văn An",
+    "learnerGroup": "Nhóm người học",
+    "grade": "Khối lớp",
+    "start": "Bắt đầu làm bài",
+    "requiredName": "Vui lòng nhập tên người học.",
+    "answered": "Đã trả lời {{answered}}/{{total}} câu",
+    "timeLeft": "Thời gian còn lại: {{time}}",
+    "question": "Câu {{index}}",
+    "difficulty": "Độ khó {{level}}",
+    "submit": "Nộp bài và xem kết quả",
+    "resultSheet": "Phiếu kết quả test tư duy lập trình",
+    "learner": "Người học",
+    "group": "Nhóm",
+    "gradeLabel": "Khối lớp",
+    "totalQuestions": "Số câu",
+    "score": "Điểm",
+    "duration": "Thời gian làm bài",
+    "printDate": "Ngày in",
+    "skillAnalysis": "Phân tích theo nhóm kỹ năng",
+    "parent": "Phụ huynh",
+    "teacher": "Giáo viên",
+    "restart": "Làm lượt mới",
+    "print": "In kết quả",
+    "correct": "Đúng.",
+    "wrong": "Sai.",
+    "questions": {
+      "think001": {
+        "level": "Cơ bản",
+        "type": "Quy luật",
+        "question": "Dãy số: 2, 4, 6, 8, ?. Số tiếp theo là gì?",
+        "options": {
+          "A": "9",
+          "B": "10",
+          "C": "12",
+          "D": "16"
+        },
+        "explain": "Mỗi số tăng thêm 2 nên số tiếp theo là 10."
+      },
+      "think002": {
+        "level": "Nền tảng",
+        "type": "Quy luật",
+        "question": "Dãy số: 2, 5, 10, 17, 26, ?. Số tiếp theo là gì?",
+        "options": {
+          "A": "32",
+          "B": "35",
+          "C": "37",
+          "D": "40"
+        },
+        "explain": "Hiệu giữa các số là 3, 5, 7, 9. Hiệu tiếp theo là 11, nên 26 + 11 = 37."
+      },
+      "think003": {
+        "level": "Trung bình",
+        "type": "Quy luật",
+        "question": "Dãy số: 1, 2, 4, 7, 11, 16, ?. Số tiếp theo là gì?",
+        "options": {
+          "A": "20",
+          "B": "21",
+          "C": "22",
+          "D": "23"
+        },
+        "explain": "Hiệu tăng dần là 1, 2, 3, 4, 5. Hiệu tiếp theo là 6, nên 16 + 6 = 22."
+      },
+      "think004": {
+        "level": "Khó",
+        "type": "Quy luật xen kẽ",
+        "question": "Dãy số: 3, 6, 5, 10, 9, 18, ?. Số tiếp theo là gì?",
+        "options": {
+          "A": "15",
+          "B": "16",
+          "C": "17",
+          "D": "20"
+        },
+        "explain": "Quy luật xen kẽ: nhân 2 rồi trừ 1. 3→6, 6→5, 5→10, 10→9, 9→18, nên 18→17."
+      },
+      "think005": {
+        "level": "Nền tảng",
+        "type": "Logic",
+        "question": "Tất cả học viên hoàn thành bài tập đều được mở bài tiếp theo. An đã hoàn thành bài tập. Kết luận nào chắc chắn đúng?",
+        "options": {
+          "A": "An được mở bài tiếp theo",
+          "B": "An đã giỏi lập trình",
+          "C": "An không cần học nữa",
+          "D": "An làm sai bài"
+        },
+        "explain": "Theo điều kiện đã cho, ai hoàn thành bài tập thì được mở bài tiếp theo."
+      },
+      "think006": {
+        "level": "Trung bình",
+        "type": "Logic suy luận",
+        "question": "Tất cả A là B. Một số B là C. Kết luận nào chắc chắn đúng?",
+        "options": {
+          "A": "Tất cả A là C",
+          "B": "Tất cả C là A",
+          "C": "Một số A là C",
+          "D": "Không thể chắc chắn A có phải C hay không"
+        },
+        "explain": "Việc một số B là C không đảm bảo nhóm A nằm trong phần B đó."
+      },
+      "think007": {
+        "level": "Khó",
+        "type": "Logic điều kiện",
+        "question": "Nếu hệ thống có lỗi thì báo cáo sẽ bị trễ. Báo cáo không bị trễ. Kết luận nào hợp lý nhất?",
+        "options": {
+          "A": "Hệ thống chắc chắn có lỗi",
+          "B": "Hệ thống không có lỗi theo điều kiện đã cho",
+          "C": "Báo cáo bị sai",
+          "D": "Không thể biết báo cáo có hoàn thành không"
+        },
+        "explain": "Nếu có lỗi thì chắc chắn trễ. Nhưng báo cáo không trễ, nên theo điều kiện này hệ thống không có lỗi."
+      },
+      "think008": {
+        "level": "Nền tảng",
+        "type": "Điều kiện",
+        "question": "Một khóa học yêu cầu điểm test từ 60 trở lên để vào lớp cơ bản. Bình đạt 58 điểm. Bình nên được xếp vào đâu?",
+        "options": {
+          "A": "Lớp nâng cao",
+          "B": "Lớp cơ bản",
+          "C": "Lớp bổ trợ nền tảng",
+          "D": "Không cần học"
+        },
+        "explain": "58 nhỏ hơn 60 nên chưa đạt điều kiện vào lớp cơ bản, cần lớp bổ trợ nền tảng."
+      },
+      "think009": {
+        "level": "Trung bình",
+        "type": "Điều kiện kép",
+        "question": "Một học viên được cấp chứng nhận nếu hoàn thành 80% bài học và đạt quiz cuối khóa. Mai hoàn thành 90% bài học nhưng trượt quiz. Mai có được chứng nhận không?",
+        "options": {
+          "A": "Không",
+          "B": "Có",
+          "C": "Có nếu học nhanh",
+          "D": "Không đủ dữ kiện"
+        },
+        "explain": "Điều kiện dùng 'và', nên phải đạt cả hai. Mai trượt quiz nên không được chứng nhận."
+      },
+      "think010": {
+        "level": "Khó",
+        "type": "Điều kiện nhiều nhánh",
+        "question": "Quy tắc xếp lớp: dưới 40 điểm học lại tư duy; 40-69 học cơ bản; 70-89 học tăng tốc; từ 90 trở lên học nâng cao. Một người đạt 89 điểm thì xếp lớp nào?",
+        "options": {
+          "A": "Học lại tư duy",
+          "B": "Học cơ bản",
+          "C": "Học nâng cao",
+          "D": "Học tăng tốc"
+        },
+        "explain": "89 nằm trong khoảng 70-89 nên thuộc lớp tăng tốc, chưa đạt mức từ 90 trở lên."
+      },
+      "think011": {
+        "level": "Nền tảng",
+        "type": "Thuật toán đời thường",
+        "question": "Muốn đăng ký một tài khoản học online, thứ tự nào hợp lý nhất?",
+        "options": {
+          "A": "Đăng nhập → tạo tài khoản → nhập email",
+          "B": "Nhập thông tin → xác nhận email → đăng nhập",
+          "C": "Xóa trình duyệt → đăng nhập → học",
+          "D": "Học bài → tạo email → xác nhận"
+        },
+        "explain": "Cần nhập thông tin, xác nhận email rồi mới đăng nhập."
+      },
+      "think012": {
+        "level": "Trung bình",
+        "type": "Tìm kiếm",
+        "question": "Bạn có danh sách 100 học viên chưa sắp xếp. Muốn tìm một tên cụ thể chắc chắn nhất, cách nào đúng?",
+        "options": {
+          "A": "Chọn ngẫu nhiên một dòng",
+          "B": "Chỉ xem dòng đầu tiên",
+          "C": "Kiểm tra lần lượt từng tên cho đến khi thấy",
+          "D": "Xóa danh sách rồi nhập lại"
+        },
+        "explain": "Khi danh sách chưa sắp xếp, cách chắc chắn là kiểm tra lần lượt."
+      },
+      "think013": {
+        "level": "Khó",
+        "type": "Tối ưu bước làm",
+        "question": "Bạn cần kiểm tra 30 bài nộp giống cùng một tiêu chí. Cách làm nào hiệu quả nhất?",
+        "options": {
+          "A": "Tạo một checklist tiêu chí rồi kiểm tra từng bài theo checklist",
+          "B": "Mỗi bài nghĩ lại tiêu chí từ đầu",
+          "C": "Chỉ kiểm tra bài đầu tiên",
+          "D": "Không cần ghi kết quả"
+        },
+        "explain": "Checklist giúp giảm sai sót và tiết kiệm thời gian khi lặp lại cùng một quy trình."
+      },
+      "think014": {
+        "level": "Nền tảng",
+        "type": "Chia nhỏ vấn đề",
+        "question": "Muốn làm một ứng dụng quản lý việc cần làm, nhóm chức năng nào hợp lý nhất?",
+        "options": {
+          "A": "Đổi màu màn hình, nghe nhạc, xem video",
+          "B": "Tạo game, bán hàng, chat",
+          "C": "Chỉ có nút thoát",
+          "D": "Thêm việc, sửa việc, đánh dấu hoàn thành, xóa việc"
+        },
+        "explain": "Ứng dụng quản lý việc cần làm cần các chức năng xoay quanh công việc."
+      },
+      "think015": {
+        "level": "Trung bình",
+        "type": "Lập kế hoạch dự án",
+        "question": "Khi xây một website học lập trình, việc nào nên làm trước?",
+        "options": {
+          "A": "Xác định người học, lộ trình, bài học và cách theo dõi tiến độ",
+          "B": "Chọn màu nút trước rồi tính sau",
+          "C": "Viết tất cả trang một lượt",
+          "D": "Chỉ làm trang đăng nhập"
+        },
+        "explain": "Cần xác định mục tiêu, người học và cấu trúc học trước khi xây giao diện chi tiết."
+      },
+      "think016": {
+        "level": "Trung bình",
+        "type": "Tư duy hệ thống",
+        "question": "Một hệ thống học online cần lưu tiến độ học. Thành phần nào liên quan trực tiếp nhất?",
+        "options": {
+          "A": "Màu nền",
+          "B": "Người học, bài học, trạng thái hoàn thành",
+          "C": "Logo website",
+          "D": "Âm thanh thông báo"
+        },
+        "explain": "Tiến độ học cần biết ai học, học bài nào và trạng thái hoàn thành ra sao."
+      },
+      "think017": {
+        "level": "Khó",
+        "type": "Phụ thuộc hệ thống",
+        "question": "Nếu bài học B chỉ mở sau khi hoàn thành bài A, nhưng người học chưa hoàn thành A, hệ thống nên làm gì?",
+        "options": {
+          "A": "Xóa bài B",
+          "B": "Cho học B ngay",
+          "C": "Khóa bài B và hướng dẫn hoàn thành bài A trước",
+          "D": "Đổi tên người học"
+        },
+        "explain": "Khi có điều kiện phụ thuộc, hệ thống nên khóa nội dung sau và hướng người học hoàn thành phần trước."
+      },
+      "think018": {
+        "level": "Nền tảng",
+        "type": "Phân tích dữ liệu",
+        "question": "Doanh thu 3 ngày lần lượt là 100, 150, 120. Ngày nào doanh thu cao nhất?",
+        "options": {
+          "A": "Ngày 1",
+          "B": "Ngày 3",
+          "C": "Cả 3 ngày bằng nhau",
+          "D": "Ngày 2"
+        },
+        "explain": "150 là số lớn nhất nên ngày 2 có doanh thu cao nhất."
+      },
+      "think019": {
+        "level": "Trung bình",
+        "type": "Kiểm tra dữ liệu",
+        "question": "Một lớp có 25 người. Báo cáo ghi 18 người đậu và 10 người rớt. Điều gì bất thường?",
+        "options": {
+          "A": "Không có gì bất thường",
+          "B": "Tổng 18 + 10 = 28 lớn hơn 25",
+          "C": "Số người đậu quá ít",
+          "D": "Số người rớt quá ít"
+        },
+        "explain": "Tổng số người đậu và rớt là 28, vượt quá tổng 25 người."
+      },
+      "think020": {
+        "level": "Khó",
+        "type": "Xu hướng dữ liệu",
+        "question": "Một học viên làm đúng 6/10 câu ở lần 1 và 8/10 câu ở lần 2. Nhận xét nào hợp lý nhất?",
+        "options": {
+          "A": "Kết quả cải thiện 2 câu đúng",
+          "B": "Kết quả giảm",
+          "C": "Không có thay đổi",
+          "D": "Không thể so sánh"
+        },
+        "explain": "Từ 6 câu đúng lên 8 câu đúng là cải thiện 2 câu."
+      },
+      "think021": {
+        "level": "Nền tảng",
+        "type": "Tư duy tìm lỗi",
+        "question": "Một quy trình có 5 bước nhưng kết quả sai. Cách kiểm tra nào tốt nhất?",
+        "options": {
+          "A": "Làm lại ngẫu nhiên",
+          "B": "Bỏ qua lỗi",
+          "C": "Kiểm tra từng bước từ đầu đến cuối",
+          "D": "Xóa toàn bộ quy trình"
+        },
+        "explain": "Kiểm tra từng bước giúp xác định lỗi xuất hiện ở đâu."
+      },
+      "think022": {
+        "level": "Trung bình",
+        "type": "Tìm nguyên nhân",
+        "question": "Một form đăng ký không gửi được. Cách xử lý hợp lý nhất là gì?",
+        "options": {
+          "A": "Đổi màu form",
+          "B": "Xóa toàn bộ website",
+          "C": "Bỏ qua lỗi",
+          "D": "Kiểm tra dữ liệu nhập, nút gửi, kết nối và thông báo lỗi"
+        },
+        "explain": "Cần kiểm tra từng thành phần liên quan để tìm nguyên nhân thật sự."
+      },
+      "think023": {
+        "level": "Khó",
+        "type": "Cô lập lỗi",
+        "question": "Một chức năng có 3 phần: nhập dữ liệu, xử lý, hiển thị. Kết quả hiển thị sai. Cách kiểm tra tốt nhất là gì?",
+        "options": {
+          "A": "Chỉ sửa phần hiển thị",
+          "B": "Kiểm tra dữ liệu sau từng phần để xác định lỗi nằm ở đâu",
+          "C": "Xóa chức năng",
+          "D": "Đổi tên biến ngẫu nhiên"
+        },
+        "explain": "Cô lập lỗi bằng cách kiểm tra dữ liệu qua từng phần giúp xác định đúng nơi phát sinh lỗi."
+      },
+      "think024": {
+        "level": "Rất khó",
+        "type": "Tư duy thuật toán",
+        "question": "Robot ở góc trái dưới của lưới 2x2 ô vuông và cần đi tới góc phải trên. Robot chỉ được đi sang phải hoặc đi lên. Có bao nhiêu đường đi ngắn nhất?",
+        "options": {
+          "A": "2",
+          "B": "4",
+          "C": "6",
+          "D": "8"
+        },
+        "explain": "Robot cần đi 2 bước sang phải và 2 bước lên. Số cách sắp xếp 4 bước gồm 2 R và 2 U là 6."
+      }
+    }
+  },
+  "placement": {
+    "pythonFoundation": {
+      "questions": {
+        "placePy001": {
+          "level": "Beginner",
+          "type": "Input / Output",
+          "question": "Trong lập trình, dữ liệu được đưa vào chương trình thường gọi là gì?",
+          "options": {
+            "A": "Input",
+            "B": "Output",
+            "C": "Error",
+            "D": "Color"
+          },
+          "explain": "Input là dữ liệu được đưa vào chương trình để xử lý."
+        },
+        "placePy002": {
+          "level": "Beginner",
+          "type": "Biến",
+          "question": "Trong lập trình, biến thường dùng để làm gì?",
+          "options": {
+            "A": "Trang trí giao diện",
+            "B": "Lưu trữ dữ liệu",
+            "C": "Tắt máy tính",
+            "D": "Xóa chương trình"
+          },
+          "explain": "Biến là nơi lưu trữ dữ liệu để chương trình sử dụng."
+        },
+        "placePy003": {
+          "level": "Beginner",
+          "type": "Điều kiện",
+          "question": "Nếu điểm từ 5 trở lên là đậu, người học được 6 điểm thì kết quả là gì?",
+          "options": {
+            "A": "Rớt",
+            "B": "Không biết",
+            "C": "Đậu",
+            "D": "Cần nhập lại"
+          },
+          "explain": "6 lớn hơn 5 nên đạt điều kiện đậu."
+        }
+      }
+    }
+  },
+  "learnerGroups": {
+    "student": "Học sinh lớp 6-12",
+    "beginner": "Người mới bắt đầu",
+    "workingAdult": "Người đi làm",
+    "careerSwitcher": "Người muốn chuyển ngành"
+  },
+  "categories": {
+    "pattern": "Quy luật",
+    "logic": "Logic",
+    "condition": "Điều kiện",
+    "algorithm": "Thuật toán",
+    "decomposition": "Chia nhỏ vấn đề",
+    "system-thinking": "Tư duy hệ thống",
+    "data-reasoning": "Phân tích dữ liệu",
+    "debugging-mindset": "Tư duy tìm lỗi"
+  },
+  "results": {
+    "groupA": {
+      "badge": "Nhóm A",
+      "title": "Tư duy rất tốt, phù hợp để bắt đầu học lập trình",
+      "desc": "Người học có khả năng nhận dạng quy luật, suy luận logic, phân tích dữ liệu và chia nhỏ vấn đề tốt."
+    },
+    "groupB": {
+      "badge": "Nhóm B",
+      "title": "Có tiềm năng, nên học theo lộ trình nền tảng",
+      "desc": "Người học có thể bắt đầu học lập trình nhưng nên đi chậm, nhiều ví dụ trực quan và bài tập nhỏ."
+    },
+    "groupC": {
+      "badge": "Nhóm C",
+      "title": "Nên rèn tư duy logic trước khi học code",
+      "desc": "Người học nên bắt đầu bằng bài tập logic, Scratch, thuật toán đời thường trước khi vào Python."
+    }
+  }
+}

@@ -8,6 +8,9 @@ import viHome from "./locales/vi/home.json";
 import enCommon from "./locales/en/common.json";
 import enHome from "./locales/en/home.json";
 
+import viTest from "./locales/vi/test.json";
+import enTest from "./locales/en/test.json";
+
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)
@@ -15,17 +18,19 @@ i18n
     fallbackLng: "vi",
     supportedLngs: ["vi", "en"],
 
-    ns: ["common", "home"],
+    ns: ["common", "home", "test"],
     defaultNS: "common",
 
     resources: {
       vi: {
         common: viCommon,
-        home: viHome
+        home: viHome,
+        test: viTest
       },
       en: {
         common: enCommon,
-        home: enHome
+        home: enHome,
+        test: enTest
       }
     },
 

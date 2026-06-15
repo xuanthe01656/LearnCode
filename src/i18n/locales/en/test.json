@@ -1,0 +1,400 @@
+{
+  "thinking": {
+    "badge": "Programming Thinking Test",
+    "title": "Assess thinking skills before learning programming",
+    "subtitle": "This test does not assess Python or coding knowledge. It focuses on logic, patterns, conditions, algorithms, data reasoning, system thinking, and debugging mindset.",
+    "questionsPerRound": "questions per round",
+    "learnerInfo": "Learner information",
+    "learnerName": "Learner name",
+    "learnerNamePlaceholder": "Example: John Smith",
+    "learnerGroup": "Learner group",
+    "grade": "Grade",
+    "start": "Start test",
+    "requiredName": "Please enter the learner name.",
+    "answered": "Answered {{answered}}/{{total}} questions",
+    "timeLeft": "Time left: {{time}}",
+    "question": "Question {{index}}",
+    "difficulty": "Difficulty {{level}}",
+    "submit": "Submit and view result",
+    "resultSheet": "Programming Thinking Test Result",
+    "learner": "Learner",
+    "group": "Group",
+    "gradeLabel": "Grade",
+    "totalQuestions": "Total questions",
+    "score": "Score",
+    "duration": "Time spent",
+    "printDate": "Print date",
+    "skillAnalysis": "Skill analysis by category",
+    "parent": "Parent",
+    "teacher": "Teacher",
+    "restart": "New attempt",
+    "print": "Print result",
+    "correct": "Correct.",
+    "wrong": "Incorrect.",
+    "questions": {
+      "think001": {
+        "level": "Basic",
+        "type": "Pattern",
+        "question": "Number sequence: 2, 4, 6, 8, ?. What is the next number?",
+        "options": {
+          "A": "9",
+          "B": "10",
+          "C": "12",
+          "D": "16"
+        },
+        "explain": "Each number increases by 2, so the next number is 10."
+      },
+      "think002": {
+        "level": "Foundation",
+        "type": "Pattern",
+        "question": "Number sequence: 2, 5, 10, 17, 26, ?. What is the next number?",
+        "options": {
+          "A": "32",
+          "B": "35",
+          "C": "37",
+          "D": "40"
+        },
+        "explain": "The differences are 3, 5, 7, 9. The next difference is 11, so 26 + 11 = 37."
+      },
+      "think003": {
+        "level": "Intermediate",
+        "type": "Pattern",
+        "question": "Number sequence: 1, 2, 4, 7, 11, 16, ?. What is the next number?",
+        "options": {
+          "A": "20",
+          "B": "21",
+          "C": "22",
+          "D": "23"
+        },
+        "explain": "The differences increase by 1: 1, 2, 3, 4, 5. The next difference is 6, so 16 + 6 = 22."
+      },
+      "think004": {
+        "level": "Hard",
+        "type": "Alternating pattern",
+        "question": "Number sequence: 3, 6, 5, 10, 9, 18, ?. What is the next number?",
+        "options": {
+          "A": "15",
+          "B": "16",
+          "C": "17",
+          "D": "20"
+        },
+        "explain": "The pattern alternates: multiply by 2, then subtract 1. 3→6, 6→5, 5→10, 10→9, 9→18, so 18→17."
+      },
+      "think005": {
+        "level": "Foundation",
+        "type": "Logic",
+        "question": "All learners who complete the exercise unlock the next lesson. An completed the exercise. Which conclusion is definitely true?",
+        "options": {
+          "A": "An unlocks the next lesson",
+          "B": "An is already good at programming",
+          "C": "An no longer needs to study",
+          "D": "An answered incorrectly"
+        },
+        "explain": "According to the rule, anyone who completes the exercise unlocks the next lesson."
+      },
+      "think006": {
+        "level": "Intermediate",
+        "type": "Logical reasoning",
+        "question": "All A are B. Some B are C. Which conclusion is definitely true?",
+        "options": {
+          "A": "All A are C",
+          "B": "All C are A",
+          "C": "Some A are C",
+          "D": "We cannot be certain whether A are C"
+        },
+        "explain": "Some B being C does not guarantee that A belongs to that part of B."
+      },
+      "think007": {
+        "level": "Hard",
+        "type": "Conditional logic",
+        "question": "If the system has an error, the report will be late. The report is not late. What is the most reasonable conclusion?",
+        "options": {
+          "A": "The system definitely has an error",
+          "B": "The system has no error according to the given condition",
+          "C": "The report is wrong",
+          "D": "We cannot know whether the report was completed"
+        },
+        "explain": "If there were an error, the report would be late. Since it is not late, the system has no error under this condition."
+      },
+      "think008": {
+        "level": "Foundation",
+        "type": "Condition",
+        "question": "A course requires a test score of at least 60 to enter the foundation class. Binh scores 58. Where should Binh be placed?",
+        "options": {
+          "A": "Advanced class",
+          "B": "Foundation class",
+          "C": "Preparation class",
+          "D": "No need to study"
+        },
+        "explain": "58 is below 60, so Binh has not met the requirement for the foundation class and should take preparation first."
+      },
+      "think009": {
+        "level": "Intermediate",
+        "type": "AND condition",
+        "question": "A learner receives a certificate only if they complete 80% of the lessons and pass the final quiz. Mai completes 90% of the lessons but fails the quiz. Does Mai receive the certificate?",
+        "options": {
+          "A": "No",
+          "B": "Yes",
+          "C": "Yes if she learns quickly",
+          "D": "Not enough information"
+        },
+        "explain": "The rule uses 'and', so both conditions must be met. Mai failed the quiz, so she does not receive the certificate."
+      },
+      "think010": {
+        "level": "Hard",
+        "type": "Multiple conditions",
+        "question": "Placement rule: below 40 points = thinking basics; 40-69 = foundation; 70-89 = accelerated; 90 or above = advanced. A learner scores 89. Which class should they join?",
+        "options": {
+          "A": "Thinking basics",
+          "B": "Foundation",
+          "C": "Advanced",
+          "D": "Accelerated"
+        },
+        "explain": "89 is within the 70-89 range, so the learner belongs in the accelerated class, not advanced."
+      },
+      "think011": {
+        "level": "Foundation",
+        "type": "Everyday algorithm",
+        "question": "To register an online learning account, which order is the most reasonable?",
+        "options": {
+          "A": "Log in → create account → enter email",
+          "B": "Enter information → verify email → log in",
+          "C": "Clear browser → log in → study",
+          "D": "Study lesson → create email → verify"
+        },
+        "explain": "You need to enter information, verify the email, and then log in."
+      },
+      "think012": {
+        "level": "Intermediate",
+        "type": "Search",
+        "question": "You have an unsorted list of 100 learners. To reliably find a specific name, what should you do?",
+        "options": {
+          "A": "Pick a random row",
+          "B": "Only check the first row",
+          "C": "Check each name one by one until found",
+          "D": "Delete the list and re-enter it"
+        },
+        "explain": "When a list is unsorted, the reliable method is to check items one by one."
+      },
+      "think013": {
+        "level": "Hard",
+        "type": "Optimization",
+        "question": "You need to review 30 submissions using the same criteria. What is the most efficient approach?",
+        "options": {
+          "A": "Create a checklist and review each submission using it",
+          "B": "Think of the criteria from scratch for every submission",
+          "C": "Only review the first submission",
+          "D": "Do not record the result"
+        },
+        "explain": "A checklist reduces mistakes and saves time when repeating the same review process."
+      },
+      "think014": {
+        "level": "Foundation",
+        "type": "Problem decomposition",
+        "question": "You want to build a to-do list app. Which feature group makes the most sense?",
+        "options": {
+          "A": "Change screen color, play music, watch videos",
+          "B": "Create games, sell products, chat",
+          "C": "Only an exit button",
+          "D": "Add task, edit task, mark as completed, delete task"
+        },
+        "explain": "A to-do list app should focus on managing tasks."
+      },
+      "think015": {
+        "level": "Intermediate",
+        "type": "Project planning",
+        "question": "When building a programming learning website, what should be done first?",
+        "options": {
+          "A": "Define learners, learning paths, lessons, and progress tracking",
+          "B": "Choose button colors first and decide later",
+          "C": "Build all pages at once",
+          "D": "Only build the login page"
+        },
+        "explain": "The target learners, learning structure, and progress logic should be defined before detailed UI work."
+      },
+      "think016": {
+        "level": "Intermediate",
+        "type": "System thinking",
+        "question": "An online learning system needs to store learning progress. Which elements are most directly related?",
+        "options": {
+          "A": "Background color",
+          "B": "Learner, lesson, completion status",
+          "C": "Website logo",
+          "D": "Notification sound"
+        },
+        "explain": "Progress tracking needs to know who is learning, which lesson they are learning, and whether it is completed."
+      },
+      "think017": {
+        "level": "Hard",
+        "type": "System dependency",
+        "question": "If lesson B only unlocks after lesson A is completed, but the learner has not completed lesson A, what should the system do?",
+        "options": {
+          "A": "Delete lesson B",
+          "B": "Allow lesson B immediately",
+          "C": "Lock lesson B and guide the learner to complete lesson A first",
+          "D": "Rename the learner"
+        },
+        "explain": "When dependency rules exist, the later content should remain locked and the learner should be guided to complete the required lesson first."
+      },
+      "think018": {
+        "level": "Foundation",
+        "type": "Data reasoning",
+        "question": "Revenue for 3 days is 100, 150, and 120. Which day has the highest revenue?",
+        "options": {
+          "A": "Day 1",
+          "B": "Day 3",
+          "C": "All 3 days are equal",
+          "D": "Day 2"
+        },
+        "explain": "150 is the largest number, so Day 2 has the highest revenue."
+      },
+      "think019": {
+        "level": "Intermediate",
+        "type": "Data validation",
+        "question": "A class has 25 people. The report says 18 passed and 10 failed. What is unusual?",
+        "options": {
+          "A": "Nothing is unusual",
+          "B": "18 + 10 = 28, which is greater than 25",
+          "C": "Too few people passed",
+          "D": "Too few people failed"
+        },
+        "explain": "The report totals 28 people, which exceeds the actual class size of 25."
+      },
+      "think020": {
+        "level": "Hard",
+        "type": "Data trend",
+        "question": "A learner answers 6/10 correctly on attempt 1 and 8/10 on attempt 2. Which statement is most reasonable?",
+        "options": {
+          "A": "The result improved by 2 correct answers",
+          "B": "The result decreased",
+          "C": "There was no change",
+          "D": "The results cannot be compared"
+        },
+        "explain": "Going from 6 correct answers to 8 correct answers means an improvement of 2."
+      },
+      "think021": {
+        "level": "Foundation",
+        "type": "Debugging mindset",
+        "question": "A process has 5 steps but the result is wrong. What is the best way to check it?",
+        "options": {
+          "A": "Redo it randomly",
+          "B": "Ignore the error",
+          "C": "Check each step from beginning to end",
+          "D": "Delete the whole process"
+        },
+        "explain": "Checking step by step helps identify where the error appears."
+      },
+      "think022": {
+        "level": "Intermediate",
+        "type": "Root cause analysis",
+        "question": "A registration form cannot be submitted. What is the most reasonable way to handle it?",
+        "options": {
+          "A": "Change the form color",
+          "B": "Delete the whole website",
+          "C": "Ignore the error",
+          "D": "Check input data, submit button, connection, and error messages"
+        },
+        "explain": "You should check the related parts one by one to find the real cause."
+      },
+      "think023": {
+        "level": "Hard",
+        "type": "Error isolation",
+        "question": "A feature has 3 parts: input, processing, and display. The displayed result is wrong. What is the best way to check it?",
+        "options": {
+          "A": "Only change the display part",
+          "B": "Check the data after each part to locate where the error happens",
+          "C": "Delete the feature",
+          "D": "Rename variables randomly"
+        },
+        "explain": "Isolating the error by checking data through each part helps locate the actual source of the problem."
+      },
+      "think024": {
+        "level": "Very hard",
+        "type": "Algorithmic thinking",
+        "question": "A robot starts at the bottom-left corner of a 2x2 grid and needs to reach the top-right corner. It can only move right or up. How many shortest paths are possible?",
+        "options": {
+          "A": "2",
+          "B": "4",
+          "C": "6",
+          "D": "8"
+        },
+        "explain": "The robot needs 2 right moves and 2 up moves. The number of ways to arrange 4 moves with 2 R and 2 U is 6."
+      }
+    }
+  },
+  "placement": {
+    "pythonFoundation": {
+      "questions": {
+        "placePy001": {
+          "level": "Beginner",
+          "type": "Input / Output",
+          "question": "In programming, what is data given to a program usually called?",
+          "options": {
+            "A": "Input",
+            "B": "Output",
+            "C": "Error",
+            "D": "Color"
+          },
+          "explain": "Input is data provided to a program for processing."
+        },
+        "placePy002": {
+          "level": "Beginner",
+          "type": "Variable",
+          "question": "In programming, what is a variable usually used for?",
+          "options": {
+            "A": "Decorating the interface",
+            "B": "Storing data",
+            "C": "Turning off the computer",
+            "D": "Deleting the program"
+          },
+          "explain": "A variable stores data so the program can use it."
+        },
+        "placePy003": {
+          "level": "Beginner",
+          "type": "Condition",
+          "question": "If a score of 5 or above means passing, and a learner scores 6, what is the result?",
+          "options": {
+            "A": "Fail",
+            "B": "Unknown",
+            "C": "Pass",
+            "D": "Need to re-enter"
+          },
+          "explain": "6 is greater than 5, so the passing condition is met."
+        }
+      }
+    }
+  },
+  "learnerGroups": {
+    "student": "Grades 6-12 student",
+    "beginner": "Absolute beginner",
+    "workingAdult": "Working adult",
+    "careerSwitcher": "Career switcher"
+  },
+  "categories": {
+    "pattern": "Patterns",
+    "logic": "Logic",
+    "condition": "Conditions",
+    "algorithm": "Algorithms",
+    "decomposition": "Problem decomposition",
+    "system-thinking": "System thinking",
+    "data-reasoning": "Data reasoning",
+    "debugging-mindset": "Debugging mindset"
+  },
+  "results": {
+    "groupA": {
+      "badge": "Group A",
+      "title": "Strong thinking skills, ready to start programming",
+      "desc": "The learner shows strong pattern recognition, logical reasoning, data reasoning, and problem decomposition skills."
+    },
+    "groupB": {
+      "badge": "Group B",
+      "title": "Good potential, should follow a foundation roadmap",
+      "desc": "The learner can start programming but should learn slowly with visual examples and small exercises."
+    },
+    "groupC": {
+      "badge": "Group C",
+      "title": "Should strengthen logical thinking before coding",
+      "desc": "The learner should start with logic exercises, Scratch, and everyday algorithms before moving into Python."
+    }
+  }
+}
