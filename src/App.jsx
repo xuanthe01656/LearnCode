@@ -7,6 +7,7 @@ import LanguageSelect from "./pages/LanguageSelect.jsx";
 import CourseList from "./pages/CourseList.jsx";
 import LessonDetail from "./pages/LessonDetail.jsx";
 import ThinkingTest from "./pages/ThinkingTest.jsx";
+import Placement from "./pages/PlacementTest.jsx";
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
             <Route path="/courses/:languageId" element={<CourseList />} />
             <Route path="/lessons/:lessonId" element={<LessonDetail />} />
             <Route path="/test" element={<ThinkingTest />} />
+            <Route path="/placement" element={<Placement />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>

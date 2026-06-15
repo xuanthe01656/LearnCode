@@ -75,7 +75,7 @@ export default function Header() {
           </Link>
 
           <Link
-            to="/test"
+            to="/placement"
             className="inline-flex items-center gap-2 rounded-2xl bg-indigo-600 px-4 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-indigo-700"
           >
             <Brain size={16} />
@@ -127,7 +127,7 @@ export default function Header() {
             </div>
 
             <Link
-              to="/test"
+              to="/placement"
               onClick={() => setOpen(false)}
               className="mt-3 flex items-center justify-center gap-2 rounded-2xl bg-indigo-600 px-4 py-3 text-sm font-bold text-white"
             >

@@ -1,0 +1,258 @@
+{
+  "ui": {
+    "badge": "Placement Test",
+    "title": "Kiểm tra đầu vào khóa học",
+    "subtitle": "Bài test này dùng để xác định người học nên bắt đầu ở bài nào, lộ trình nào và có cần học bổ trợ trước khi vào khóa chính hay không.",
+    "questionsPerRound": "câu hỏi",
+    "learnerInfo": "Thông tin làm bài",
+    "learnerName": "Tên người học",
+    "learnerNamePlaceholder": "Ví dụ: Nguyễn Văn An",
+    "learnerGroup": "Nhóm người học",
+    "course": "Khóa học muốn kiểm tra đầu vào",
+    "start": "Bắt đầu kiểm tra",
+    "requiredName": "Vui lòng nhập tên người học.",
+    "noQuestions": "Chưa có câu hỏi đầu vào cho khóa học này.",
+    "answered": "Đã trả lời {{answered}}/{{total}} câu",
+    "timeLeft": "Thời gian còn lại: {{time}}",
+    "question": "Câu {{index}}",
+    "difficulty": "Độ khó {{level}}",
+    "submit": "Nộp bài và xem lộ trình phù hợp",
+    "resultSheet": "Kết quả kiểm tra đầu vào",
+    "learner": "Người học",
+    "group": "Nhóm",
+    "score": "Điểm",
+    "duration": "Thời gian làm bài",
+    "printDate": "Ngày in",
+    "skillAnalysis": "Phân tích theo nhóm kỹ năng",
+    "nextStep": "Bước tiếp theo đề xuất",
+    "restart": "Làm lượt mới",
+    "print": "In kết quả"
+  },
+  "courses": {
+    "pythonFoundation": {
+      "title": "Python Foundation",
+      "desc": "Kiểm tra đầu vào cho khóa Python từ con số 0."
+    }
+  },
+  "results": {
+    "ready": {
+      "badge": "Sẵn sàng",
+      "title": "Có thể bắt đầu khóa học chính",
+      "desc": "Người học có thể bắt đầu khóa học chính và làm thêm bài tập củng cố.",
+      "nextStep": "Bắt đầu Python Foundation từ bài 1 và có thể giao thêm mini project sớm."
+    },
+    "foundation": {
+      "badge": "Nên học nền tảng",
+      "title": "Nên bắt đầu từ phần nền tảng",
+      "desc": "Người học phù hợp với lộ trình chậm, nhiều ví dụ và thực hành từng bước.",
+      "nextStep": "Bắt đầu Python Foundation nhưng giữ nhịp học chậm, kiểm tra sau mỗi 3-4 bài."
+    },
+    "preparation": {
+      "badge": "Cần bổ trợ",
+      "title": "Nên học bổ trợ tư duy trước",
+      "desc": "Người học nên củng cố tư duy logic, input/output và điều kiện trước khi vào bài học chính.",
+      "nextStep": "Cho làm thêm test tư duy, bài tập logic và bài học nhập môn trước khi vào Python."
+    }
+  },
+  "categories": {
+    "input-output": "Input / Output",
+    "variable": "Biến",
+    "condition": "Điều kiện",
+    "loop": "Vòng lặp",
+    "data-type": "Kiểu dữ liệu",
+    "list": "Danh sách",
+    "function": "Hàm",
+    "debugging": "Tìm lỗi",
+    "algorithm": "Thuật toán",
+    "problem-solving": "Giải quyết vấn đề",
+    "file-data": "File và dữ liệu",
+    "automation": "Tự động hóa",
+    "data-reasoning": "Phân tích dữ liệu",
+    "code-reading": "Đọc hiểu code",
+    "readiness": "Mức độ sẵn sàng"
+  },
+  "questions": {
+    "pythonFoundation": {
+      "placePy001": {
+        "level": "Beginner",
+        "type": "Input / Output",
+        "question": "Trong lập trình, dữ liệu được đưa vào chương trình thường gọi là gì?",
+        "options": {
+          "A": "Input",
+          "B": "Output",
+          "C": "Error",
+          "D": "Color"
+        },
+        "explain": "Input là dữ liệu được đưa vào chương trình để xử lý."
+      },
+      "placePy002": {
+        "level": "Beginner",
+        "type": "Biến",
+        "question": "Trong lập trình, biến thường dùng để làm gì?",
+        "options": {
+          "A": "Trang trí giao diện",
+          "B": "Lưu trữ dữ liệu",
+          "C": "Tắt máy tính",
+          "D": "Xóa chương trình"
+        },
+        "explain": "Biến là nơi lưu trữ dữ liệu để chương trình sử dụng."
+      },
+      "placePy003": {
+        "level": "Beginner",
+        "type": "Điều kiện",
+        "question": "Nếu điểm từ 5 trở lên là đậu, người học được 6 điểm thì kết quả là gì?",
+        "options": {
+          "A": "Rớt",
+          "B": "Không biết",
+          "C": "Đậu",
+          "D": "Cần nhập lại"
+        },
+        "explain": "6 lớn hơn 5 nên đạt điều kiện đậu."
+      },
+      "placePy004": {
+        "level": "Foundation",
+        "type": "Vòng lặp",
+        "question": "Nếu cần in dòng chữ 'Xin chào' 10 lần, tư duy lập trình phù hợp nhất là gì?",
+        "options": {
+          "A": "Viết tay 10 lần",
+          "B": "Không thể làm được",
+          "C": "Chỉ in 1 lần",
+          "D": "Dùng vòng lặp để lặp lại hành động"
+        },
+        "explain": "Vòng lặp giúp thực hiện một hành động nhiều lần mà không cần viết lặp lại code."
+      },
+      "placePy005": {
+        "level": "Foundation",
+        "type": "Kiểu dữ liệu",
+        "question": "Người dùng nhập tuổi từ bàn phím. Nếu muốn so sánh tuổi với số 18, cần chú ý điều gì?",
+        "options": {
+          "A": "Tuổi luôn là hình ảnh",
+          "B": "Cần chuyển dữ liệu nhập vào thành số nếu ban đầu là chuỗi",
+          "C": "Không thể so sánh tuổi",
+          "D": "Chỉ cần đổi màu chữ"
+        },
+        "explain": "Dữ liệu nhập từ bàn phím thường là chuỗi. Muốn so sánh số học, cần chuyển sang kiểu số."
+      },
+      "placePy006": {
+        "level": "Foundation",
+        "type": "Danh sách",
+        "question": "Muốn lưu tên của 30 học viên trong một chương trình, cấu trúc nào phù hợp nhất?",
+        "options": {
+          "A": "List / danh sách",
+          "B": "Một biến duy nhất chứa 1 tên",
+          "C": "Màu nền",
+          "D": "Nút đăng nhập"
+        },
+        "explain": "Danh sách phù hợp để lưu nhiều giá trị cùng loại, ví dụ nhiều tên học viên."
+      },
+      "placePy007": {
+        "level": "Intermediate",
+        "type": "Hàm",
+        "question": "Nếu một đoạn xử lý được dùng nhiều lần trong chương trình, cách tổ chức tốt nhất là gì?",
+        "options": {
+          "A": "Copy lại đoạn đó ở mọi nơi",
+          "B": "Xóa đoạn xử lý",
+          "C": "Tạo hàm để tái sử dụng",
+          "D": "Đổi tên file"
+        },
+        "explain": "Hàm giúp chia nhỏ chương trình và tái sử dụng logic nhiều lần."
+      },
+      "placePy008": {
+        "level": "Intermediate",
+        "type": "Tìm lỗi",
+        "question": "Chương trình chạy nhưng kết quả sai. Cách kiểm tra phù hợp nhất là gì?",
+        "options": {
+          "A": "Đổi hình nền máy tính",
+          "B": "Xóa toàn bộ chương trình",
+          "C": "Bỏ qua lỗi",
+          "D": "Kiểm tra giá trị sau từng bước xử lý"
+        },
+        "explain": "Kiểm tra dữ liệu sau từng bước giúp xác định lỗi xuất hiện ở đâu."
+      },
+      "placePy009": {
+        "level": "Intermediate",
+        "type": "Thuật toán",
+        "question": "Một chương trình tính tiền đơn hàng nên xử lý theo thứ tự nào hợp lý nhất?",
+        "options": {
+          "A": "In hóa đơn → nhập sản phẩm → tính tổng",
+          "B": "Nhập sản phẩm → tính tổng → áp dụng giảm giá → in kết quả",
+          "C": "Xóa sản phẩm → in hóa đơn → nhập lại",
+          "D": "Chỉ in kết quả mà không tính"
+        },
+        "explain": "Cần có dữ liệu sản phẩm trước, sau đó tính tổng, áp dụng giảm giá rồi mới in kết quả."
+      },
+      "placePy010": {
+        "level": "Intermediate",
+        "type": "Giải quyết vấn đề",
+        "question": "Khi gặp một bài toán lớn trong lập trình, cách tiếp cận tốt nhất là gì?",
+        "options": {
+          "A": "Chia thành các phần nhỏ dễ xử lý",
+          "B": "Viết tất cả trong một dòng",
+          "C": "Bỏ qua yêu cầu",
+          "D": "Chỉ làm giao diện trước rồi không xử lý logic"
+        },
+        "explain": "Chia nhỏ vấn đề giúp dễ hiểu, dễ làm, dễ kiểm tra và dễ sửa lỗi."
+      },
+      "placePy011": {
+        "level": "Advanced",
+        "type": "File và dữ liệu",
+        "question": "Người đi làm muốn xử lý một file danh sách nhân viên bằng Python. Việc nào thường cần làm đầu tiên?",
+        "options": {
+          "A": "Xóa file",
+          "B": "Đổi ảnh nền",
+          "C": "Đọc dữ liệu từ file vào chương trình",
+          "D": "In màn hình trắng"
+        },
+        "explain": "Muốn xử lý dữ liệu trong file, trước hết chương trình cần đọc dữ liệu từ file."
+      },
+      "placePy012": {
+        "level": "Advanced",
+        "type": "Tự động hóa",
+        "question": "Một công việc phải làm lặp lại mỗi ngày như đổi tên nhiều file. Python phù hợp ở điểm nào?",
+        "options": {
+          "A": "Làm máy tính chậm hơn",
+          "B": "Chỉ dùng để vẽ hình",
+          "C": "Không thể xử lý file",
+          "D": "Có thể tự động hóa các thao tác lặp lại theo quy tắc"
+        },
+        "explain": "Python phù hợp để tự động hóa các công việc lặp lại như xử lý file, đổi tên file, đọc ghi dữ liệu."
+      },
+      "placePy013": {
+        "level": "Advanced",
+        "type": "Phân tích dữ liệu",
+        "question": "Bảng doanh thu có 3 ngày: 100, 150, 120. Nhận xét nào đúng?",
+        "options": {
+          "A": "Ngày 1 cao nhất",
+          "B": "Ngày 2 cao nhất",
+          "C": "Ngày 3 cao nhất",
+          "D": "Cả ba ngày bằng nhau"
+        },
+        "explain": "150 là giá trị lớn nhất nên ngày 2 có doanh thu cao nhất."
+      },
+      "placePy014": {
+        "level": "Advanced",
+        "type": "Đọc hiểu code",
+        "question": "Nếu chương trình có các bước: gán x = 2, sau đó x = x + 3, giá trị cuối cùng của x là bao nhiêu?",
+        "options": {
+          "A": "5",
+          "B": "2",
+          "C": "3",
+          "D": "Không xác định"
+        },
+        "explain": "Ban đầu x bằng 2. Sau đó x = x + 3 nên x mới bằng 5."
+      },
+      "placePy015": {
+        "level": "Advanced",
+        "type": "Mức độ sẵn sàng",
+        "question": "Khi học lập trình, gặp lỗi nhiều lần thì phản ứng nào phù hợp nhất?",
+        "options": {
+          "A": "Bỏ học ngay",
+          "B": "Đổi máy tính",
+          "C": "Đọc lỗi, thử cô lập nguyên nhân và sửa từng bước",
+          "D": "Xóa toàn bộ project"
+        },
+        "explain": "Lập trình luôn có lỗi. Khả năng đọc lỗi, cô lập nguyên nhân và sửa từng bước là năng lực rất quan trọng."
+      }
+    }
+  }
+}

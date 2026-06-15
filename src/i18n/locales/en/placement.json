@@ -1,0 +1,258 @@
+{
+  "ui": {
+    "badge": "Placement Test",
+    "title": "Course Placement Assessment",
+    "subtitle": "This test helps determine where the learner should start, which roadmap fits best, and whether preparation is needed before the main course.",
+    "questionsPerRound": "questions",
+    "learnerInfo": "Assessment information",
+    "learnerName": "Learner name",
+    "learnerNamePlaceholder": "Example: John Smith",
+    "learnerGroup": "Learner group",
+    "course": "Course to assess",
+    "start": "Start assessment",
+    "requiredName": "Please enter the learner name.",
+    "noQuestions": "There are no placement questions for this course yet.",
+    "answered": "Answered {{answered}}/{{total}} questions",
+    "timeLeft": "Time left: {{time}}",
+    "question": "Question {{index}}",
+    "difficulty": "Difficulty {{level}}",
+    "submit": "Submit and view recommended path",
+    "resultSheet": "Placement Assessment Result",
+    "learner": "Learner",
+    "group": "Group",
+    "score": "Score",
+    "duration": "Time spent",
+    "printDate": "Print date",
+    "skillAnalysis": "Skill analysis by category",
+    "nextStep": "Recommended next step",
+    "restart": "New attempt",
+    "print": "Print result"
+  },
+  "courses": {
+    "pythonFoundation": {
+      "title": "Python Foundation",
+      "desc": "Placement assessment for the Python from zero course."
+    }
+  },
+  "results": {
+    "ready": {
+      "badge": "Ready",
+      "title": "Ready to start the main course",
+      "desc": "The learner can start the main course and take additional practice exercises.",
+      "nextStep": "Start Python Foundation from lesson 1 and introduce small projects early."
+    },
+    "foundation": {
+      "badge": "Foundation recommended",
+      "title": "Start from the foundation section",
+      "desc": "The learner should follow a slower roadmap with examples and step-by-step practice.",
+      "nextStep": "Start Python Foundation at a slower pace and check progress every 3-4 lessons."
+    },
+    "preparation": {
+      "badge": "Preparation needed",
+      "title": "Strengthen thinking skills before coding",
+      "desc": "The learner should strengthen logical thinking, input/output, and conditions before entering the main course.",
+      "nextStep": "Assign thinking tests, logic exercises, and introductory lessons before Python."
+    }
+  },
+  "categories": {
+    "input-output": "Input / Output",
+    "variable": "Variable",
+    "condition": "Condition",
+    "loop": "Loop",
+    "data-type": "Data type",
+    "list": "List",
+    "function": "Function",
+    "debugging": "Debugging",
+    "algorithm": "Algorithm",
+    "problem-solving": "Problem solving",
+    "file-data": "File and data",
+    "automation": "Automation",
+    "data-reasoning": "Data reasoning",
+    "code-reading": "Code reading",
+    "readiness": "Readiness"
+  },
+  "questions": {
+    "pythonFoundation": {
+      "placePy001": {
+        "level": "Beginner",
+        "type": "Input / Output",
+        "question": "In programming, what is data given to a program usually called?",
+        "options": {
+          "A": "Input",
+          "B": "Output",
+          "C": "Error",
+          "D": "Color"
+        },
+        "explain": "Input is data provided to a program for processing."
+      },
+      "placePy002": {
+        "level": "Beginner",
+        "type": "Variable",
+        "question": "In programming, what is a variable usually used for?",
+        "options": {
+          "A": "Decorating the interface",
+          "B": "Storing data",
+          "C": "Turning off the computer",
+          "D": "Deleting the program"
+        },
+        "explain": "A variable stores data so the program can use it."
+      },
+      "placePy003": {
+        "level": "Beginner",
+        "type": "Condition",
+        "question": "If a score of 5 or above means passing, and a learner scores 6, what is the result?",
+        "options": {
+          "A": "Fail",
+          "B": "Unknown",
+          "C": "Pass",
+          "D": "Need to re-enter"
+        },
+        "explain": "6 is greater than 5, so the passing condition is met."
+      },
+      "placePy004": {
+        "level": "Foundation",
+        "type": "Loop",
+        "question": "If you need to print 'Hello' 10 times, what programming idea fits best?",
+        "options": {
+          "A": "Write it manually 10 times",
+          "B": "It cannot be done",
+          "C": "Only print it once",
+          "D": "Use a loop to repeat the action"
+        },
+        "explain": "A loop repeats an action multiple times without writing the same code again and again."
+      },
+      "placePy005": {
+        "level": "Foundation",
+        "type": "Data type",
+        "question": "A user enters their age from the keyboard. If you want to compare the age with the number 18, what should you pay attention to?",
+        "options": {
+          "A": "Age is always an image",
+          "B": "The input may need to be converted to a number if it starts as text",
+          "C": "Age cannot be compared",
+          "D": "Only the text color needs changing"
+        },
+        "explain": "Keyboard input is often text. To do numeric comparison, it must be converted to a number."
+      },
+      "placePy006": {
+        "level": "Foundation",
+        "type": "List",
+        "question": "If you want to store the names of 30 learners in a program, which structure is most suitable?",
+        "options": {
+          "A": "List",
+          "B": "One variable storing only one name",
+          "C": "Background color",
+          "D": "Login button"
+        },
+        "explain": "A list is suitable for storing many values of the same kind, such as learner names."
+      },
+      "placePy007": {
+        "level": "Intermediate",
+        "type": "Function",
+        "question": "If the same processing logic is used many times in a program, what is the best way to organize it?",
+        "options": {
+          "A": "Copy the same code everywhere",
+          "B": "Delete the processing logic",
+          "C": "Create a function for reuse",
+          "D": "Rename the file"
+        },
+        "explain": "Functions help break a program into reusable pieces of logic."
+      },
+      "placePy008": {
+        "level": "Intermediate",
+        "type": "Debugging",
+        "question": "A program runs but gives the wrong result. What is the most suitable way to check it?",
+        "options": {
+          "A": "Change the computer wallpaper",
+          "B": "Delete the whole program",
+          "C": "Ignore the error",
+          "D": "Check the values after each processing step"
+        },
+        "explain": "Checking values step by step helps identify where the error appears."
+      },
+      "placePy009": {
+        "level": "Intermediate",
+        "type": "Algorithm",
+        "question": "A program that calculates an order total should process steps in which order?",
+        "options": {
+          "A": "Print invoice → enter products → calculate total",
+          "B": "Enter products → calculate total → apply discount → show result",
+          "C": "Delete products → print invoice → re-enter",
+          "D": "Show result without calculating"
+        },
+        "explain": "Product data is needed first, then the total is calculated, discounts are applied, and the result is displayed."
+      },
+      "placePy010": {
+        "level": "Intermediate",
+        "type": "Problem solving",
+        "question": "When facing a large programming problem, what is the best approach?",
+        "options": {
+          "A": "Break it into smaller manageable parts",
+          "B": "Write everything in one line",
+          "C": "Ignore the requirements",
+          "D": "Only build the interface and skip the logic"
+        },
+        "explain": "Breaking down a problem makes it easier to understand, implement, test, and fix."
+      },
+      "placePy011": {
+        "level": "Advanced",
+        "type": "File and data",
+        "question": "A working adult wants to process an employee list file with Python. What is usually the first step?",
+        "options": {
+          "A": "Delete the file",
+          "B": "Change the wallpaper",
+          "C": "Read data from the file into the program",
+          "D": "Print a blank screen"
+        },
+        "explain": "To process data in a file, the program usually needs to read the file first."
+      },
+      "placePy012": {
+        "level": "Advanced",
+        "type": "Automation",
+        "question": "A task must be repeated every day, such as renaming many files. Why is Python useful here?",
+        "options": {
+          "A": "It makes the computer slower",
+          "B": "It is only used for drawing",
+          "C": "It cannot handle files",
+          "D": "It can automate repeated actions based on rules"
+        },
+        "explain": "Python is useful for automating repetitive tasks such as file handling, renaming files, and reading or writing data."
+      },
+      "placePy013": {
+        "level": "Advanced",
+        "type": "Data reasoning",
+        "question": "A revenue table has 3 days: 100, 150, 120. Which statement is correct?",
+        "options": {
+          "A": "Day 1 is highest",
+          "B": "Day 2 is highest",
+          "C": "Day 3 is highest",
+          "D": "All three days are equal"
+        },
+        "explain": "150 is the highest value, so Day 2 has the highest revenue."
+      },
+      "placePy014": {
+        "level": "Advanced",
+        "type": "Code reading",
+        "question": "If a program does these steps: set x = 2, then x = x + 3, what is the final value of x?",
+        "options": {
+          "A": "5",
+          "B": "2",
+          "C": "3",
+          "D": "Undefined"
+        },
+        "explain": "Initially x is 2. Then x = x + 3, so the new value of x is 5."
+      },
+      "placePy015": {
+        "level": "Advanced",
+        "type": "Readiness",
+        "question": "When learning programming, what is the best reaction after encountering errors many times?",
+        "options": {
+          "A": "Quit immediately",
+          "B": "Change the computer",
+          "C": "Read the error, isolate the cause, and fix it step by step",
+          "D": "Delete the entire project"
+        },
+        "explain": "Errors are normal in programming. Reading errors, isolating causes, and fixing step by step are important skills."
+      }
+    }
+  }
+}
