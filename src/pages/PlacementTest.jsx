@@ -187,26 +187,26 @@ export default function PlacementTest() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900">
-      <div className="mx-auto max-w-5xl px-4 py-8">
-        <section className="mb-6 overflow-hidden rounded-3xl bg-slate-950 p-6 text-white shadow-lg">
-          <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
+    <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,#e0e7ff,transparent_32%),radial-gradient(circle_at_top_right,#cffafe,transparent_28%),linear-gradient(to_bottom,#f8fafc,#eef2ff)] text-slate-900">
+      <div className="mx-auto max-w-6xl px-4 py-8 md:py-10">
+        <section className="relative mb-8 overflow-hidden rounded-[2rem] border border-white/20 bg-gradient-to-br from-slate-950 via-indigo-950 to-sky-900 p-6 text-white shadow-2xl shadow-indigo-950/20 md:p-8">
+          <div className="relative z-10 grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
             <div>
-              <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-sm">
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold backdrop-blur">
                 <ClipboardCheck size={16} />
                 {t("placement:ui.badge")}
               </div>
 
-              <h1 className="text-3xl font-black md:text-4xl">
+              <h1 className="max-w-3xl text-3xl font-black leading-tight tracking-tight md:text-5xl">
                 {t("placement:ui.title")}
               </h1>
 
-              <p className="mt-2 max-w-2xl text-white/80">
+              <p className="mt-4 max-w-2xl text-base leading-7 text-white/80 md:text-lg">
                 {t("placement:ui.subtitle")}
               </p>
             </div>
 
-            <div className="rounded-3xl bg-white/10 p-5 text-center">
+            <div className="rounded-3xl border border-white/15 bg-white/10 p-5 text-center shadow-xl backdrop-blur">
               <div className="text-4xl font-black">{totalQuestions}</div>
               <div className="text-sm text-white/70">
                 {t("placement:ui.questionsPerRound")}
@@ -222,12 +222,12 @@ export default function PlacementTest() {
         )}
 
         {!started ? (
-          <section className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <section className="rounded-[2rem] border border-white bg-white/85 p-6 shadow-xl shadow-slate-200/70 ring-1 ring-slate-200/70 backdrop-blur md:p-8">
             <h2 className="text-xl font-bold">
               {t("placement:ui.learnerInfo")}
             </h2>
 
-            <div className="mt-5 grid gap-4 md:grid-cols-2">
+            <div className="mt-6 grid gap-5 md:grid-cols-2">
               <label className="block">
                 <span className="text-sm font-medium text-slate-700">
                   {t("placement:ui.learnerName")}
@@ -236,7 +236,7 @@ export default function PlacementTest() {
                 <input
                   value={learnerName}
                   onChange={(event) => setLearnerName(event.target.value)}
-                  className="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+                  className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-900 shadow-sm outline-none transition focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100"
                   placeholder={t("placement:ui.learnerNamePlaceholder")}
                 />
               </label>
@@ -249,7 +249,7 @@ export default function PlacementTest() {
                 <select
                   value={learnerGroup}
                   onChange={(event) => setLearnerGroup(event.target.value)}
-                  className="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+                  className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-900 shadow-sm outline-none transition focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100"
                 >
                   {LEARNER_GROUPS.map((group) => (
                     <option key={group.id} value={group.id}>
@@ -267,7 +267,7 @@ export default function PlacementTest() {
                 <select
                   value={courseId}
                   onChange={(event) => setCourseId(event.target.value)}
-                  className="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+                  className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-900 shadow-sm outline-none transition focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100"
                 >
                   {COURSE_OPTIONS.map((course) => (
                     <option key={course.id} value={course.id}>
@@ -285,7 +285,7 @@ export default function PlacementTest() {
             <button
               type="button"
               onClick={handleStart}
-              className="mt-6 inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-6 py-3 font-bold text-white shadow hover:bg-indigo-700"
+              className="mt-7 inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-indigo-600 to-sky-500 px-6 py-3 font-bold text-white shadow-lg shadow-indigo-200 transition hover:-translate-y-0.5 hover:from-indigo-700 hover:to-sky-600"
             >
               <Target size={18} />
               {t("placement:ui.start")}
@@ -293,7 +293,7 @@ export default function PlacementTest() {
           </section>
         ) : (
           <>
-            <section className="mb-4 flex flex-col gap-3 rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200 md:flex-row md:items-center md:justify-between">
+            <section className="sticky top-20 z-20 mb-5 flex flex-col gap-4 rounded-[1.5rem] border border-white bg-white/90 p-4 shadow-lg shadow-slate-200/70 ring-1 ring-slate-200/70 backdrop-blur md:flex-row md:items-center md:justify-between">
               <div>
                 <div className="font-semibold">
                   {learnerName} ·{" "}
@@ -319,9 +319,9 @@ export default function PlacementTest() {
                 </div>
               </div>
 
-              <div className="h-3 overflow-hidden rounded-full bg-slate-200 md:w-72">
+              <div className="h-3 overflow-hidden rounded-full bg-slate-200 shadow-inner md:w-80">
                 <div
-                  className="h-full rounded-full bg-indigo-600 transition-all"
+                  className="h-full rounded-full bg-gradient-to-r from-indigo-600 to-sky-500 transition-all"
                   style={{
                     width: `${(answeredCount / totalQuestions) * 100}%`,
                   }}
@@ -338,7 +338,7 @@ export default function PlacementTest() {
                 return (
                   <article
                     key={question.id}
-                    className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200"
+                    className="rounded-[1.75rem] border border-white bg-white/90 p-5 shadow-lg shadow-slate-200/60 ring-1 ring-slate-200/70 backdrop-blur transition hover:-translate-y-0.5 hover:shadow-xl md:p-6"
                   >
                     <div className="mb-3 flex flex-wrap items-center gap-2">
                       <span className="rounded-full bg-slate-100 px-3 py-1 text-sm font-semibold">
@@ -360,7 +360,7 @@ export default function PlacementTest() {
                       </span>
                     </div>
 
-                    <h3 className="text-lg font-bold">
+                    <h3 className="text-lg font-black leading-7 text-slate-900 md:text-xl">
                       {content.questionText}
                     </h3>
 
@@ -385,8 +385,8 @@ export default function PlacementTest() {
                             }
                             className={`rounded-2xl border px-4 py-3 text-left transition ${
                               selected
-                                ? "border-indigo-500 bg-indigo-50"
-                                : "border-slate-200 hover:border-indigo-300 hover:bg-slate-50"
+                                ? "border-indigo-500 bg-indigo-50 shadow-sm ring-2 ring-indigo-100"
+                                : "border-slate-200 bg-white hover:-translate-y-0.5 hover:border-indigo-300 hover:bg-indigo-50/50 hover:shadow-md"
                             } ${showCorrect ? "border-green-500 bg-green-50" : ""} ${
                               showWrong ? "border-red-500 bg-red-50" : ""
                             }`}
@@ -424,12 +424,12 @@ export default function PlacementTest() {
                 type="button"
                 disabled={answeredCount < totalQuestions}
                 onClick={() => setSubmitted(true)}
-                className="mt-6 w-full rounded-2xl bg-indigo-600 px-6 py-4 font-bold text-white shadow hover:bg-indigo-700 disabled:cursor-not-allowed disabled:bg-slate-300"
+                className="mt-7 w-full rounded-2xl bg-gradient-to-r from-indigo-600 to-sky-500 px-6 py-4 font-black text-white shadow-xl shadow-indigo-200 transition hover:-translate-y-0.5 hover:from-indigo-700 hover:to-sky-600 disabled:cursor-not-allowed disabled:from-slate-300 disabled:to-slate-300 disabled:shadow-none"
               >
                 {t("placement:ui.submit")}
               </button>
             ) : (
-              <section className="mt-6 rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+              <section className="mt-7 rounded-[2rem] border border-white bg-white/95 p-6 shadow-2xl shadow-slate-200/80 ring-1 ring-slate-200/70 backdrop-blur md:p-8">
                 <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
                   <div className="print-card flex-1">
                     <div className="mb-2 inline-flex items-center gap-2 rounded-full bg-indigo-50 px-3 py-1 text-sm font-semibold text-indigo-700">
@@ -474,7 +474,7 @@ export default function PlacementTest() {
                       </div>
                     </div>
 
-                    <div className="mt-5 rounded-2xl bg-slate-50 p-4">
+                    <div className="mt-5 rounded-2xl border border-slate-100 bg-slate-50/80 p-4">
                       <h3 className="font-bold">
                         {t(`placement:results.${resultKey}.title`)}
                       </h3>
@@ -484,7 +484,7 @@ export default function PlacementTest() {
                       </p>
                     </div>
 
-                    <div className="mt-5 rounded-2xl bg-slate-50 p-4">
+                    <div className="mt-5 rounded-2xl border border-slate-100 bg-slate-50/80 p-4">
                       <h3 className="font-bold">
                         {t("placement:ui.skillAnalysis")}
                       </h3>
@@ -523,7 +523,7 @@ export default function PlacementTest() {
                     <button
                       type="button"
                       onClick={restart}
-                      className="no-print inline-flex items-center gap-2 rounded-xl border border-slate-300 px-5 py-3 font-semibold hover:bg-slate-50"
+                      className="no-print inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-3 font-bold text-slate-700 shadow-sm transition hover:-translate-y-0.5 hover:bg-slate-50"
                     >
                       <RotateCcw size={18} />
                       {t("placement:ui.restart")}
@@ -532,7 +532,7 @@ export default function PlacementTest() {
                     <button
                       type="button"
                       onClick={handlePrintResult}
-                      className="no-print rounded-xl bg-green-600 px-5 py-3 font-semibold text-white hover:bg-green-700"
+                      className="no-print rounded-2xl bg-emerald-600 px-5 py-3 font-bold text-white shadow-lg shadow-emerald-100 transition hover:-translate-y-0.5 hover:bg-emerald-700"
                     >
                       {t("placement:ui.print")}
                     </button>

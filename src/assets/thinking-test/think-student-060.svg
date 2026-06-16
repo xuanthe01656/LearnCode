@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="320" viewBox="0 0 720 320" role="img">
+  <rect width="100%" height="100%" rx="24" fill="#f8fafc"/>
+  <text x="360" y="42" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#334155">Data chart</text>
+  <rect x="110" y="164" width="58" height="81" rx="8" fill="#bfdbfe" stroke="#1e293b" stroke-width="2"/>
+  <text x="139" y="154" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#0f172a">39</text>
+  <text x="139" y="275" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#475569">A</text>
+  <rect x="225" y="141" width="58" height="104" rx="8" fill="#bfdbfe" stroke="#1e293b" stroke-width="2"/>
+  <text x="254" y="131" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#0f172a">50</text>
+  <text x="254" y="275" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#475569">B</text>
+  <rect x="340" y="118" width="58" height="127" rx="8" fill="#bfdbfe" stroke="#1e293b" stroke-width="2"/>
+  <text x="369" y="108" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#0f172a">61</text>
+  <text x="369" y="275" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#475569">C</text>
+  <rect x="455" y="95" width="58" height="150" rx="8" fill="#bfdbfe" stroke="#1e293b" stroke-width="2"/>
+  <text x="484" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#0f172a">72</text>
+  <text x="484" y="275" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#475569">D</text>
+  <line x1="80" y1="245" x2="650" y2="245" stroke="#64748b" stroke-width="2"/>
+</svg>
