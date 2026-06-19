@@ -1,0 +1,1213 @@
+{
+  "ui": {
+    "backToCourse": "Quay lại khóa học",
+    "lessonNumber": "Bài {{order}}",
+    "minutes": "{{count}} phút",
+    "objectives": "Mục tiêu bài học",
+    "navigation": "Điều hướng bài học",
+    "previousLesson": "Bài trước",
+    "nextLesson": "Bài tiếp theo",
+    "project": "Bài tập / mini project",
+    "openLesson": "Mở bài học",
+    "copy": "Copy",
+    "copied": "Đã copy",
+    "quickQuiz": "Quiz nhanh",
+    "quickQuizDesc": "Trả lời để kiểm tra mức hiểu ngay sau bài học.",
+    "quizQuestion": "Câu {{index}}",
+    "correct": "Chính xác.",
+    "incorrect": "Chưa đúng."
+  },
+  "typeLabels": {
+    "concept": "Khái niệm",
+    "coding": "Coding",
+    "practice": "Thực hành",
+    "quiz": "Quiz",
+    "project": "Project"
+  },
+  "blockTypes": {
+    "concept": "Khái niệm",
+    "code": "Ví dụ code",
+    "practice": "Thực hành",
+    "story": "Câu chuyện",
+    "checkpoint": "Checkpoint"
+  },
+  "lessons": {
+    "pyf001": {
+      "title": "Máy tính có biết suy nghĩ không?",
+      "description": "Hiểu máy tính chỉ làm theo lệnh và mô hình Input - Process - Output.",
+      "objectives": [
+        "Hiểu lập trình là ra lệnh rõ ràng cho máy tính",
+        "Phân biệt Input, Process và Output",
+        "Nhìn thấy lập trình trong việc hằng ngày"
+      ],
+      "blocks": [
+        {
+          "type": "story",
+          "title": "Máy tính không đoán ý",
+          "content": "Máy tính tính rất nhanh nhưng không tự hiểu ý con người. Khi ta viết chương trình, ta đang mô tả từng bước để máy tính làm đúng việc cần làm."
+        },
+        {
+          "type": "concept",
+          "title": "Input - Process - Output",
+          "content": "Input là dữ liệu đưa vào. Process là bước xử lý. Output là kết quả. Ví dụ: nhập 2 và 3, máy tính cộng hai số, output là 5."
+        },
+        {
+          "type": "practice",
+          "title": "Tự phân tích một việc quen thuộc",
+          "content": "Chọn một việc như pha mì, đánh răng hoặc mở app học. Hãy viết ra Input, Process và Output của việc đó."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "Máy tính chủ yếu làm việc bằng cách nào?",
+          "options": {
+            "A": "Tự đoán ý người dùng",
+            "B": "Làm theo lệnh rõ ràng",
+            "C": "Tự quyết định mọi thứ",
+            "D": "Chỉ làm việc khi có Internet"
+          },
+          "answerKey": "B",
+          "explain": "Máy tính cần lệnh rõ ràng; lập trình là cách viết các lệnh đó."
+        }
+      ],
+      "project": {
+        "title": "Mô tả quy trình đời thường",
+        "description": "Chọn một hoạt động quen thuộc và mô tả theo 3 phần: Input, Process, Output.",
+        "checklist": [
+          "Có ít nhất 1 input",
+          "Có các bước xử lý",
+          "Có output rõ ràng"
+        ]
+      }
+    },
+    "pyf002": {
+      "title": "Chương trình Python đầu tiên",
+      "description": "Làm quen Python và lệnh print() để hiển thị thông tin.",
+      "objectives": [
+        "Biết chương trình Python là gì",
+        "Dùng print() để hiển thị dữ liệu",
+        "Chạy được chương trình đầu tiên"
+      ],
+      "blocks": [
+        {
+          "type": "concept",
+          "title": "print() dùng để làm gì?",
+          "content": "print() là lệnh hiển thị nội dung ra màn hình. Đây thường là lệnh đầu tiên khi học Python vì giúp ta thấy chương trình đang tạo ra kết quả gì."
+        },
+        {
+          "type": "code",
+          "title": "Ví dụ print",
+          "language": "python",
+          "code": "print(\"Xin chào\")\nprint(\"Tôi đang học Python\")"
+        },
+        {
+          "type": "practice",
+          "title": "Thực hành",
+          "content": "Viết 3 dòng print(): tên của bạn, điều bạn thích và mục tiêu học lập trình."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "Lệnh print() dùng để làm gì?",
+          "options": {
+            "A": "Nhập dữ liệu",
+            "B": "Hiển thị dữ liệu",
+            "C": "Xóa file",
+            "D": "Lặp lại chương trình"
+          },
+          "answerKey": "B",
+          "explain": "print() dùng để hiển thị nội dung ra màn hình."
+        }
+      ],
+      "project": {
+        "title": "Giới thiệu bản thân",
+        "description": "Viết chương trình in ra tên, tuổi/lớp hoặc công việc và mục tiêu học lập trình.",
+        "checklist": [
+          "Có ít nhất 3 dòng print",
+          "Nội dung dễ đọc",
+          "Chạy không lỗi"
+        ]
+      }
+    },
+    "pyf003": {
+      "title": "Biến - chiếc hộp lưu dữ liệu",
+      "description": "Hiểu biến là nơi lưu dữ liệu để dùng lại trong chương trình.",
+      "objectives": [
+        "Hiểu biến là gì",
+        "Biết đặt tên biến đơn giản",
+        "Lưu được chuỗi và số vào biến"
+      ],
+      "blocks": [
+        {
+          "type": "concept",
+          "title": "Biến là gì?",
+          "content": "Biến giống như chiếc hộp có tên. Ta bỏ dữ liệu vào hộp và dùng tên hộp để lấy dữ liệu ra khi cần."
+        },
+        {
+          "type": "code",
+          "title": "Tạo biến",
+          "language": "python",
+          "code": "name = \"An\"\nage = 13\nprint(name)\nprint(age)"
+        },
+        {
+          "type": "practice",
+          "title": "Thực hành",
+          "content": "Tạo các biến name, age, goal rồi in ra thành một đoạn giới thiệu ngắn."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "Biến dùng để làm gì?",
+          "options": {
+            "A": "Trang trí giao diện",
+            "B": "Lưu dữ liệu",
+            "C": "Tắt máy",
+            "D": "Xóa chương trình"
+          },
+          "answerKey": "B",
+          "explain": "Biến giúp chương trình lưu và dùng lại dữ liệu."
+        }
+      ],
+      "project": {
+        "title": "Thẻ thông tin cá nhân",
+        "description": "Tạo chương trình lưu thông tin cá nhân bằng biến và in ra màn hình.",
+        "checklist": [
+          "Có ít nhất 3 biến",
+          "Tên biến dễ hiểu",
+          "Output rõ ràng"
+        ]
+      }
+    },
+    "pyf004": {
+      "title": "Nhập dữ liệu với input()",
+      "description": "Biết nhận dữ liệu từ người dùng và lưu vào biến.",
+      "objectives": [
+        "Biết dùng input()",
+        "Lưu dữ liệu nhập vào biến",
+        "Tạo chương trình tương tác đơn giản"
+      ],
+      "blocks": [
+        {
+          "type": "concept",
+          "title": "input() là gì?",
+          "content": "input() giúp chương trình hỏi người dùng và nhận dữ liệu từ bàn phím. Dữ liệu nhập vào thường là dạng chữ."
+        },
+        {
+          "type": "code",
+          "title": "Hỏi tên người dùng",
+          "language": "python",
+          "code": "name = input(\"Tên của bạn là gì? \")\nprint(\"Xin chào\", name)"
+        },
+        {
+          "type": "practice",
+          "title": "Thực hành",
+          "content": "Hỏi tên, tuổi và mục tiêu học. Sau đó in ra một lời chào đầy đủ."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "input() dùng để làm gì?",
+          "options": {
+            "A": "Nhận dữ liệu từ người dùng",
+            "B": "Chỉ in ra màn hình",
+            "C": "Xóa dữ liệu",
+            "D": "Tạo vòng lặp"
+          },
+          "answerKey": "A",
+          "explain": "input() nhận dữ liệu người dùng nhập từ bàn phím."
+        }
+      ],
+      "project": {
+        "title": "Form đăng ký học",
+        "description": "Tạo form hỏi tên, lớp/công việc và ngôn ngữ muốn học.",
+        "checklist": [
+          "Có ít nhất 3 câu hỏi",
+          "Lưu input vào biến",
+          "In lại thông tin đã nhập"
+        ]
+      }
+    },
+    "pyf005": {
+      "title": "Kiểu dữ liệu và chuyển đổi",
+      "description": "Làm quen string, integer, float, boolean và chuyển input thành số.",
+      "objectives": [
+        "Phân biệt dữ liệu chữ, số, đúng/sai",
+        "Biết dùng int() hoặc float()",
+        "Tính toán với dữ liệu nhập vào"
+      ],
+      "blocks": [
+        {
+          "type": "concept",
+          "title": "Các kiểu dữ liệu thường gặp",
+          "content": "String là chữ, integer là số nguyên, float là số thập phân, boolean là đúng/sai. Chọn đúng kiểu dữ liệu giúp chương trình xử lý đúng."
+        },
+        {
+          "type": "code",
+          "title": "Chuyển input thành số",
+          "language": "python",
+          "code": "a = int(input(\"Nhập số thứ nhất: \"))\nb = int(input(\"Nhập số thứ hai: \"))\nprint(\"Tổng là:\", a + b)"
+        },
+        {
+          "type": "practice",
+          "title": "Thực hành",
+          "content": "Viết chương trình nhập 2 số và tính tổng, hiệu, tích."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "Vì sao cần int(input(...)) khi tính tuổi?",
+          "options": {
+            "A": "Để đổi chữ nhập vào thành số",
+            "B": "Để đổi màu màn hình",
+            "C": "Để tắt chương trình",
+            "D": "Để tạo danh sách"
+          },
+          "answerKey": "A",
+          "explain": "input() thường trả về chữ; muốn so sánh hoặc tính toán số thì cần chuyển kiểu."
+        }
+      ],
+      "project": {
+        "title": "Máy tính mini",
+        "description": "Nhập 2 số và in ra tổng, hiệu, tích, thương.",
+        "checklist": [
+          "Có chuyển kiểu dữ liệu",
+          "Có ít nhất 4 phép tính",
+          "Output có nhãn rõ"
+        ]
+      }
+    },
+    "pyf006": {
+      "title": "Toán tử và biểu thức",
+      "description": "Sử dụng phép toán và biểu thức để xử lý dữ liệu.",
+      "objectives": [
+        "Biết cộng, trừ, nhân, chia",
+        "Hiểu biểu thức",
+        "Biết dùng toán tử so sánh cơ bản"
+      ],
+      "blocks": [
+        {
+          "type": "concept",
+          "title": "Biểu thức là gì?",
+          "content": "Biểu thức là phần tạo ra một giá trị, ví dụ a + b, score >= 5 hoặc price * quantity."
+        },
+        {
+          "type": "code",
+          "title": "Tính tổng đơn hàng",
+          "language": "python",
+          "code": "price = 12000\nquantity = 3\ntotal = price * quantity\nprint(\"Tổng tiền:\", total)"
+        },
+        {
+          "type": "practice",
+          "title": "Thực hành",
+          "content": "Tính diện tích hình chữ nhật từ chiều dài và chiều rộng người dùng nhập."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "price * quantity là gì?",
+          "options": {
+            "A": "Một biểu thức tính toán",
+            "B": "Tên file",
+            "C": "Một vòng lặp",
+            "D": "Một lỗi"
+          },
+          "answerKey": "A",
+          "explain": "Biểu thức kết hợp giá trị và toán tử để tạo ra kết quả."
+        }
+      ],
+      "project": {
+        "title": "Tính diện tích",
+        "description": "Nhập chiều dài, chiều rộng và in ra diện tích hình chữ nhật.",
+        "checklist": [
+          "Có input",
+          "Có chuyển số",
+          "Có công thức đúng"
+        ]
+      }
+    },
+    "pyf007": {
+      "title": "Điều kiện if",
+      "description": "Giúp chương trình ra quyết định khi một điều kiện đúng.",
+      "objectives": [
+        "Hiểu điều kiện đúng/sai",
+        "Biết dùng if",
+        "Viết chương trình kiểm tra điều kiện đơn giản"
+      ],
+      "blocks": [
+        {
+          "type": "concept",
+          "title": "Vì sao cần điều kiện?",
+          "content": "Trong đời sống ta thường quyết định theo điều kiện: nếu trời mưa thì mang áo mưa. Trong lập trình, if giúp chương trình làm điều tương tự."
+        },
+        {
+          "type": "code",
+          "title": "Kiểm tra đậu",
+          "language": "python",
+          "code": "score = 8\nif score >= 5:\n    print(\"Đậu\")"
+        },
+        {
+          "type": "practice",
+          "title": "Thực hành",
+          "content": "Nhập điểm. Nếu điểm từ 5 trở lên thì in 'Đậu'."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "if dùng để làm gì?",
+          "options": {
+            "A": "Lặp lại hành động",
+            "B": "Kiểm tra điều kiện",
+            "C": "Lưu danh sách",
+            "D": "Đổi tên biến"
+          },
+          "answerKey": "B",
+          "explain": "if kiểm tra điều kiện để quyết định có chạy một khối lệnh hay không."
+        }
+      ],
+      "project": {
+        "title": "Máy kiểm tra đậu",
+        "description": "Nhập điểm và thông báo đậu nếu điểm từ 5 trở lên.",
+        "checklist": [
+          "Có input điểm",
+          "Có điều kiện if",
+          "Thông báo đúng"
+        ]
+      }
+    },
+    "pyf008": {
+      "title": "if - elif - else",
+      "description": "Xử lý nhiều trường hợp khác nhau trong chương trình.",
+      "objectives": [
+        "Biết dùng if/elif/else",
+        "Sắp xếp điều kiện đúng thứ tự",
+        "Viết chương trình xếp loại"
+      ],
+      "blocks": [
+        {
+          "type": "concept",
+          "title": "Nhiều nhánh lựa chọn",
+          "content": "Không phải bài toán nào cũng chỉ có một trường hợp. Ví dụ điểm số có thể là giỏi, khá, trung bình hoặc cần cố gắng."
+        },
+        {
+          "type": "code",
+          "title": "Xếp loại điểm",
+          "language": "python",
+          "code": "score = float(input(\"Nhập điểm: \"))\nif score >= 8:\n    print(\"Giỏi\")\nelif score >= 6.5:\n    print(\"Khá\")\nelif score >= 5:\n    print(\"Trung bình\")\nelse:\n    print(\"Cần cố gắng\")"
+        },
+        {
+          "type": "practice",
+          "title": "Thực hành",
+          "content": "Viết chương trình xếp loại học lực dựa trên điểm trung bình."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "elif dùng khi nào?",
+          "options": {
+            "A": "Khi có nhiều điều kiện cần kiểm tra",
+            "B": "Khi muốn xóa dữ liệu",
+            "C": "Khi muốn lặp vô hạn",
+            "D": "Khi không cần điều kiện"
+          },
+          "answerKey": "A",
+          "explain": "elif giúp kiểm tra thêm các điều kiện khác sau if."
+        }
+      ],
+      "project": {
+        "title": "Bảng xếp loại",
+        "description": "Nhập điểm và in xếp loại tương ứng.",
+        "checklist": [
+          "Có if/elif/else",
+          "Điều kiện đúng thứ tự",
+          "Có trường hợp else"
+        ]
+      }
+    },
+    "pyf009": {
+      "title": "Vòng lặp for",
+      "description": "Lặp lại hành động khi biết số lần hoặc cần duyệt qua một dãy.",
+      "objectives": [
+        "Hiểu vì sao cần vòng lặp",
+        "Biết dùng for với range()",
+        "In được dãy số và bảng cửu chương"
+      ],
+      "blocks": [
+        {
+          "type": "concept",
+          "title": "Vì sao cần lặp?",
+          "content": "Nếu cần làm một việc nhiều lần, ta không nên viết cùng một lệnh quá nhiều lần. Vòng lặp giúp chương trình lặp lại hành động."
+        },
+        {
+          "type": "code",
+          "title": "In số từ 1 đến 5",
+          "language": "python",
+          "code": "for i in range(1, 6):\n    print(i)"
+        },
+        {
+          "type": "practice",
+          "title": "Thực hành",
+          "content": "In các số từ 1 đến 10 và bảng cửu chương 5."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "range(1, 6) tạo ra các số nào?",
+          "options": {
+            "A": "1 đến 6",
+            "B": "1 đến 5",
+            "C": "0 đến 6",
+            "D": "Chỉ số 6"
+          },
+          "answerKey": "B",
+          "explain": "Trong Python, điểm kết thúc của range không được lấy, nên range(1, 6) tạo 1,2,3,4,5."
+        }
+      ],
+      "project": {
+        "title": "Bảng cửu chương",
+        "description": "Nhập một số và in bảng cửu chương của số đó.",
+        "checklist": [
+          "Có dùng for",
+          "Có nhân với i",
+          "In đủ 10 dòng"
+        ]
+      }
+    },
+    "pyf010": {
+      "title": "Vòng lặp while",
+      "description": "Lặp khi điều kiện còn đúng và biết cách đặt điều kiện dừng.",
+      "objectives": [
+        "Hiểu while",
+        "Biết điều kiện dừng",
+        "Tránh vòng lặp vô hạn"
+      ],
+      "blocks": [
+        {
+          "type": "concept",
+          "title": "while khác for thế nào?",
+          "content": "for thường dùng khi biết số lần lặp. while dùng khi muốn lặp cho đến khi một điều kiện không còn đúng."
+        },
+        {
+          "type": "code",
+          "title": "Nhập mật khẩu",
+          "language": "python",
+          "code": "password = \"\"\nwhile password != \"1234\":\n    password = input(\"Nhập mật khẩu: \")\nprint(\"Đăng nhập thành công\")"
+        },
+        {
+          "type": "practice",
+          "title": "Thực hành",
+          "content": "Yêu cầu người dùng nhập đúng mật khẩu mới cho tiếp tục."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "while dừng khi nào?",
+          "options": {
+            "A": "Khi điều kiện không còn đúng",
+            "B": "Khi có nhiều biến",
+            "C": "Khi dùng print",
+            "D": "Khi máy tính nóng"
+          },
+          "answerKey": "A",
+          "explain": "while tiếp tục chạy khi điều kiện đúng và dừng khi điều kiện sai."
+        }
+      ],
+      "project": {
+        "title": "Màn hình đăng nhập đơn giản",
+        "description": "Yêu cầu nhập đúng mật khẩu để đăng nhập.",
+        "checklist": [
+          "Có while",
+          "Có điều kiện dừng",
+          "Có thông báo thành công"
+        ]
+      }
+    },
+    "pyf011": {
+      "title": "List - danh sách dữ liệu",
+      "description": "Lưu nhiều giá trị trong một biến và duyệt qua từng phần tử.",
+      "objectives": [
+        "Hiểu list là gì",
+        "Biết truy cập và duyệt list",
+        "Dùng list để quản lý dữ liệu đơn giản"
+      ],
+      "blocks": [
+        {
+          "type": "concept",
+          "title": "List là gì?",
+          "content": "List là danh sách chứa nhiều giá trị. Ví dụ danh sách học sinh, danh sách điểm hoặc danh sách sản phẩm."
+        },
+        {
+          "type": "code",
+          "title": "Duyệt danh sách",
+          "language": "python",
+          "code": "students = [\"An\", \"Bình\", \"Chi\"]\nfor name in students:\n    print(name)"
+        },
+        {
+          "type": "practice",
+          "title": "Thực hành",
+          "content": "Tạo danh sách 5 học sinh và in từng tên ra màn hình."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "List phù hợp để lưu gì?",
+          "options": {
+            "A": "Nhiều giá trị",
+            "B": "Chỉ một ký tự",
+            "C": "Màu màn hình",
+            "D": "Lệnh tắt máy"
+          },
+          "answerKey": "A",
+          "explain": "List dùng để lưu nhiều giá trị trong cùng một biến."
+        }
+      ],
+      "project": {
+        "title": "Danh sách lớp học",
+        "description": "Tạo danh sách học sinh và hiển thị từng học sinh.",
+        "checklist": [
+          "Có list",
+          "Có for",
+          "Output dễ đọc"
+        ]
+      }
+    },
+    "pyf012": {
+      "title": "Thao tác với list",
+      "description": "Thêm, xóa, đếm và tìm dữ liệu trong danh sách.",
+      "objectives": [
+        "Biết append()",
+        "Biết len()",
+        "Biết kiểm tra dữ liệu trong list"
+      ],
+      "blocks": [
+        {
+          "type": "concept",
+          "title": "List có thể thay đổi",
+          "content": "Ta có thể thêm phần tử, xóa phần tử, đếm số phần tử và duyệt list để xử lý từng giá trị."
+        },
+        {
+          "type": "code",
+          "title": "Thêm món vào danh sách",
+          "language": "python",
+          "code": "tasks = []\ntasks.append(\"Học Python\")\ntasks.append(\"Làm bài tập\")\nprint(\"Số việc:\", len(tasks))\nprint(tasks)"
+        },
+        {
+          "type": "practice",
+          "title": "Thực hành",
+          "content": "Tạo danh sách việc cần làm, thêm 3 việc và in tổng số việc."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "append() dùng để làm gì?",
+          "options": {
+            "A": "Thêm phần tử vào list",
+            "B": "Xóa toàn bộ list",
+            "C": "Sắp xếp máy tính",
+            "D": "Dừng chương trình"
+          },
+          "answerKey": "A",
+          "explain": "append() thêm một phần tử vào cuối list."
+        }
+      ],
+      "project": {
+        "title": "Todo list nhỏ",
+        "description": "Tạo list việc cần làm và thêm ít nhất 3 việc.",
+        "checklist": [
+          "Có list rỗng",
+          "Có append",
+          "Có len"
+        ]
+      }
+    },
+    "pyf013": {
+      "title": "String - xử lý văn bản",
+      "description": "Làm việc với chuỗi, nối chuỗi và kiểm tra nội dung cơ bản.",
+      "objectives": [
+        "Hiểu string",
+        "Biết nối chuỗi",
+        "Biết dùng lower() hoặc strip() cơ bản"
+      ],
+      "blocks": [
+        {
+          "type": "concept",
+          "title": "Chuỗi là dữ liệu văn bản",
+          "content": "Tên, email, câu trả lời và mật khẩu thường là string. Khi xử lý string, cần chú ý khoảng trắng và chữ hoa/chữ thường."
+        },
+        {
+          "type": "code",
+          "title": "Chuẩn hóa câu trả lời",
+          "language": "python",
+          "code": "answer = input(\"Bạn có muốn tiếp tục không? \").strip().lower()\nif answer == \"yes\":\n    print(\"Tiếp tục\")"
+        },
+        {
+          "type": "practice",
+          "title": "Thực hành",
+          "content": "Nhập tên người dùng, bỏ khoảng trắng thừa và in lời chào."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "strip() thường dùng để làm gì?",
+          "options": {
+            "A": "Bỏ khoảng trắng ở đầu/cuối chuỗi",
+            "B": "Tạo vòng lặp",
+            "C": "Chuyển chuỗi thành list số",
+            "D": "Tắt chương trình"
+          },
+          "answerKey": "A",
+          "explain": "strip() giúp loại bỏ khoảng trắng thừa ở đầu và cuối chuỗi."
+        }
+      ],
+      "project": {
+        "title": "Lời chào gọn gàng",
+        "description": "Nhập tên, dùng strip(), rồi in lời chào.",
+        "checklist": [
+          "Có input",
+          "Có strip",
+          "Output đẹp"
+        ]
+      }
+    },
+    "pyf014": {
+      "title": "Dictionary - dữ liệu có nhãn",
+      "description": "Lưu dữ liệu theo cặp key-value như hồ sơ học viên.",
+      "objectives": [
+        "Hiểu dictionary",
+        "Truy cập giá trị bằng key",
+        "Dùng dictionary cho dữ liệu có nhãn"
+      ],
+      "blocks": [
+        {
+          "type": "concept",
+          "title": "Dictionary là gì?",
+          "content": "Dictionary lưu dữ liệu theo cặp key-value. Ví dụ một học viên có name, age, score."
+        },
+        {
+          "type": "code",
+          "title": "Hồ sơ học viên",
+          "language": "python",
+          "code": "student = {\n    \"name\": \"An\",\n    \"age\": 13,\n    \"score\": 8\n}\nprint(student[\"name\"])"
+        },
+        {
+          "type": "practice",
+          "title": "Thực hành",
+          "content": "Tạo dictionary lưu tên, tuổi và mục tiêu học của bạn."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "Dictionary phù hợp khi nào?",
+          "options": {
+            "A": "Khi dữ liệu có nhãn key-value",
+            "B": "Khi chỉ cần lặp 10 lần",
+            "C": "Khi muốn đổi màu nền",
+            "D": "Khi không cần lưu gì"
+          },
+          "answerKey": "A",
+          "explain": "Dictionary giúp lưu dữ liệu theo tên trường rõ ràng."
+        }
+      ],
+      "project": {
+        "title": "Hồ sơ học viên",
+        "description": "Tạo dictionary và in từng thông tin quan trọng.",
+        "checklist": [
+          "Có ít nhất 3 key",
+          "Truy cập đúng key",
+          "Output rõ"
+        ]
+      }
+    },
+    "pyf015": {
+      "title": "Hàm - chia nhỏ chương trình",
+      "description": "Dùng function để tổ chức và tái sử dụng code.",
+      "objectives": [
+        "Hiểu hàm là gì",
+        "Biết tạo hàm đơn giản",
+        "Biết gọi hàm"
+      ],
+      "blocks": [
+        {
+          "type": "concept",
+          "title": "Vì sao cần hàm?",
+          "content": "Khi chương trình lớn dần, ta cần chia thành phần nhỏ. Hàm giúp code dễ đọc, dễ sửa và có thể dùng lại."
+        },
+        {
+          "type": "code",
+          "title": "Tạo hàm chào",
+          "language": "python",
+          "code": "def say_hello(name):\n    print(\"Xin chào\", name)\n\nsay_hello(\"An\")"
+        },
+        {
+          "type": "practice",
+          "title": "Thực hành",
+          "content": "Tạo hàm in lời chào và gọi hàm với 3 tên khác nhau."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "Lợi ích chính của hàm là gì?",
+          "options": {
+            "A": "Chia nhỏ và tái sử dụng code",
+            "B": "Không cần biến nữa",
+            "C": "Xóa lỗi tự động",
+            "D": "Làm máy tính nhanh hơn mọi lúc"
+          },
+          "answerKey": "A",
+          "explain": "Hàm giúp chương trình gọn, dễ đọc và dễ bảo trì."
+        }
+      ],
+      "project": {
+        "title": "Hàm chào hỏi",
+        "description": "Tạo hàm say_hello(name) và gọi nhiều lần.",
+        "checklist": [
+          "Có def",
+          "Có tham số",
+          "Gọi hàm ít nhất 2 lần"
+        ]
+      }
+    },
+    "pyf016": {
+      "title": "Tham số và return",
+      "description": "Tạo hàm nhận dữ liệu đầu vào và trả kết quả.",
+      "objectives": [
+        "Hiểu tham số",
+        "Hiểu return",
+        "Viết hàm tính toán đơn giản"
+      ],
+      "blocks": [
+        {
+          "type": "concept",
+          "title": "return khác print thế nào?",
+          "content": "print hiển thị kết quả ra màn hình. return trả kết quả về nơi gọi hàm để tiếp tục xử lý."
+        },
+        {
+          "type": "code",
+          "title": "Hàm tính tổng",
+          "language": "python",
+          "code": "def add(a, b):\n    return a + b\n\nresult = add(3, 4)\nprint(result)"
+        },
+        {
+          "type": "practice",
+          "title": "Thực hành",
+          "content": "Tạo các hàm cộng, trừ, nhân, chia và gọi thử."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "return dùng để làm gì?",
+          "options": {
+            "A": "Trả kết quả từ hàm",
+            "B": "In màu nền",
+            "C": "Xóa biến",
+            "D": "Dừng máy tính"
+          },
+          "answerKey": "A",
+          "explain": "return đưa kết quả của hàm về nơi gọi hàm."
+        }
+      ],
+      "project": {
+        "title": "Máy tính bằng hàm",
+        "description": "Tạo các hàm add, subtract, multiply, divide.",
+        "checklist": [
+          "Có ít nhất 3 hàm",
+          "Có return",
+          "Có gọi hàm"
+        ]
+      }
+    },
+    "pyf017": {
+      "title": "Debug - tìm và sửa lỗi",
+      "description": "Rèn cách đọc lỗi, kiểm tra từng bước và sửa lỗi có phương pháp.",
+      "objectives": [
+        "Hiểu lỗi là bình thường",
+        "Biết đọc thông báo lỗi cơ bản",
+        "Biết kiểm tra giá trị trung gian"
+      ],
+      "blocks": [
+        {
+          "type": "concept",
+          "title": "Debug là kỹ năng cốt lõi",
+          "content": "Lập trình không phải viết đúng ngay từ đầu. Người học tốt là người biết đọc lỗi, khoanh vùng nguyên nhân và sửa từng bước."
+        },
+        {
+          "type": "code",
+          "title": "In giá trị để kiểm tra",
+          "language": "python",
+          "code": "total = 0\nprices = [10, 20, 30]\nfor price in prices:\n    total = total + price\n    print(\"Đang cộng:\", price, \"Tổng:\", total)\nprint(total)"
+        },
+        {
+          "type": "practice",
+          "title": "Thực hành",
+          "content": "Tìm lỗi trong một chương trình tính tổng và dùng print để kiểm tra từng bước."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "Khi chương trình ra kết quả sai, nên làm gì trước?",
+          "options": {
+            "A": "Xóa toàn bộ code",
+            "B": "Kiểm tra từng bước và giá trị trung gian",
+            "C": "Đổi tên file",
+            "D": "Tắt máy"
+          },
+          "answerKey": "B",
+          "explain": "Kiểm tra từng bước giúp xác định lỗi xuất hiện ở đâu."
+        }
+      ],
+      "project": {
+        "title": "Nhật ký debug",
+        "description": "Chạy một chương trình nhỏ và ghi lại lỗi, nguyên nhân, cách sửa.",
+        "checklist": [
+          "Có mô tả lỗi",
+          "Có bước kiểm tra",
+          "Có cách sửa"
+        ]
+      }
+    },
+    "pyf018": {
+      "title": "Chia nhỏ bài toán",
+      "description": "Biết phân tích yêu cầu lớn thành các phần nhỏ dễ làm.",
+      "objectives": [
+        "Hiểu decomposition",
+        "Biết xác định input/output",
+        "Biết chia project thành chức năng"
+      ],
+      "blocks": [
+        {
+          "type": "concept",
+          "title": "Đừng làm tất cả cùng lúc",
+          "content": "Một project lớn nên được chia thành phần nhỏ: nhập dữ liệu, xử lý, hiển thị, kiểm tra lỗi. Làm từng phần giúp dễ hoàn thành hơn."
+        },
+        {
+          "type": "checkpoint",
+          "title": "Ví dụ chia nhỏ quiz",
+          "content": "Project quiz có thể chia thành: lưu câu hỏi, hiển thị câu hỏi, nhận đáp án, kiểm tra đúng sai, tính điểm, in kết quả."
+        },
+        {
+          "type": "practice",
+          "title": "Thực hành",
+          "content": "Chia project Todo List thành các chức năng nhỏ trước khi viết code."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "Khi gặp project lớn, cách tốt nhất là gì?",
+          "options": {
+            "A": "Chia thành phần nhỏ",
+            "B": "Viết tất cả trong một dòng",
+            "C": "Bỏ qua yêu cầu",
+            "D": "Chỉ làm giao diện"
+          },
+          "answerKey": "A",
+          "explain": "Chia nhỏ giúp dễ hiểu, dễ làm, dễ kiểm tra và dễ sửa."
+        }
+      ],
+      "project": {
+        "title": "Bản thiết kế project",
+        "description": "Chọn một project và viết danh sách chức năng cần có.",
+        "checklist": [
+          "Có input/output",
+          "Có ít nhất 4 chức năng",
+          "Có thứ tự làm"
+        ]
+      }
+    },
+    "pyf019": {
+      "title": "Đọc và ghi file cơ bản",
+      "description": "Lưu dữ liệu ra file và đọc lại dữ liệu khi cần.",
+      "objectives": [
+        "Hiểu vì sao cần file",
+        "Biết ghi file text",
+        "Biết đọc file text"
+      ],
+      "blocks": [
+        {
+          "type": "concept",
+          "title": "Vì sao cần file?",
+          "content": "Nếu dữ liệu chỉ nằm trong biến, khi chương trình tắt dữ liệu sẽ mất. File giúp lưu dữ liệu để dùng lại lần sau."
+        },
+        {
+          "type": "code",
+          "title": "Ghi và đọc file",
+          "language": "python",
+          "code": "with open(\"notes.txt\", \"w\", encoding=\"utf-8\") as f:\n    f.write(\"Học Python\")\n\nwith open(\"notes.txt\", \"r\", encoding=\"utf-8\") as f:\n    content = f.read()\n    print(content)"
+        },
+        {
+          "type": "practice",
+          "title": "Thực hành",
+          "content": "Ghi danh sách việc cần làm vào file notes.txt và đọc lại."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "File giúp chương trình làm gì?",
+          "options": {
+            "A": "Lưu dữ liệu lâu hơn sau khi chương trình tắt",
+            "B": "Tự học thay người dùng",
+            "C": "Không cần biến nữa",
+            "D": "Chỉ đổi màu chữ"
+          },
+          "answerKey": "A",
+          "explain": "File giúp lưu dữ liệu để dùng lại trong lần chạy sau."
+        }
+      ],
+      "project": {
+        "title": "Sổ ghi chú",
+        "description": "Tạo file notes.txt, ghi một dòng và đọc lại nội dung.",
+        "checklist": [
+          "Có open ghi file",
+          "Có open đọc file",
+          "Có encoding utf-8"
+        ]
+      }
+    },
+    "pyf020": {
+      "title": "Tư duy dữ liệu bảng",
+      "description": "Làm quen dữ liệu dạng bảng và cách kiểm tra dữ liệu bất thường.",
+      "objectives": [
+        "Hiểu dòng và cột",
+        "Biết đọc dữ liệu có cấu trúc",
+        "Biết kiểm tra tổng, thiếu hoặc sai định dạng"
+      ],
+      "blocks": [
+        {
+          "type": "concept",
+          "title": "Dữ liệu bảng là gì?",
+          "content": "Bảng có dòng và cột. Mỗi dòng thường là một bản ghi, mỗi cột là một loại thông tin như tên, điểm, email hoặc doanh thu."
+        },
+        {
+          "type": "code",
+          "title": "Danh sách điểm dạng list dictionary",
+          "language": "python",
+          "code": "students = [\n    {\"name\": \"An\", \"score\": 8},\n    {\"name\": \"Bình\", \"score\": 6}\n]\nfor student in students:\n    print(student[\"name\"], student[\"score\"])"
+        },
+        {
+          "type": "practice",
+          "title": "Thực hành",
+          "content": "Tạo danh sách 3 học viên dạng dictionary và in người có điểm cao nhất."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "Trong bảng dữ liệu, mỗi dòng thường là gì?",
+          "options": {
+            "A": "Một bản ghi",
+            "B": "Một màu nền",
+            "C": "Một chương trình khác",
+            "D": "Một mật khẩu"
+          },
+          "answerKey": "A",
+          "explain": "Mỗi dòng thường biểu diễn một đối tượng hoặc bản ghi dữ liệu."
+        }
+      ],
+      "project": {
+        "title": "Bảng điểm nhỏ",
+        "description": "Tạo dữ liệu 3 học viên và tìm điểm cao nhất.",
+        "checklist": [
+          "Có list dictionary",
+          "Có vòng lặp",
+          "Tìm đúng điểm cao nhất"
+        ]
+      }
+    },
+    "pyf021": {
+      "title": "Project: Game đoán số",
+      "description": "Tổng hợp input, điều kiện, vòng lặp và random để làm game nhỏ.",
+      "objectives": [
+        "Biết mô tả luật chơi",
+        "Dùng vòng lặp để cho đoán nhiều lần",
+        "Thông báo cao/thấp/đúng"
+      ],
+      "blocks": [
+        {
+          "type": "concept",
+          "title": "Luật chơi trước, code sau",
+          "content": "Trước khi viết game, cần mô tả luật: máy chọn số bí mật, người chơi đoán, chương trình báo cao/thấp cho đến khi đúng."
+        },
+        {
+          "type": "code",
+          "title": "Khung game",
+          "language": "python",
+          "code": "import random\nsecret = random.randint(1, 10)\nguess = 0\nwhile guess != secret:\n    guess = int(input(\"Đoán số 1-10: \"))\n    if guess < secret:\n        print(\"Cao hơn\")\n    elif guess > secret:\n        print(\"Thấp hơn\")\nprint(\"Đúng rồi!\")"
+        },
+        {
+          "type": "practice",
+          "title": "Thực hành",
+          "content": "Thêm biến đếm số lần đoán và in kết quả cuối game."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "Game đoán số cần vòng lặp vì sao?",
+          "options": {
+            "A": "Vì người chơi có thể đoán nhiều lần",
+            "B": "Vì không cần input",
+            "C": "Vì chỉ in một dòng",
+            "D": "Vì không có điều kiện"
+          },
+          "answerKey": "A",
+          "explain": "Vòng lặp cho phép người chơi đoán cho đến khi đúng."
+        }
+      ],
+      "project": {
+        "title": "Game đoán số hoàn chỉnh",
+        "description": "Tạo game đoán số 1-20, có đếm số lần đoán.",
+        "checklist": [
+          "Có random",
+          "Có while",
+          "Có if/elif",
+          "Có số lần đoán"
+        ]
+      }
+    },
+    "pyf022": {
+      "title": "Project: Quiz trắc nghiệm",
+      "description": "Làm chương trình quiz có danh sách câu hỏi, kiểm tra đáp án và tính điểm.",
+      "objectives": [
+        "Biết lưu câu hỏi",
+        "Duyệt qua các câu",
+        "Tính điểm cuối bài"
+      ],
+      "blocks": [
+        {
+          "type": "concept",
+          "title": "Cấu trúc project quiz",
+          "content": "Quiz gồm dữ liệu câu hỏi, phần hiển thị, phần nhận đáp án, phần kiểm tra và phần tính điểm."
+        },
+        {
+          "type": "code",
+          "title": "Quiz 2 câu",
+          "language": "python",
+          "code": "questions = [\n    {\"q\": \"2 + 3 = ?\", \"a\": \"5\"},\n    {\"q\": \"Python dùng print để làm gì?\", \"a\": \"hiển thị\"}\n]\nscore = 0\nfor item in questions:\n    answer = input(item[\"q\"] + \" \")\n    if answer.strip().lower() == item[\"a\"]:\n        score += 1\nprint(\"Điểm:\", score)"
+        },
+        {
+          "type": "practice",
+          "title": "Thực hành",
+          "content": "Tạo quiz 5 câu về kiến thức Python đã học."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "Trong project quiz, score dùng để làm gì?",
+          "options": {
+            "A": "Lưu số câu đúng",
+            "B": "Lưu màu nền",
+            "C": "Xóa câu hỏi",
+            "D": "Dừng máy tính"
+          },
+          "answerKey": "A",
+          "explain": "score lưu điểm hoặc số câu trả lời đúng."
+        }
+      ],
+      "project": {
+        "title": "Quiz 5 câu",
+        "description": "Tạo quiz 5 câu, có tính điểm và xếp loại cuối bài.",
+        "checklist": [
+          "Có list câu hỏi",
+          "Có vòng lặp",
+          "Có kiểm tra đáp án",
+          "Có tổng điểm"
+        ]
+      }
+    },
+    "pyf023": {
+      "title": "Project: Quản lý điểm học sinh",
+      "description": "Tạo ứng dụng console lưu danh sách học sinh và tính điểm trung bình.",
+      "objectives": [
+        "Dùng list/dictionary",
+        "Tính điểm trung bình",
+        "Tìm học sinh có điểm cao"
+      ],
+      "blocks": [
+        {
+          "type": "concept",
+          "title": "Quản lý dữ liệu nhỏ",
+          "content": "Một ứng dụng quản lý điểm cần lưu tên và điểm, thêm dữ liệu, hiển thị danh sách, tính trung bình và tìm điểm cao nhất."
+        },
+        {
+          "type": "code",
+          "title": "Tính trung bình",
+          "language": "python",
+          "code": "students = [\n    {\"name\": \"An\", \"score\": 8},\n    {\"name\": \"Bình\", \"score\": 7}\n]\ntotal = 0\nfor student in students:\n    total += student[\"score\"]\nprint(\"Điểm trung bình:\", total / len(students))"
+        },
+        {
+          "type": "practice",
+          "title": "Thực hành",
+          "content": "Thêm chức năng nhập học sinh mới từ bàn phím."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "Để tính điểm trung bình cần gì?",
+          "options": {
+            "A": "Tổng điểm và số học sinh",
+            "B": "Chỉ tên học sinh",
+            "C": "Màu chữ",
+            "D": "Mật khẩu"
+          },
+          "answerKey": "A",
+          "explain": "Trung bình = tổng điểm / số lượng học sinh."
+        }
+      ],
+      "project": {
+        "title": "Ứng dụng quản lý điểm",
+        "description": "Tạo chương trình nhập danh sách học sinh, điểm và in điểm trung bình.",
+        "checklist": [
+          "Có list dictionary",
+          "Có input",
+          "Có tính trung bình",
+          "Có hiển thị danh sách"
+        ]
+      }
+    },
+    "pyf024": {
+      "title": "Final Project và tổng kết",
+      "description": "Hoàn thiện project cuối khóa, kiểm tra lại kiến thức và trình bày sản phẩm.",
+      "objectives": [
+        "Ôn toàn bộ kiến thức nền tảng",
+        "Biết hoàn thiện project nhỏ",
+        "Biết trình bày cách hoạt động của chương trình"
+      ],
+      "blocks": [
+        {
+          "type": "concept",
+          "title": "Một project tốt cần rõ ràng",
+          "content": "Project cuối khóa không cần quá lớn, nhưng cần chạy được, có chức năng rõ, code dễ đọc và người học giải thích được cách hoạt động."
+        },
+        {
+          "type": "checkpoint",
+          "title": "Checklist trước khi nộp",
+          "content": "Kiểm tra input, output, trường hợp sai, tên biến, hàm, chú thích và trải nghiệm người dùng."
+        },
+        {
+          "type": "practice",
+          "title": "Thực hành",
+          "content": "Chọn một trong các project đã học và nâng cấp thêm ít nhất 2 chức năng."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "Điều quan trọng khi nộp project cuối khóa là gì?",
+          "options": {
+            "A": "Code chạy được và giải thích được",
+            "B": "Chỉ cần màu đẹp",
+            "C": "Không cần kiểm tra",
+            "D": "Xóa hết comment"
+          },
+          "answerKey": "A",
+          "explain": "Project cần chạy được, đúng yêu cầu và người học hiểu cách mình làm."
+        }
+      ],
+      "project": {
+        "title": "Project cuối khóa",
+        "description": "Hoàn thiện một project Python nhỏ và trình bày trước giáo viên/phụ huynh.",
+        "checklist": [
+          "Có ít nhất 3 chức năng",
+          "Có kiểm tra lỗi cơ bản",
+          "Code dễ đọc",
+          "Trình bày được cách hoạt động"
+        ]
+      }
+    }
+  }
+}

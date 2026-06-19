@@ -1,0 +1,20 @@
+{
+  "totalLanguages": 5,
+  "totalCourses": 10,
+  "availableCourses": 1,
+  "totalLessons": 24,
+  "totalRoadmaps": 4,
+  "pythonFoundationLessons": 24,
+  "namespacesAdded": [
+    "courses",
+    "lessons"
+  ],
+  "newRoutes": [
+    "/courses",
+    "/courses/:languageId",
+    "/course/:courseId",
+    "/roadmap",
+    "/lessons/:lessonId"
+  ],
+  "validationErrors": []
+}

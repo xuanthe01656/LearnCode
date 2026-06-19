@@ -1,0 +1,708 @@
+{
+  "nav": {
+    "languages": "Languages",
+    "courses": "Courses",
+    "roadmap": "Roadmap"
+  },
+  "ui": {
+    "recommendedFirst": "Recommended first",
+    "courseCount": "{{count}} course(s)",
+    "viewCourses": "View courses",
+    "sessions": "{{count}} sessions",
+    "hours": "{{count}} hours",
+    "lessons": "{{count}} lessons",
+    "openCourse": "Open course",
+    "viewPlannedCourse": "View planned course"
+  },
+  "status": {
+    "available": "Available",
+    "planned": "Planned",
+    "coming-soon": "Coming soon"
+  },
+  "filters": {
+    "all": "All",
+    "available": "Available",
+    "planned": "Planned"
+  },
+  "categories": {
+    "all": "All",
+    "programming": "Programming basics",
+    "web": "Web",
+    "algorithm": "Algorithms",
+    "career": "Career path",
+    "data-ai": "Data & AI"
+  },
+  "languagePage": {
+    "badge": "Choose a starting point",
+    "title": "Choose the right language and learning direction",
+    "subtitle": "Each learner has a different goal. This page helps you choose Python, Web, JavaScript, C++ or Data/AI based on age, background and learning purpose.",
+    "ctaPlacement": "Take placement test",
+    "ctaRoadmap": "View roadmap",
+    "stats": {
+      "languages": "language groups",
+      "courses": "courses",
+      "roadmaps": "roadmaps"
+    },
+    "searchPlaceholder": "Search Python, Web, AI, algorithms...",
+    "filter": "Filter",
+    "catalogBadge": "Learning catalog",
+    "catalogTitle": "Main learning directions",
+    "viewAllCourses": "View all courses",
+    "noResult": "No matching learning direction found."
+  },
+  "coursePage": {
+    "badge": "Course catalog",
+    "languageBadge": "Courses by language",
+    "title": "All courses",
+    "subtitle": "Courses are organized by foundation, projects, automation, web, algorithms and Data/AI. Learners should take an entry test before choosing a pace.",
+    "takePlacement": "Take placement test",
+    "viewRoadmap": "View roadmap",
+    "stats": {
+      "matched": "matched",
+      "available": "available",
+      "languages": "directions"
+    },
+    "searchPlaceholder": "Search courses, skills, projects...",
+    "statusFilter": "Status",
+    "catalogBadge": "Course catalog",
+    "catalogTitle": "Matching courses",
+    "clearLanguage": "View all",
+    "noResult": "No courses match the current filter."
+  },
+  "courseDetail": {
+    "backToCourses": "Back to courses",
+    "startFirstLesson": "Start lesson 1",
+    "joinWaitlist": "Check and register interest",
+    "viewRoadmap": "View related roadmap",
+    "sessions": "sessions",
+    "hours": "hours",
+    "lessons": "lessons",
+    "target": "Best for",
+    "outcomes": "By the end, learners will",
+    "prerequisites": "Prerequisites",
+    "projectsAndTools": "Projects and tools",
+    "lessonRoadmapBadge": "Course content",
+    "lessonRoadmap": "Lesson roadmap",
+    "lessonRoadmapDesc": "Lessons progress from programming thinking and basic syntax to data handling and final mini projects.",
+    "plannedTitle": "This course is planned",
+    "plannedDesc": "Detailed content will be opened later. Learners can start with the thinking test, placement test or Python Foundation first.",
+    "relatedCourses": "Related courses"
+  },
+  "roadmapPage": {
+    "badge": "Learning Roadmap",
+    "title": "Programming roadmap for each learner group",
+    "subtitle": "A roadmap is not just a list of courses. Each stage is designed around goals, age, thinking level, available study time and practical outcomes.",
+    "ctaThinking": "Take thinking test",
+    "ctaPlacement": "Take placement test",
+    "recommendationCard": {
+      "badge": "Quick suggestion",
+      "title": "Where should I start?",
+      "desc": "If you are unsure, take the thinking test first, then take the placement test for Python Foundation.",
+      "language": "Choose direction",
+      "courses": "View courses"
+    },
+    "chooseBadge": "Choose learner type",
+    "chooseTitle": "Roadmaps by learning goal",
+    "whenToUse": "When should you use this roadmap?",
+    "checkPlacement": "Check placement",
+    "stagesTitle": "Recommended stages",
+    "stagesDesc": "Each stage has clear goals and related courses.",
+    "stageCourses": "Suggested courses",
+    "recommendedCourses": "Courses in this roadmap",
+    "recommendedCoursesDesc": "Courses are arranged from foundation to application."
+  },
+  "languages": {
+    "python": {
+      "name": "Python",
+      "description": "A readable and beginner-friendly language suitable for students, beginners, working adults, automation, data and AI.",
+      "targetSummary": "Students, beginners, working adults",
+      "bestFor": [
+        "Easy start",
+        "Programming thinking",
+        "Automation & AI"
+      ]
+    },
+    "javascript": {
+      "name": "JavaScript",
+      "description": "The main language of the modern web, used for website interaction and as preparation for React.",
+      "targetSummary": "Web/frontend learners",
+      "bestFor": [
+        "Web",
+        "Frontend",
+        "React"
+      ]
+    },
+    "web": {
+      "name": "Web Development",
+      "description": "A path for building websites from HTML and CSS to JavaScript, React and complete frontend products.",
+      "targetSummary": "Learners starting web development",
+      "bestFor": [
+        "HTML/CSS",
+        "Websites",
+        "Portfolio"
+      ]
+    },
+    "cpp": {
+      "name": "C++",
+      "description": "Suitable for algorithmic thinking, data structures, programming contests and high-performance problem solving.",
+      "targetSummary": "Students interested in algorithms",
+      "bestFor": [
+        "Algorithms",
+        "Data structures",
+        "Contests"
+      ]
+    },
+    "dataAi": {
+      "name": "Data & AI",
+      "description": "A path for data processing, table analysis, data cleaning and introductory AI with Python.",
+      "targetSummary": "Working adults, career switchers",
+      "bestFor": [
+        "Data",
+        "Reports",
+        "Intro AI"
+      ]
+    }
+  },
+  "courses": {
+    "pythonFoundation": {
+      "title": "Python Foundation",
+      "subtitle": "Learn Python from zero",
+      "description": "A foundation course that helps learners understand programming thinking, write basic Python programs, use conditions, loops, functions, lists, files and complete mini projects.",
+      "target": "Grades 6-12 students, absolute beginners, learners with weak foundations and working adults who want a structured Python start.",
+      "outcomes": [
+        "Understand Input - Process - Output",
+        "Write basic Python programs",
+        "Use variables, data types, conditions and loops",
+        "Use lists, dictionaries and functions",
+        "Debug basic errors",
+        "Complete a final mini project"
+      ],
+      "prerequisites": [
+        "Basic computer skills",
+        "No prior coding experience required",
+        "Thinking Test or Placement Test is recommended"
+      ],
+      "projects": [
+        "Multiple-choice quiz",
+        "Number guessing game",
+        "Student score manager",
+        "Final project"
+      ],
+      "tools": [
+        "Python 3",
+        "VS Code or online Python runner",
+        "Basic terminal"
+      ]
+    },
+    "pythonProjects": {
+      "title": "Python Mini Projects",
+      "subtitle": "Practice Python through small projects",
+      "description": "A practice course that reinforces Python through practical console projects such as quizzes, games, list management and file processing.",
+      "target": "Learners who completed Python Foundation or already know variables, conditions, loops, lists and functions.",
+      "outcomes": [
+        "Break projects into features",
+        "Organize code with functions",
+        "Save and read data",
+        "Test each feature"
+      ],
+      "prerequisites": [
+        "Complete Python Foundation",
+        "Know basic debugging"
+      ],
+      "projects": [
+        "Console todo app",
+        "Number guessing game",
+        "Library manager",
+        "Quiz app with saved score"
+      ],
+      "tools": [
+        "Python 3",
+        "VS Code",
+        ".txt/.csv files"
+      ]
+    },
+    "pythonAutomation": {
+      "title": "Python Automation for Work",
+      "subtitle": "Automate work with Python",
+      "description": "Use Python to handle files, table data, repeated reports, batch file renaming and office workflows.",
+      "target": "Working adults, office staff, technicians and anyone who wants to save time with automation.",
+      "outcomes": [
+        "Read and write files",
+        "Process table data",
+        "Automate repeated actions",
+        "Create basic reports"
+      ],
+      "prerequisites": [
+        "Basic Python",
+        "A real workflow to automate is helpful"
+      ],
+      "projects": [
+        "Batch rename files",
+        "Combine CSV files",
+        "Create simple reports",
+        "Validate faulty data"
+      ],
+      "tools": [
+        "Python",
+        "CSV/Excel",
+        "Folder/file workflow"
+      ]
+    },
+    "webFoundation": {
+      "title": "Web Foundation",
+      "subtitle": "HTML, CSS and website thinking",
+      "description": "An entry web course covering page structure, layout, responsiveness and the first landing page.",
+      "target": "Learners starting web development or preparing for JavaScript/React.",
+      "outcomes": [
+        "Understand semantic HTML",
+        "Create CSS layouts",
+        "Know basic responsiveness",
+        "Build a simple landing page"
+      ],
+      "prerequisites": [
+        "Basic computer skills",
+        "No prior coding required"
+      ],
+      "projects": [
+        "Personal landing page",
+        "Course intro page",
+        "Basic portfolio"
+      ],
+      "tools": [
+        "HTML",
+        "CSS",
+        "VS Code",
+        "Browser DevTools"
+      ]
+    },
+    "javascriptFoundation": {
+      "title": "JavaScript Foundation",
+      "subtitle": "JavaScript basics for the web",
+      "description": "A JavaScript foundation course covering variables, conditions, loops, arrays, objects, functions and basic DOM interaction.",
+      "target": "Learners who want to study web/frontend or prepare for React.",
+      "outcomes": [
+        "Understand JavaScript syntax",
+        "Use arrays and objects",
+        "Handle events",
+        "Create web interactions"
+      ],
+      "prerequisites": [
+        "Basic HTML/CSS recommended",
+        "Basic logical thinking"
+      ],
+      "projects": [
+        "Todo list",
+        "Calculator",
+        "Web quiz",
+        "Form validation"
+      ],
+      "tools": [
+        "JavaScript",
+        "Browser",
+        "VS Code"
+      ]
+    },
+    "reactFoundation": {
+      "title": "React Foundation",
+      "subtitle": "Build modern web interfaces",
+      "description": "Learn React components, props, state, events, routing and build small web apps with clear structure.",
+      "target": "Learners who know basic JavaScript and want modern frontend development.",
+      "outcomes": [
+        "Understand components",
+        "Use state and props",
+        "Use routing",
+        "Build a small web app"
+      ],
+      "prerequisites": [
+        "Basic JavaScript",
+        "HTML/CSS"
+      ],
+      "projects": [
+        "Course catalog",
+        "Small dashboard",
+        "React todo app",
+        "Profile app"
+      ],
+      "tools": [
+        "React",
+        "Vite",
+        "React Router",
+        "Tailwind CSS"
+      ]
+    },
+    "cppFoundation": {
+      "title": "C++ Foundation",
+      "subtitle": "C++ basics for algorithmic thinking",
+      "description": "A C++ foundation course for students who want strict syntax, algorithm practice and basic programming problem solving.",
+      "target": "Students with basic math logic who want algorithms or programming contests.",
+      "outcomes": [
+        "Know C++ syntax",
+        "Use loops, arrays and functions",
+        "Solve basic problems",
+        "Prepare for algorithms"
+      ],
+      "prerequisites": [
+        "Basic math reasoning",
+        "Patience with strict syntax"
+      ],
+      "projects": [
+        "Sequence problems",
+        "Array processing",
+        "Search exercises",
+        "Simple optimization tasks"
+      ],
+      "tools": [
+        "C++ compiler",
+        "Online judge",
+        "VS Code"
+      ]
+    },
+    "algorithmBasic": {
+      "title": "Algorithm Basic",
+      "subtitle": "Algorithmic thinking and problem solving",
+      "description": "Practice problem analysis, pattern finding, simple optimization and introductory data structures.",
+      "target": "Students or learners who want stronger algorithmic thinking before advanced topics.",
+      "outcomes": [
+        "Analyze problem statements",
+        "Choose solution directions",
+        "Understand basic complexity",
+        "Practice systematically"
+      ],
+      "prerequisites": [
+        "Know one basic programming language",
+        "Logical reasoning ability"
+      ],
+      "projects": [
+        "Pattern practice set",
+        "Searching and sorting",
+        "Array problems",
+        "Basic greedy tasks"
+      ],
+      "tools": [
+        "C++ or Python",
+        "Online judge",
+        "Strategy notebook"
+      ]
+    },
+    "dataFoundation": {
+      "title": "Data Foundation with Python",
+      "subtitle": "Data processing basics",
+      "description": "Learn table-shaped data, CSV/Excel reading and writing, basic data cleaning and simple reporting with Python.",
+      "target": "Working adults, students and learners preparing for Data/AI.",
+      "outcomes": [
+        "Understand tabular data",
+        "Read and write CSV/Excel",
+        "Clean data basics",
+        "Create simple reports"
+      ],
+      "prerequisites": [
+        "Basic Python",
+        "Spreadsheet experience is helpful"
+      ],
+      "projects": [
+        "Revenue summary",
+        "Faulty data filter",
+        "Learner report",
+        "Small data dashboard"
+      ],
+      "tools": [
+        "Python",
+        "CSV/Excel",
+        "Intro pandas"
+      ]
+    },
+    "aiBeginner": {
+      "title": "AI Beginner",
+      "subtitle": "A practical introduction to AI",
+      "description": "Understand training data, models, prediction, evaluation and how to build a simple AI demo.",
+      "target": "Learners who know Python and want a practical introduction to AI.",
+      "outcomes": [
+        "Understand what AI is",
+        "Understand training data",
+        "Know the model concept",
+        "Build a simple prediction demo"
+      ],
+      "prerequisites": [
+        "Basic Python",
+        "Basic data foundation"
+      ],
+      "projects": [
+        "Simple classification demo",
+        "Basic number prediction",
+        "Mini AI app",
+        "Model result report"
+      ],
+      "tools": [
+        "Python",
+        "Notebook",
+        "Intro AI libraries"
+      ]
+    }
+  },
+  "roadmaps": {
+    "student": {
+      "badge": "Student",
+      "title": "Roadmap for grades 6-12",
+      "shortDesc": "From logical thinking to Python, projects and algorithms.",
+      "description": "This roadmap prioritizes thinking, confidence and problem-solving habits. Younger learners should start visually and with daily-life examples, then move into Python and projects.",
+      "whenToUse": "Use this for students who need a structured path and for parents who want to know whether the child should start with thinking, Python or algorithms.",
+      "goals": [
+        "Build programming thinking",
+        "Write simple Python programs",
+        "Create small projects",
+        "Move into algorithms when ready"
+      ],
+      "stages": [
+        {
+          "title": "Thinking assessment",
+          "description": "Take the Thinking Test to understand pattern recognition, logic, data reasoning and debugging mindset.",
+          "items": [
+            "Choose difficulty by grade",
+            "Set learning pace",
+            "Separate fun learning, foundation learning and contest preparation"
+          ],
+          "courseIds": []
+        },
+        {
+          "title": "Python Foundation",
+          "description": "Learn Python from input/output, variables, conditions and loops to functions and mini projects.",
+          "items": [
+            "Follow 24 lessons",
+            "Each lesson has quiz and practice",
+            "Use visual explanations first"
+          ],
+          "courseIds": [
+            "python-foundation"
+          ]
+        },
+        {
+          "title": "Projects and self-learning habits",
+          "description": "Practice small projects so learners understand how to break down problems and finish products.",
+          "items": [
+            "Quiz",
+            "Number guessing game",
+            "Score manager",
+            "Project presentation"
+          ],
+          "courseIds": [
+            "python-projects"
+          ]
+        },
+        {
+          "title": "Advanced branch",
+          "description": "If the learner enjoys problem solving and has strong math foundations, move to C++ and algorithms.",
+          "items": [
+            "C++ Foundation",
+            "Algorithm Basic",
+            "Online judge practice"
+          ],
+          "courseIds": [
+            "cpp-foundation",
+            "algorithm-basic"
+          ]
+        }
+      ]
+    },
+    "beginner": {
+      "badge": "Beginner",
+      "title": "Roadmap for absolute beginners",
+      "shortDesc": "Slow, solid, example-rich and project-based.",
+      "description": "This roadmap is for learners who have never coded before. The goal is to understand how computers process data, write small programs and choose the next direction after the foundation.",
+      "whenToUse": "Use this when the learner is unsure whether to learn Python, Web or JavaScript and needs a low-pressure path.",
+      "goals": [
+        "Stop fearing code",
+        "Understand basic programming concepts",
+        "Write small exercises",
+        "Choose the next direction"
+      ],
+      "stages": [
+        {
+          "title": "Thinking warm-up",
+          "description": "Start with thinking tests and daily-life examples to understand algorithms as step-by-step instructions.",
+          "items": [
+            "Input - Process - Output",
+            "True/false rules",
+            "Problem decomposition"
+          ],
+          "courseIds": []
+        },
+        {
+          "title": "Python Foundation",
+          "description": "Python is a safe first choice because the syntax is readable and beginner-friendly.",
+          "items": [
+            "Variables",
+            "Conditions",
+            "Loops",
+            "Lists",
+            "Functions"
+          ],
+          "courseIds": [
+            "python-foundation"
+          ]
+        },
+        {
+          "title": "Project practice",
+          "description": "After the foundation, learners should build small projects to move from theory to doing.",
+          "items": [
+            "Todo",
+            "Quiz",
+            "Game",
+            "Console app"
+          ],
+          "courseIds": [
+            "python-projects"
+          ]
+        },
+        {
+          "title": "Choose the next direction",
+          "description": "If the learner likes interfaces, move to Web/JavaScript. If the learner likes data, continue to Data Foundation.",
+          "items": [
+            "Web Foundation",
+            "JavaScript Foundation",
+            "Data Foundation"
+          ],
+          "courseIds": [
+            "web-foundation",
+            "javascript-foundation",
+            "data-foundation"
+          ]
+        }
+      ]
+    },
+    "workingAdult": {
+      "badge": "Working adult",
+      "title": "Roadmap for working adults",
+      "shortDesc": "Application-first: automation, data and time saving.",
+      "description": "This roadmap prioritizes practical usage: files, table data, repeated reports and office automation. Learners do not need deep algorithms at the start.",
+      "whenToUse": "Use this for working adults who want programming for real workflows, reports, data or repeated tasks.",
+      "goals": [
+        "Know enough Python for work",
+        "Automate repeated tasks",
+        "Process table data",
+        "Build a work-related project"
+      ],
+      "stages": [
+        {
+          "title": "Identify work problems",
+          "description": "Before going deep, identify what to automate: files, reports, data, email or error checking.",
+          "items": [
+            "List repeated workflows",
+            "Define input data",
+            "Define expected output"
+          ],
+          "courseIds": []
+        },
+        {
+          "title": "Python Foundation",
+          "description": "Learn the Python parts needed for logic, data and functions.",
+          "items": [
+            "Input/Output",
+            "Conditions",
+            "Loops",
+            "Files",
+            "Functions"
+          ],
+          "courseIds": [
+            "python-foundation"
+          ]
+        },
+        {
+          "title": "Automation for Work",
+          "description": "Apply Python to files, folders, CSV/Excel and reports.",
+          "items": [
+            "File renaming",
+            "Data aggregation",
+            "Error checking",
+            "Reporting"
+          ],
+          "courseIds": [
+            "python-automation"
+          ]
+        },
+        {
+          "title": "Data and intro AI",
+          "description": "If work involves data, continue to Data Foundation and AI Beginner.",
+          "items": [
+            "Data cleaning",
+            "Table reports",
+            "Basic AI model concepts"
+          ],
+          "courseIds": [
+            "data-foundation",
+            "ai-beginner"
+          ]
+        }
+      ]
+    },
+    "careerSwitcher": {
+      "badge": "Career switcher",
+      "title": "Roadmap for career switchers",
+      "shortDesc": "From programming basics to web, portfolio projects and data.",
+      "description": "This path needs clear career goals. Learners should build a Python or JavaScript foundation, create projects, read documentation and build an initial portfolio.",
+      "whenToUse": "Use this for learners who want to move into developer, automation/data roles or need a programming foundation for tech careers.",
+      "goals": [
+        "Build strong programming foundations",
+        "Create practical projects",
+        "Build an initial portfolio",
+        "Prepare for frontend or data paths"
+      ],
+      "stages": [
+        {
+          "title": "Assess the foundation",
+          "description": "Take the Thinking Test and Placement Test to decide whether to start from Python Foundation or move faster.",
+          "items": [
+            "Logic",
+            "Problem solving",
+            "Debug mindset",
+            "Readiness"
+          ],
+          "courseIds": []
+        },
+        {
+          "title": "Programming foundation",
+          "description": "Python Foundation builds code thinking, functions, data and projects before choosing a career branch.",
+          "items": [
+            "Python",
+            "Debugging",
+            "Small projects",
+            "Coding study habits"
+          ],
+          "courseIds": [
+            "python-foundation",
+            "python-projects"
+          ]
+        },
+        {
+          "title": "Web/frontend branch",
+          "description": "For interface-oriented learners, study Web Foundation, JavaScript and React.",
+          "items": [
+            "HTML/CSS",
+            "JavaScript",
+            "React",
+            "Web portfolio"
+          ],
+          "courseIds": [
+            "web-foundation",
+            "javascript-foundation",
+            "react-foundation"
+          ]
+        },
+        {
+          "title": "Data/automation branch",
+          "description": "For data or automation paths, study Python Automation and Data Foundation.",
+          "items": [
+            "Automation",
+            "CSV/Excel",
+            "Data cleaning",
+            "Intro AI"
+          ],
+          "courseIds": [
+            "python-automation",
+            "data-foundation",
+            "ai-beginner"
+          ]
+        }
+      ]
+    }
+  }
+}

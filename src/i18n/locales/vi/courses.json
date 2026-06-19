@@ -1,0 +1,708 @@
+{
+  "nav": {
+    "languages": "Ngôn ngữ",
+    "courses": "Khóa học",
+    "roadmap": "Lộ trình"
+  },
+  "ui": {
+    "recommendedFirst": "Nên bắt đầu",
+    "courseCount": "{{count}} khóa học",
+    "viewCourses": "Xem khóa học",
+    "sessions": "{{count}} buổi",
+    "hours": "{{count}} giờ",
+    "lessons": "{{count}} bài",
+    "openCourse": "Vào khóa học",
+    "viewPlannedCourse": "Xem lộ trình khóa này"
+  },
+  "status": {
+    "available": "Đang mở",
+    "planned": "Sắp triển khai",
+    "coming-soon": "Sắp có"
+  },
+  "filters": {
+    "all": "Tất cả",
+    "available": "Đang mở",
+    "planned": "Sắp triển khai"
+  },
+  "categories": {
+    "all": "Tất cả",
+    "programming": "Lập trình nền tảng",
+    "web": "Web",
+    "algorithm": "Thuật toán",
+    "career": "Định hướng nghề",
+    "data-ai": "Data & AI"
+  },
+  "languagePage": {
+    "badge": "Chọn điểm bắt đầu",
+    "title": "Chọn ngôn ngữ và hướng học phù hợp",
+    "subtitle": "Mỗi người học có mục tiêu khác nhau. Trang này giúp bạn chọn Python, Web, JavaScript, C++ hoặc Data/AI theo độ tuổi, nền tảng và mục tiêu học tập.",
+    "ctaPlacement": "Làm placement test",
+    "ctaRoadmap": "Xem lộ trình học",
+    "stats": {
+      "languages": "nhóm ngôn ngữ",
+      "courses": "khóa học",
+      "roadmaps": "lộ trình"
+    },
+    "searchPlaceholder": "Tìm Python, Web, AI, thuật toán...",
+    "filter": "Lọc",
+    "catalogBadge": "Danh mục học",
+    "catalogTitle": "Các hướng học chính",
+    "viewAllCourses": "Xem tất cả khóa học",
+    "noResult": "Không tìm thấy hướng học phù hợp."
+  },
+  "coursePage": {
+    "badge": "Danh sách khóa học",
+    "languageBadge": "Khóa học theo ngôn ngữ",
+    "title": "Tất cả khóa học",
+    "subtitle": "Danh mục khóa học được chia theo nền tảng, dự án, tự động hóa, web, thuật toán và Data/AI. Người học nên làm test đầu vào trước khi chọn tốc độ học.",
+    "takePlacement": "Kiểm tra đầu vào",
+    "viewRoadmap": "Xem lộ trình",
+    "stats": {
+      "matched": "phù hợp",
+      "available": "đang mở",
+      "languages": "hướng học"
+    },
+    "searchPlaceholder": "Tìm khóa học, kỹ năng, dự án...",
+    "statusFilter": "Trạng thái",
+    "catalogBadge": "Course catalog",
+    "catalogTitle": "Khóa học phù hợp",
+    "clearLanguage": "Xem tất cả",
+    "noResult": "Không có khóa học phù hợp với bộ lọc hiện tại."
+  },
+  "courseDetail": {
+    "backToCourses": "Quay lại danh sách",
+    "startFirstLesson": "Bắt đầu bài 1",
+    "joinWaitlist": "Kiểm tra và đăng ký quan tâm",
+    "viewRoadmap": "Xem lộ trình liên quan",
+    "sessions": "buổi",
+    "hours": "giờ",
+    "lessons": "bài",
+    "target": "Phù hợp với",
+    "outcomes": "Sau khóa học, học viên sẽ",
+    "prerequisites": "Yêu cầu đầu vào",
+    "projectsAndTools": "Dự án và công cụ",
+    "lessonRoadmapBadge": "Nội dung học",
+    "lessonRoadmap": "Lộ trình bài học",
+    "lessonRoadmapDesc": "Các bài được sắp xếp từ tư duy nền tảng, cú pháp cơ bản, xử lý dữ liệu đến mini project cuối khóa.",
+    "plannedTitle": "Khóa học đang trong lộ trình triển khai",
+    "plannedDesc": "Nội dung chi tiết sẽ được mở sau. Người học có thể bắt đầu bằng test tư duy, placement test hoặc Python Foundation trước.",
+    "relatedCourses": "Khóa học liên quan"
+  },
+  "roadmapPage": {
+    "badge": "Learning Roadmap",
+    "title": "Lộ trình học lập trình theo từng nhóm người học",
+    "subtitle": "Lộ trình không chỉ là danh sách khóa học. Mỗi chặng được thiết kế theo mục tiêu, độ tuổi, nền tảng tư duy, thời gian học và khả năng áp dụng sau khóa học.",
+    "ctaThinking": "Làm test tư duy",
+    "ctaPlacement": "Làm placement test",
+    "recommendationCard": {
+      "badge": "Gợi ý nhanh",
+      "title": "Nên bắt đầu từ đâu?",
+      "desc": "Nếu chưa chắc nên chọn khóa nào, hãy làm test tư duy trước, sau đó làm placement test cho khóa Python Foundation.",
+      "language": "Chọn hướng học",
+      "courses": "Xem danh sách khóa"
+    },
+    "chooseBadge": "Chọn đối tượng",
+    "chooseTitle": "Lộ trình theo mục tiêu học",
+    "whenToUse": "Khi nào nên dùng lộ trình này?",
+    "checkPlacement": "Kiểm tra xếp lớp",
+    "stagesTitle": "Các chặng học đề xuất",
+    "stagesDesc": "Mỗi chặng có mục tiêu rõ ràng và khóa học phù hợp để triển khai.",
+    "stageCourses": "Khóa học gợi ý",
+    "recommendedCourses": "Khóa học trong lộ trình",
+    "recommendedCoursesDesc": "Các khóa được sắp xếp theo thứ tự từ nền tảng đến ứng dụng."
+  },
+  "languages": {
+    "python": {
+      "name": "Python",
+      "description": "Ngôn ngữ dễ học, cú pháp rõ ràng, phù hợp cho học sinh, người mới, người đi làm, automation, data và AI.",
+      "targetSummary": "Học sinh, người mới, người đi làm",
+      "bestFor": [
+        "Dễ bắt đầu",
+        "Tư duy lập trình",
+        "Automation & AI"
+      ]
+    },
+    "javascript": {
+      "name": "JavaScript",
+      "description": "Ngôn ngữ chính của web hiện đại, dùng để tạo tương tác trên website và chuẩn bị học React.",
+      "targetSummary": "Người muốn học web/frontend",
+      "bestFor": [
+        "Web",
+        "Frontend",
+        "React"
+      ]
+    },
+    "web": {
+      "name": "Web Development",
+      "description": "Hướng học xây dựng website từ HTML, CSS, JavaScript đến React và sản phẩm frontend hoàn chỉnh.",
+      "targetSummary": "Người học nghề web từ đầu",
+      "bestFor": [
+        "HTML/CSS",
+        "Website",
+        "Portfolio"
+      ]
+    },
+    "cpp": {
+      "name": "C++",
+      "description": "Phù hợp cho tư duy thuật toán, cấu trúc dữ liệu, học sinh muốn thi lập trình hoặc rèn năng lực giải bài toán.",
+      "targetSummary": "Học sinh yêu thích thuật toán",
+      "bestFor": [
+        "Thuật toán",
+        "Cấu trúc dữ liệu",
+        "Thi lập trình"
+      ]
+    },
+    "dataAi": {
+      "name": "Data & AI",
+      "description": "Hướng học xử lý dữ liệu, phân tích bảng, làm sạch dữ liệu và làm quen AI bằng Python.",
+      "targetSummary": "Người đi làm, chuyển ngành",
+      "bestFor": [
+        "Dữ liệu",
+        "Báo cáo",
+        "AI nhập môn"
+      ]
+    }
+  },
+  "courses": {
+    "pythonFoundation": {
+      "title": "Python Foundation",
+      "subtitle": "Học Python từ con số 0",
+      "description": "Khóa nền tảng giúp người học hiểu tư duy lập trình, viết chương trình Python cơ bản, xử lý điều kiện, vòng lặp, hàm, danh sách, file và hoàn thành mini project.",
+      "target": "Học sinh lớp 6-12, người mới bắt đầu, người mất gốc, người đi làm muốn học Python bài bản.",
+      "outcomes": [
+        "Hiểu mô hình Input - Process - Output",
+        "Viết được chương trình Python cơ bản",
+        "Dùng biến, kiểu dữ liệu, điều kiện và vòng lặp",
+        "Biết dùng list, dictionary và function",
+        "Biết debug lỗi cơ bản",
+        "Hoàn thành mini project cuối khóa"
+      ],
+      "prerequisites": [
+        "Biết sử dụng máy tính cơ bản",
+        "Không cần biết lập trình trước",
+        "Nên làm Thinking Test hoặc Placement Test trước khi học"
+      ],
+      "projects": [
+        "Quiz trắc nghiệm",
+        "Game đoán số",
+        "Quản lý điểm học sinh",
+        "Project tổng kết cuối khóa"
+      ],
+      "tools": [
+        "Python 3",
+        "VS Code hoặc trình chạy Python online",
+        "Terminal cơ bản"
+      ]
+    },
+    "pythonProjects": {
+      "title": "Python Mini Projects",
+      "subtitle": "Luyện Python qua dự án nhỏ",
+      "description": "Khóa luyện tập giúp học viên củng cố Python bằng các dự án console thực tế như quiz, game, quản lý danh sách và xử lý file.",
+      "target": "Người đã hoàn thành Python Foundation hoặc biết biến, điều kiện, vòng lặp, list và function.",
+      "outcomes": [
+        "Biết chia nhỏ project",
+        "Tổ chức code bằng function",
+        "Biết lưu và đọc dữ liệu",
+        "Biết kiểm thử từng chức năng"
+      ],
+      "prerequisites": [
+        "Hoàn thành Python Foundation",
+        "Biết đọc lỗi cơ bản"
+      ],
+      "projects": [
+        "Todo app console",
+        "Game đoán số",
+        "Quản lý thư viện",
+        "Ứng dụng quiz có lưu điểm"
+      ],
+      "tools": [
+        "Python 3",
+        "VS Code",
+        "File .txt/.csv"
+      ]
+    },
+    "pythonAutomation": {
+      "title": "Python Automation for Work",
+      "subtitle": "Tự động hóa công việc bằng Python",
+      "description": "Khóa ứng dụng Python để xử lý file, bảng dữ liệu, báo cáo lặp lại, đổi tên file hàng loạt và tự động hóa quy trình văn phòng.",
+      "target": "Người đi làm, nhân viên văn phòng, kỹ thuật viên, người muốn tiết kiệm thời gian bằng automation.",
+      "outcomes": [
+        "Đọc ghi file",
+        "Xử lý dữ liệu bảng",
+        "Tự động hóa thao tác lặp",
+        "Tạo báo cáo cơ bản"
+      ],
+      "prerequisites": [
+        "Biết Python cơ bản",
+        "Có ví dụ công việc thực tế muốn tự động hóa"
+      ],
+      "projects": [
+        "Đổi tên file hàng loạt",
+        "Tổng hợp CSV",
+        "Tạo báo cáo đơn giản",
+        "Kiểm tra dữ liệu lỗi"
+      ],
+      "tools": [
+        "Python",
+        "CSV/Excel",
+        "Folder/file workflow"
+      ]
+    },
+    "webFoundation": {
+      "title": "Web Foundation",
+      "subtitle": "HTML, CSS và tư duy xây dựng website",
+      "description": "Khóa nhập môn web giúp người học hiểu cấu trúc trang, bố cục, responsive và cách tạo landing page đầu tiên.",
+      "target": "Người muốn học web từ đầu hoặc chuẩn bị học JavaScript/React.",
+      "outcomes": [
+        "Hiểu HTML semantic",
+        "Tạo layout bằng CSS",
+        "Biết responsive cơ bản",
+        "Làm landing page đơn giản"
+      ],
+      "prerequisites": [
+        "Biết dùng máy tính",
+        "Không cần biết lập trình"
+      ],
+      "projects": [
+        "Landing page cá nhân",
+        "Trang giới thiệu khóa học",
+        "Portfolio cơ bản"
+      ],
+      "tools": [
+        "HTML",
+        "CSS",
+        "VS Code",
+        "Browser DevTools"
+      ]
+    },
+    "javascriptFoundation": {
+      "title": "JavaScript Foundation",
+      "subtitle": "Nền tảng JavaScript cho web",
+      "description": "Khóa học JavaScript nền tảng, tập trung vào biến, điều kiện, vòng lặp, mảng, object, function và tương tác DOM cơ bản.",
+      "target": "Người muốn học web/frontend hoặc chuẩn bị học React.",
+      "outcomes": [
+        "Hiểu cú pháp JavaScript",
+        "Thao tác mảng và object",
+        "Xử lý sự kiện",
+        "Tạo tương tác trên trang web"
+      ],
+      "prerequisites": [
+        "Nên biết HTML/CSS cơ bản",
+        "Có tư duy logic nền tảng"
+      ],
+      "projects": [
+        "Todo list",
+        "Calculator",
+        "Quiz trên web",
+        "Form validation"
+      ],
+      "tools": [
+        "JavaScript",
+        "Browser",
+        "VS Code"
+      ]
+    },
+    "reactFoundation": {
+      "title": "React Foundation",
+      "subtitle": "Xây dựng giao diện web hiện đại",
+      "description": "Khóa React giúp người học hiểu component, props, state, event, routing và xây dựng web app nhỏ theo cấu trúc rõ ràng.",
+      "target": "Người đã biết JavaScript cơ bản và muốn xây dựng frontend hiện đại.",
+      "outcomes": [
+        "Hiểu component",
+        "Dùng state và props",
+        "Biết routing",
+        "Làm được web app nhỏ"
+      ],
+      "prerequisites": [
+        "Biết JavaScript cơ bản",
+        "Biết HTML/CSS"
+      ],
+      "projects": [
+        "Course catalog",
+        "Dashboard nhỏ",
+        "Todo app React",
+        "Profile app"
+      ],
+      "tools": [
+        "React",
+        "Vite",
+        "React Router",
+        "Tailwind CSS"
+      ]
+    },
+    "cppFoundation": {
+      "title": "C++ Foundation",
+      "subtitle": "Nền tảng C++ cho tư duy thuật toán",
+      "description": "Khóa C++ nền tảng dành cho học sinh muốn rèn thuật toán, học cú pháp chặt chẽ và giải bài lập trình cơ bản.",
+      "target": "Học sinh có tư duy toán logic, muốn học thuật toán hoặc thi lập trình.",
+      "outcomes": [
+        "Biết cú pháp C++",
+        "Dùng vòng lặp, mảng, hàm",
+        "Giải bài toán cơ bản",
+        "Chuẩn bị học thuật toán"
+      ],
+      "prerequisites": [
+        "Có tư duy toán cơ bản",
+        "Kiên nhẫn với cú pháp chặt chẽ"
+      ],
+      "projects": [
+        "Bài toán dãy số",
+        "Xử lý mảng",
+        "Bài tập tìm kiếm",
+        "Bài tập tối ưu đơn giản"
+      ],
+      "tools": [
+        "C++ compiler",
+        "Online judge",
+        "VS Code"
+      ]
+    },
+    "algorithmBasic": {
+      "title": "Algorithm Basic",
+      "subtitle": "Tư duy thuật toán và giải bài",
+      "description": "Khóa rèn tư duy bài toán, phân tích đề, tìm quy luật, tối ưu đơn giản và làm quen cấu trúc dữ liệu cơ bản.",
+      "target": "Học sinh hoặc người học muốn tăng năng lực giải thuật toán trước khi học nâng cao.",
+      "outcomes": [
+        "Biết phân tích đề",
+        "Biết chọn hướng giải",
+        "Làm quen độ phức tạp",
+        "Giải bài tập có hệ thống"
+      ],
+      "prerequisites": [
+        "Biết một ngôn ngữ lập trình cơ bản",
+        "Có khả năng suy luận logic"
+      ],
+      "projects": [
+        "Bộ bài luyện pattern",
+        "Tìm kiếm và sắp xếp",
+        "Bài toán mảng",
+        "Bài toán greedy cơ bản"
+      ],
+      "tools": [
+        "C++ hoặc Python",
+        "Online judge",
+        "Notebook ghi chiến thuật"
+      ]
+    },
+    "dataFoundation": {
+      "title": "Data Foundation with Python",
+      "subtitle": "Nền tảng xử lý dữ liệu",
+      "description": "Khóa giúp người học hiểu dữ liệu dạng bảng, đọc ghi CSV/Excel, làm sạch dữ liệu và tạo báo cáo cơ bản bằng Python.",
+      "target": "Người đi làm, sinh viên, người muốn học Data/AI nhưng cần nền tảng dữ liệu trước.",
+      "outcomes": [
+        "Hiểu dữ liệu dạng bảng",
+        "Đọc ghi CSV/Excel",
+        "Làm sạch dữ liệu cơ bản",
+        "Tạo báo cáo đơn giản"
+      ],
+      "prerequisites": [
+        "Biết Python cơ bản",
+        "Biết dùng bảng tính là lợi thế"
+      ],
+      "projects": [
+        "Tổng hợp doanh thu",
+        "Lọc dữ liệu lỗi",
+        "Báo cáo học viên",
+        "Dashboard dữ liệu nhỏ"
+      ],
+      "tools": [
+        "Python",
+        "CSV/Excel",
+        "pandas nhập môn"
+      ]
+    },
+    "aiBeginner": {
+      "title": "AI Beginner",
+      "subtitle": "Làm quen AI từ nền tảng",
+      "description": "Khóa nhập môn AI giúp người học hiểu dữ liệu huấn luyện, model, dự đoán, đánh giá và cách tạo demo AI đơn giản.",
+      "target": "Người đã biết Python và muốn hiểu AI theo hướng thực hành dễ tiếp cận.",
+      "outcomes": [
+        "Hiểu AI là gì",
+        "Hiểu dữ liệu huấn luyện",
+        "Biết khái niệm model",
+        "Làm demo dự đoán cơ bản"
+      ],
+      "prerequisites": [
+        "Biết Python cơ bản",
+        "Có nền tảng dữ liệu cơ bản"
+      ],
+      "projects": [
+        "Demo phân loại đơn giản",
+        "Dự đoán số cơ bản",
+        "Ứng dụng AI mini",
+        "Báo cáo kết quả model"
+      ],
+      "tools": [
+        "Python",
+        "Notebook",
+        "Thư viện AI nhập môn"
+      ]
+    }
+  },
+  "roadmaps": {
+    "student": {
+      "badge": "Học sinh",
+      "title": "Lộ trình học sinh lớp 6-12",
+      "shortDesc": "Từ tư duy logic đến Python, project và thuật toán.",
+      "description": "Lộ trình này ưu tiên tư duy, sự tự tin và thói quen giải bài. Học sinh nhỏ nên bắt đầu nhẹ bằng trực quan và ví dụ đời sống, sau đó chuyển sang Python và project.",
+      "whenToUse": "Dùng cho học sinh cần học bài bản, phụ huynh muốn biết con nên bắt đầu từ tư duy, Python hay thuật toán.",
+      "goals": [
+        "Xây nền tư duy lập trình",
+        "Biết viết chương trình Python đơn giản",
+        "Làm được project nhỏ",
+        "Có đường sang thuật toán nếu phù hợp"
+      ],
+      "stages": [
+        {
+          "title": "Đánh giá tư duy",
+          "description": "Làm Thinking Test để biết khả năng nhận diện quy luật, logic, dữ liệu và debug mindset.",
+          "items": [
+            "Xác định độ khó phù hợp theo lớp",
+            "Chọn tốc độ học",
+            "Phân biệt học vui, học nền tảng hoặc học thi"
+          ],
+          "courseIds": []
+        },
+        {
+          "title": "Python Foundation",
+          "description": "Học Python từ Input/Output, biến, điều kiện, vòng lặp đến function và mini project.",
+          "items": [
+            "Học đều theo 24 bài",
+            "Mỗi bài có quiz và bài thực hành",
+            "Ưu tiên giải thích trực quan"
+          ],
+          "courseIds": [
+            "python-foundation"
+          ]
+        },
+        {
+          "title": "Project và thói quen tự học",
+          "description": "Luyện qua project nhỏ để học sinh hiểu cách chia nhỏ bài toán và hoàn thiện sản phẩm.",
+          "items": [
+            "Quiz",
+            "Game đoán số",
+            "Quản lý điểm",
+            "Trình bày project"
+          ],
+          "courseIds": [
+            "python-projects"
+          ]
+        },
+        {
+          "title": "Nhánh nâng cao",
+          "description": "Nếu học sinh thích giải bài và có nền toán tốt, có thể chuyển sang C++ và thuật toán.",
+          "items": [
+            "C++ Foundation",
+            "Algorithm Basic",
+            "Bài tập online judge"
+          ],
+          "courseIds": [
+            "cpp-foundation",
+            "algorithm-basic"
+          ]
+        }
+      ]
+    },
+    "beginner": {
+      "badge": "Người mới",
+      "title": "Lộ trình người mới bắt đầu",
+      "shortDesc": "Học chậm, chắc, nhiều ví dụ và project nhỏ.",
+      "description": "Lộ trình này phù hợp với người chưa từng lập trình. Mục tiêu là hiểu cách máy tính xử lý, biết viết chương trình nhỏ và chọn hướng tiếp theo sau khi có nền tảng.",
+      "whenToUse": "Dùng khi người học chưa biết nên học Python, Web hay JavaScript và cần một lộ trình không gây quá tải.",
+      "goals": [
+        "Không sợ code",
+        "Hiểu khái niệm lập trình cơ bản",
+        "Tự viết bài tập nhỏ",
+        "Chọn được hướng học tiếp"
+      ],
+      "stages": [
+        {
+          "title": "Làm quen tư duy",
+          "description": "Bắt đầu bằng bài test tư duy và các ví dụ đời sống để hiểu thuật toán như một chuỗi bước.",
+          "items": [
+            "Input - Process - Output",
+            "Quy tắc đúng/sai",
+            "Chia nhỏ vấn đề"
+          ],
+          "courseIds": []
+        },
+        {
+          "title": "Python Foundation",
+          "description": "Python là lựa chọn an toàn để học nền tảng vì cú pháp rõ và dễ đọc.",
+          "items": [
+            "Biến",
+            "Điều kiện",
+            "Vòng lặp",
+            "List",
+            "Function"
+          ],
+          "courseIds": [
+            "python-foundation"
+          ]
+        },
+        {
+          "title": "Luyện project",
+          "description": "Sau nền tảng, người học nên làm project nhỏ để chuyển từ hiểu lý thuyết sang biết tự làm.",
+          "items": [
+            "Todo",
+            "Quiz",
+            "Game",
+            "Ứng dụng console"
+          ],
+          "courseIds": [
+            "python-projects"
+          ]
+        },
+        {
+          "title": "Chọn hướng tiếp theo",
+          "description": "Nếu thích giao diện, chuyển sang Web/JavaScript. Nếu thích dữ liệu, đi tiếp Data Foundation.",
+          "items": [
+            "Web Foundation",
+            "JavaScript Foundation",
+            "Data Foundation"
+          ],
+          "courseIds": [
+            "web-foundation",
+            "javascript-foundation",
+            "data-foundation"
+          ]
+        }
+      ]
+    },
+    "workingAdult": {
+      "badge": "Người đi làm",
+      "title": "Lộ trình người đi làm",
+      "shortDesc": "Tập trung ứng dụng, automation, dữ liệu và tiết kiệm thời gian.",
+      "description": "Lộ trình này ưu tiên tính ứng dụng: xử lý file, bảng dữ liệu, báo cáo lặp lại và tự động hóa công việc. Người học không cần đi quá sâu thuật toán ngay từ đầu.",
+      "whenToUse": "Dùng cho người đi làm muốn dùng lập trình để xử lý công việc thực tế, báo cáo, dữ liệu hoặc quy trình lặp lại.",
+      "goals": [
+        "Hiểu Python đủ dùng",
+        "Tự động hóa việc lặp",
+        "Xử lý dữ liệu bảng",
+        "Tạo project phục vụ công việc"
+      ],
+      "stages": [
+        {
+          "title": "Xác định bài toán công việc",
+          "description": "Trước khi học sâu, cần biết muốn tự động hóa việc gì: file, báo cáo, dữ liệu, email hay kiểm tra lỗi.",
+          "items": [
+            "Liệt kê quy trình lặp",
+            "Xác định dữ liệu đầu vào",
+            "Xác định kết quả mong muốn"
+          ],
+          "courseIds": []
+        },
+        {
+          "title": "Python Foundation",
+          "description": "Học các phần Python cần thiết để hiểu logic, dữ liệu và function.",
+          "items": [
+            "Input/Output",
+            "Điều kiện",
+            "Vòng lặp",
+            "File",
+            "Function"
+          ],
+          "courseIds": [
+            "python-foundation"
+          ]
+        },
+        {
+          "title": "Automation for Work",
+          "description": "Ứng dụng Python vào file, folder, CSV/Excel và báo cáo.",
+          "items": [
+            "Đổi tên file",
+            "Tổng hợp dữ liệu",
+            "Kiểm tra lỗi",
+            "Tạo báo cáo"
+          ],
+          "courseIds": [
+            "python-automation"
+          ]
+        },
+        {
+          "title": "Data và AI nhập môn",
+          "description": "Nếu công việc liên quan dữ liệu, đi tiếp Data Foundation rồi AI Beginner.",
+          "items": [
+            "Làm sạch dữ liệu",
+            "Báo cáo bảng",
+            "Hiểu mô hình AI cơ bản"
+          ],
+          "courseIds": [
+            "data-foundation",
+            "ai-beginner"
+          ]
+        }
+      ]
+    },
+    "careerSwitcher": {
+      "badge": "Chuyển ngành",
+      "title": "Lộ trình chuyển ngành công nghệ",
+      "shortDesc": "Từ nền tảng lập trình đến web, project portfolio và data.",
+      "description": "Lộ trình này cần rõ mục tiêu nghề nghiệp. Người học nên có nền tảng Python hoặc JavaScript, biết làm project, biết đọc tài liệu và xây portfolio.",
+      "whenToUse": "Dùng cho người muốn chuyển sang developer, automation/data role hoặc cần nền tảng lập trình để bước vào ngành công nghệ.",
+      "goals": [
+        "Có nền tảng lập trình chắc",
+        "Biết xây project thực tế",
+        "Có portfolio ban đầu",
+        "Chuẩn bị học frontend hoặc data"
+      ],
+      "stages": [
+        {
+          "title": "Đánh giá nền tảng",
+          "description": "Làm Thinking Test và Placement Test để biết nên bắt đầu từ Python Foundation hay học tăng tốc.",
+          "items": [
+            "Logic",
+            "Problem solving",
+            "Debug mindset",
+            "Readiness"
+          ],
+          "courseIds": []
+        },
+        {
+          "title": "Nền tảng lập trình",
+          "description": "Python Foundation giúp xây tư duy code, function, dữ liệu và project trước khi chọn nhánh nghề.",
+          "items": [
+            "Python",
+            "Debug",
+            "Project nhỏ",
+            "Thói quen học code"
+          ],
+          "courseIds": [
+            "python-foundation",
+            "python-projects"
+          ]
+        },
+        {
+          "title": "Nhánh web/frontend",
+          "description": "Nếu muốn làm sản phẩm giao diện, học Web Foundation, JavaScript và React.",
+          "items": [
+            "HTML/CSS",
+            "JavaScript",
+            "React",
+            "Portfolio web"
+          ],
+          "courseIds": [
+            "web-foundation",
+            "javascript-foundation",
+            "react-foundation"
+          ]
+        },
+        {
+          "title": "Nhánh data/automation",
+          "description": "Nếu muốn đi theo dữ liệu hoặc tự động hóa, học Python Automation và Data Foundation.",
+          "items": [
+            "Automation",
+            "CSV/Excel",
+            "Data cleaning",
+            "AI nhập môn"
+          ],
+          "courseIds": [
+            "python-automation",
+            "data-foundation",
+            "ai-beginner"
+          ]
+        }
+      ]
+    }
+  }
+}

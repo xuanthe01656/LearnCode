@@ -1,0 +1,1209 @@
+{
+  "ui": {
+    "backToCourse": "Back to course",
+    "lessonNumber": "Lesson {{order}}",
+    "minutes": "{{count}} min",
+    "objectives": "Learning objectives",
+    "navigation": "Lesson navigation",
+    "previousLesson": "Previous lesson",
+    "nextLesson": "Next lesson",
+    "project": "Practice / mini project",
+    "openLesson": "Open lesson",
+    "copy": "Copy",
+    "copied": "Copied",
+    "quickQuiz": "Quick quiz",
+    "quickQuizDesc": "Answer to check understanding after the lesson.",
+    "quizQuestion": "Question {{index}}",
+    "correct": "Correct.",
+    "incorrect": "Not quite."
+  },
+  "typeLabels": {
+    "concept": "Concept",
+    "coding": "Coding",
+    "practice": "Practice",
+    "quiz": "Quiz",
+    "project": "Project"
+  },
+  "blockTypes": {
+    "concept": "Concept",
+    "code": "Code example",
+    "practice": "Practice",
+    "story": "Story",
+    "checkpoint": "Checkpoint"
+  },
+  "lessons": {
+    "pyf001": {
+      "title": "Can computers think?",
+      "description": "Understand that computers follow instructions and the Input - Process - Output model.",
+      "objectives": [
+        "Understand that programming means giving clear instructions",
+        "Separate Input, Process and Output",
+        "Recognize programming in daily life"
+      ],
+      "blocks": [
+        {
+          "type": "story",
+          "title": "Computers do not guess",
+          "content": "Computers are fast, but they do not understand human intention automatically. A program describes clear steps for the computer to follow."
+        },
+        {
+          "type": "concept",
+          "title": "Input - Process - Output",
+          "content": "Input is data provided to a program. Process is the handling step. Output is the result. Example: enter 2 and 3, process addition, output 5."
+        },
+        {
+          "type": "practice",
+          "title": "Analyze a daily activity",
+          "content": "Choose an activity such as making noodles or opening a learning app. Write its Input, Process and Output."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "How do computers mainly work?",
+          "options": {
+            "A": "They guess user intentions",
+            "B": "They follow clear instructions",
+            "C": "They decide everything by themselves",
+            "D": "They only work with Internet"
+          },
+          "answerKey": "B",
+          "explain": "Computers need clear instructions; programming is how we write them."
+        }
+      ],
+      "project": {
+        "title": "Daily process description",
+        "description": "Choose a familiar activity and describe it as Input, Process and Output.",
+        "checklist": [
+          "At least one input",
+          "Clear process steps",
+          "Clear output"
+        ]
+      }
+    },
+    "pyf002": {
+      "title": "Your first Python program",
+      "description": "Get familiar with Python and print() for displaying information.",
+      "objectives": [
+        "Understand the core concept of this lesson",
+        "Read and run a small Python example",
+        "Complete a short practice task independently"
+      ],
+      "blocks": [
+        {
+          "type": "concept",
+          "title": "print() dùng để làm gì?",
+          "content": "This lesson introduces a core Python concept. Focus on what problem it solves and when to use it."
+        },
+        {
+          "type": "code",
+          "title": "Code example",
+          "language": "python",
+          "code": "print(\"Hello\")\nprint(\"Tôi đang học Python\")"
+        },
+        {
+          "type": "practice",
+          "title": "Practice",
+          "content": "Apply the lesson by changing the example, running it and explaining the output in your own words."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What is the best way to learn this concept?",
+          "options": {
+            "A": "Memorize without running code",
+            "B": "Run examples, change them, and explain the result",
+            "C": "Skip practice",
+            "D": "Only change colors"
+          },
+          "answerKey": "B",
+          "explain": "Running, changing and explaining examples helps learners understand programming concepts deeply."
+        }
+      ],
+      "project": {
+        "title": "Giới thiệu bản thân",
+        "description": "Complete a small task using the concept from this lesson and test it with at least two cases.",
+        "checklist": [
+          "Uses the lesson concept",
+          "Runs without errors",
+          "Has clear input and output"
+        ]
+      }
+    },
+    "pyf003": {
+      "title": "Variables - boxes for data",
+      "description": "Understand variables as named storage for data.",
+      "objectives": [
+        "Understand the core concept of this lesson",
+        "Read and run a small Python example",
+        "Complete a short practice task independently"
+      ],
+      "blocks": [
+        {
+          "type": "concept",
+          "title": "Biến là gì?",
+          "content": "This lesson introduces a core Python concept. Focus on what problem it solves and when to use it."
+        },
+        {
+          "type": "code",
+          "title": "Code example",
+          "language": "python",
+          "code": "name = \"An\"\nage = 13\nprint(name)\nprint(age)"
+        },
+        {
+          "type": "practice",
+          "title": "Practice",
+          "content": "Apply the lesson by changing the example, running it and explaining the output in your own words."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What is the best way to learn this concept?",
+          "options": {
+            "A": "Memorize without running code",
+            "B": "Run examples, change them, and explain the result",
+            "C": "Skip practice",
+            "D": "Only change colors"
+          },
+          "answerKey": "B",
+          "explain": "Running, changing and explaining examples helps learners understand programming concepts deeply."
+        }
+      ],
+      "project": {
+        "title": "Thẻ thông tin cá nhân",
+        "description": "Complete a small task using the concept from this lesson and test it with at least two cases.",
+        "checklist": [
+          "Uses the lesson concept",
+          "Runs without errors",
+          "Has clear input and output"
+        ]
+      }
+    },
+    "pyf004": {
+      "title": "Input with input()",
+      "description": "Receive user data and store it in variables.",
+      "objectives": [
+        "Understand the core concept of this lesson",
+        "Read and run a small Python example",
+        "Complete a short practice task independently"
+      ],
+      "blocks": [
+        {
+          "type": "concept",
+          "title": "input() là gì?",
+          "content": "This lesson introduces a core Python concept. Focus on what problem it solves and when to use it."
+        },
+        {
+          "type": "code",
+          "title": "Code example",
+          "language": "python",
+          "code": "name = input(\"What is your name? \")\nprint(\"Hello\", name)"
+        },
+        {
+          "type": "practice",
+          "title": "Practice",
+          "content": "Apply the lesson by changing the example, running it and explaining the output in your own words."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What is the best way to learn this concept?",
+          "options": {
+            "A": "Memorize without running code",
+            "B": "Run examples, change them, and explain the result",
+            "C": "Skip practice",
+            "D": "Only change colors"
+          },
+          "answerKey": "B",
+          "explain": "Running, changing and explaining examples helps learners understand programming concepts deeply."
+        }
+      ],
+      "project": {
+        "title": "Form đăng ký học",
+        "description": "Complete a small task using the concept from this lesson and test it with at least two cases.",
+        "checklist": [
+          "Uses the lesson concept",
+          "Runs without errors",
+          "Has clear input and output"
+        ]
+      }
+    },
+    "pyf005": {
+      "title": "Data types and conversion",
+      "description": "Work with strings, integers, floats, booleans and numeric conversion.",
+      "objectives": [
+        "Understand the core concept of this lesson",
+        "Read and run a small Python example",
+        "Complete a short practice task independently"
+      ],
+      "blocks": [
+        {
+          "type": "concept",
+          "title": "Các kiểu dữ liệu thường gặp",
+          "content": "This lesson introduces a core Python concept. Focus on what problem it solves and when to use it."
+        },
+        {
+          "type": "code",
+          "title": "Code example",
+          "language": "python",
+          "code": "a = int(input(\"Enter số thứ nhất: \"))\nb = int(input(\"Enter số thứ hai: \"))\nprint(\"Tổng là:\", a + b)"
+        },
+        {
+          "type": "practice",
+          "title": "Practice",
+          "content": "Apply the lesson by changing the example, running it and explaining the output in your own words."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What is the best way to learn this concept?",
+          "options": {
+            "A": "Memorize without running code",
+            "B": "Run examples, change them, and explain the result",
+            "C": "Skip practice",
+            "D": "Only change colors"
+          },
+          "answerKey": "B",
+          "explain": "Running, changing and explaining examples helps learners understand programming concepts deeply."
+        }
+      ],
+      "project": {
+        "title": "Mini tính mini",
+        "description": "Complete a small task using the concept from this lesson and test it with at least two cases.",
+        "checklist": [
+          "Uses the lesson concept",
+          "Runs without errors",
+          "Has clear input and output"
+        ]
+      }
+    },
+    "pyf006": {
+      "title": "Operators and expressions",
+      "description": "Use operators and expressions to process data.",
+      "objectives": [
+        "Understand the core concept of this lesson",
+        "Read and run a small Python example",
+        "Complete a short practice task independently"
+      ],
+      "blocks": [
+        {
+          "type": "concept",
+          "title": "Biểu thức là gì?",
+          "content": "This lesson introduces a core Python concept. Focus on what problem it solves and when to use it."
+        },
+        {
+          "type": "code",
+          "title": "Code example",
+          "language": "python",
+          "code": "price = 12000\nquantity = 3\ntotal = price * quantity\nprint(\"Tổng tiền:\", total)"
+        },
+        {
+          "type": "practice",
+          "title": "Practice",
+          "content": "Apply the lesson by changing the example, running it and explaining the output in your own words."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What is the best way to learn this concept?",
+          "options": {
+            "A": "Memorize without running code",
+            "B": "Run examples, change them, and explain the result",
+            "C": "Skip practice",
+            "D": "Only change colors"
+          },
+          "answerKey": "B",
+          "explain": "Running, changing and explaining examples helps learners understand programming concepts deeply."
+        }
+      ],
+      "project": {
+        "title": "Tính diện tích",
+        "description": "Complete a small task using the concept from this lesson and test it with at least two cases.",
+        "checklist": [
+          "Uses the lesson concept",
+          "Runs without errors",
+          "Has clear input and output"
+        ]
+      }
+    },
+    "pyf007": {
+      "title": "The if condition",
+      "description": "Let programs make decisions when a condition is true.",
+      "objectives": [
+        "Understand the core concept of this lesson",
+        "Read and run a small Python example",
+        "Complete a short practice task independently"
+      ],
+      "blocks": [
+        {
+          "type": "concept",
+          "title": "Vì sao cần điều kiện?",
+          "content": "This lesson introduces a core Python concept. Focus on what problem it solves and when to use it."
+        },
+        {
+          "type": "code",
+          "title": "Code example",
+          "language": "python",
+          "code": "score = 8\nif score >= 5:\n    print(\"Đậu\")"
+        },
+        {
+          "type": "practice",
+          "title": "Practice",
+          "content": "Apply the lesson by changing the example, running it and explaining the output in your own words."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What is the best way to learn this concept?",
+          "options": {
+            "A": "Memorize without running code",
+            "B": "Run examples, change them, and explain the result",
+            "C": "Skip practice",
+            "D": "Only change colors"
+          },
+          "answerKey": "B",
+          "explain": "Running, changing and explaining examples helps learners understand programming concepts deeply."
+        }
+      ],
+      "project": {
+        "title": "Mini kiểm tra đậu",
+        "description": "Complete a small task using the concept from this lesson and test it with at least two cases.",
+        "checklist": [
+          "Uses the lesson concept",
+          "Runs without errors",
+          "Has clear input and output"
+        ]
+      }
+    },
+    "pyf008": {
+      "title": "if - elif - else",
+      "description": "Handle multiple cases in a program.",
+      "objectives": [
+        "Understand the core concept of this lesson",
+        "Read and run a small Python example",
+        "Complete a short practice task independently"
+      ],
+      "blocks": [
+        {
+          "type": "concept",
+          "title": "Nhiều nhánh lựa chọn",
+          "content": "This lesson introduces a core Python concept. Focus on what problem it solves and when to use it."
+        },
+        {
+          "type": "code",
+          "title": "Code example",
+          "language": "python",
+          "code": "score = float(input(\"Enter điểm: \"))\nif score >= 8:\n    print(\"Giỏi\")\nelif score >= 6.5:\n    print(\"Khá\")\nelif score >= 5:\n    print(\"Trung bình\")\nelse:\n    print(\"Cần cố gắng\")"
+        },
+        {
+          "type": "practice",
+          "title": "Practice",
+          "content": "Apply the lesson by changing the example, running it and explaining the output in your own words."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What is the best way to learn this concept?",
+          "options": {
+            "A": "Memorize without running code",
+            "B": "Run examples, change them, and explain the result",
+            "C": "Skip practice",
+            "D": "Only change colors"
+          },
+          "answerKey": "B",
+          "explain": "Running, changing and explaining examples helps learners understand programming concepts deeply."
+        }
+      ],
+      "project": {
+        "title": "Table xếp loại",
+        "description": "Complete a small task using the concept from this lesson and test it with at least two cases.",
+        "checklist": [
+          "Uses the lesson concept",
+          "Runs without errors",
+          "Has clear input and output"
+        ]
+      }
+    },
+    "pyf009": {
+      "title": "The for loop",
+      "description": "Repeat actions when the count or range is known.",
+      "objectives": [
+        "Understand the core concept of this lesson",
+        "Read and run a small Python example",
+        "Complete a short practice task independently"
+      ],
+      "blocks": [
+        {
+          "type": "concept",
+          "title": "Vì sao cần lặp?",
+          "content": "This lesson introduces a core Python concept. Focus on what problem it solves and when to use it."
+        },
+        {
+          "type": "code",
+          "title": "Code example",
+          "language": "python",
+          "code": "for i in range(1, 6):\n    print(i)"
+        },
+        {
+          "type": "practice",
+          "title": "Practice",
+          "content": "Apply the lesson by changing the example, running it and explaining the output in your own words."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What is the best way to learn this concept?",
+          "options": {
+            "A": "Memorize without running code",
+            "B": "Run examples, change them, and explain the result",
+            "C": "Skip practice",
+            "D": "Only change colors"
+          },
+          "answerKey": "B",
+          "explain": "Running, changing and explaining examples helps learners understand programming concepts deeply."
+        }
+      ],
+      "project": {
+        "title": "Table cửu chương",
+        "description": "Complete a small task using the concept from this lesson and test it with at least two cases.",
+        "checklist": [
+          "Uses the lesson concept",
+          "Runs without errors",
+          "Has clear input and output"
+        ]
+      }
+    },
+    "pyf010": {
+      "title": "The while loop",
+      "description": "Repeat while a condition remains true and define a stopping point.",
+      "objectives": [
+        "Understand the core concept of this lesson",
+        "Read and run a small Python example",
+        "Complete a short practice task independently"
+      ],
+      "blocks": [
+        {
+          "type": "concept",
+          "title": "while khác for thế nào?",
+          "content": "This lesson introduces a core Python concept. Focus on what problem it solves and when to use it."
+        },
+        {
+          "type": "code",
+          "title": "Code example",
+          "language": "python",
+          "code": "password = \"\"\nwhile password != \"1234\":\n    password = input(\"Enter mật khẩu: \")\nprint(\"Đăng nhập thành công\")"
+        },
+        {
+          "type": "practice",
+          "title": "Practice",
+          "content": "Apply the lesson by changing the example, running it and explaining the output in your own words."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What is the best way to learn this concept?",
+          "options": {
+            "A": "Memorize without running code",
+            "B": "Run examples, change them, and explain the result",
+            "C": "Skip practice",
+            "D": "Only change colors"
+          },
+          "answerKey": "B",
+          "explain": "Running, changing and explaining examples helps learners understand programming concepts deeply."
+        }
+      ],
+      "project": {
+        "title": "Màn hình đăng nhập đơn giản",
+        "description": "Complete a small task using the concept from this lesson and test it with at least two cases.",
+        "checklist": [
+          "Uses the lesson concept",
+          "Runs without errors",
+          "Has clear input and output"
+        ]
+      }
+    },
+    "pyf011": {
+      "title": "Lists - collections of data",
+      "description": "Store multiple values in one variable and loop through them.",
+      "objectives": [
+        "Understand the core concept of this lesson",
+        "Read and run a small Python example",
+        "Complete a short practice task independently"
+      ],
+      "blocks": [
+        {
+          "type": "concept",
+          "title": "List là gì?",
+          "content": "This lesson introduces a core Python concept. Focus on what problem it solves and when to use it."
+        },
+        {
+          "type": "code",
+          "title": "Code example",
+          "language": "python",
+          "code": "students = [\"An\", \"Bình\", \"Chi\"]\nfor name in students:\n    print(name)"
+        },
+        {
+          "type": "practice",
+          "title": "Practice",
+          "content": "Apply the lesson by changing the example, running it and explaining the output in your own words."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What is the best way to learn this concept?",
+          "options": {
+            "A": "Memorize without running code",
+            "B": "Run examples, change them, and explain the result",
+            "C": "Skip practice",
+            "D": "Only change colors"
+          },
+          "answerKey": "B",
+          "explain": "Running, changing and explaining examples helps learners understand programming concepts deeply."
+        }
+      ],
+      "project": {
+        "title": "Danh sách lớp học",
+        "description": "Complete a small task using the concept from this lesson and test it with at least two cases.",
+        "checklist": [
+          "Uses the lesson concept",
+          "Runs without errors",
+          "Has clear input and output"
+        ]
+      }
+    },
+    "pyf012": {
+      "title": "List operations",
+      "description": "Add, count, search and process list data.",
+      "objectives": [
+        "Understand the core concept of this lesson",
+        "Read and run a small Python example",
+        "Complete a short practice task independently"
+      ],
+      "blocks": [
+        {
+          "type": "concept",
+          "title": "List có thể thay đổi",
+          "content": "This lesson introduces a core Python concept. Focus on what problem it solves and when to use it."
+        },
+        {
+          "type": "code",
+          "title": "Code example",
+          "language": "python",
+          "code": "tasks = []\ntasks.append(\"Học Python\")\ntasks.append(\"Làm bài tập\")\nprint(\"Số việc:\", len(tasks))\nprint(tasks)"
+        },
+        {
+          "type": "practice",
+          "title": "Practice",
+          "content": "Apply the lesson by changing the example, running it and explaining the output in your own words."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What is the best way to learn this concept?",
+          "options": {
+            "A": "Memorize without running code",
+            "B": "Run examples, change them, and explain the result",
+            "C": "Skip practice",
+            "D": "Only change colors"
+          },
+          "answerKey": "B",
+          "explain": "Running, changing and explaining examples helps learners understand programming concepts deeply."
+        }
+      ],
+      "project": {
+        "title": "Todo list nhỏ",
+        "description": "Complete a small task using the concept from this lesson and test it with at least two cases.",
+        "checklist": [
+          "Uses the lesson concept",
+          "Runs without errors",
+          "Has clear input and output"
+        ]
+      }
+    },
+    "pyf013": {
+      "title": "Strings - working with text",
+      "description": "Process text, combine strings and normalize simple answers.",
+      "objectives": [
+        "Understand the core concept of this lesson",
+        "Read and run a small Python example",
+        "Complete a short practice task independently"
+      ],
+      "blocks": [
+        {
+          "type": "concept",
+          "title": "Chuỗi là dữ liệu văn bản",
+          "content": "This lesson introduces a core Python concept. Focus on what problem it solves and when to use it."
+        },
+        {
+          "type": "code",
+          "title": "Code example",
+          "language": "python",
+          "code": "answer = input(\"Bạn có muốn tiếp tục không? \").strip().lower()\nif answer == \"yes\":\n    print(\"Tiếp tục\")"
+        },
+        {
+          "type": "practice",
+          "title": "Practice",
+          "content": "Apply the lesson by changing the example, running it and explaining the output in your own words."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What is the best way to learn this concept?",
+          "options": {
+            "A": "Memorize without running code",
+            "B": "Run examples, change them, and explain the result",
+            "C": "Skip practice",
+            "D": "Only change colors"
+          },
+          "answerKey": "B",
+          "explain": "Running, changing and explaining examples helps learners understand programming concepts deeply."
+        }
+      ],
+      "project": {
+        "title": "Lời chào gọn gàng",
+        "description": "Complete a small task using the concept from this lesson and test it with at least two cases.",
+        "checklist": [
+          "Uses the lesson concept",
+          "Runs without errors",
+          "Has clear input and output"
+        ]
+      }
+    },
+    "pyf014": {
+      "title": "Dictionaries - labeled data",
+      "description": "Store key-value data such as a learner profile.",
+      "objectives": [
+        "Understand the core concept of this lesson",
+        "Read and run a small Python example",
+        "Complete a short practice task independently"
+      ],
+      "blocks": [
+        {
+          "type": "concept",
+          "title": "Dictionary là gì?",
+          "content": "This lesson introduces a core Python concept. Focus on what problem it solves and when to use it."
+        },
+        {
+          "type": "code",
+          "title": "Code example",
+          "language": "python",
+          "code": "student = {\n    \"name\": \"An\",\n    \"age\": 13,\n    \"score\": 8\n}\nprint(student[\"name\"])"
+        },
+        {
+          "type": "practice",
+          "title": "Practice",
+          "content": "Apply the lesson by changing the example, running it and explaining the output in your own words."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What is the best way to learn this concept?",
+          "options": {
+            "A": "Memorize without running code",
+            "B": "Run examples, change them, and explain the result",
+            "C": "Skip practice",
+            "D": "Only change colors"
+          },
+          "answerKey": "B",
+          "explain": "Running, changing and explaining examples helps learners understand programming concepts deeply."
+        }
+      ],
+      "project": {
+        "title": "Hồ sơ học viên",
+        "description": "Complete a small task using the concept from this lesson and test it with at least two cases.",
+        "checklist": [
+          "Uses the lesson concept",
+          "Runs without errors",
+          "Has clear input and output"
+        ]
+      }
+    },
+    "pyf015": {
+      "title": "Functions - splitting programs",
+      "description": "Use functions to organize and reuse code.",
+      "objectives": [
+        "Understand the core concept of this lesson",
+        "Read and run a small Python example",
+        "Complete a short practice task independently"
+      ],
+      "blocks": [
+        {
+          "type": "concept",
+          "title": "Vì sao cần hàm?",
+          "content": "This lesson introduces a core Python concept. Focus on what problem it solves and when to use it."
+        },
+        {
+          "type": "code",
+          "title": "Code example",
+          "language": "python",
+          "code": "def say_hello(name):\n    print(\"Hello\", name)\n\nsay_hello(\"An\")"
+        },
+        {
+          "type": "practice",
+          "title": "Practice",
+          "content": "Apply the lesson by changing the example, running it and explaining the output in your own words."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What is the best way to learn this concept?",
+          "options": {
+            "A": "Memorize without running code",
+            "B": "Run examples, change them, and explain the result",
+            "C": "Skip practice",
+            "D": "Only change colors"
+          },
+          "answerKey": "B",
+          "explain": "Running, changing and explaining examples helps learners understand programming concepts deeply."
+        }
+      ],
+      "project": {
+        "title": "Hàm chào hỏi",
+        "description": "Complete a small task using the concept from this lesson and test it with at least two cases.",
+        "checklist": [
+          "Uses the lesson concept",
+          "Runs without errors",
+          "Has clear input and output"
+        ]
+      }
+    },
+    "pyf016": {
+      "title": "Parameters and return",
+      "description": "Create functions that receive input and return results.",
+      "objectives": [
+        "Understand the core concept of this lesson",
+        "Read and run a small Python example",
+        "Complete a short practice task independently"
+      ],
+      "blocks": [
+        {
+          "type": "concept",
+          "title": "return khác print thế nào?",
+          "content": "This lesson introduces a core Python concept. Focus on what problem it solves and when to use it."
+        },
+        {
+          "type": "code",
+          "title": "Code example",
+          "language": "python",
+          "code": "def add(a, b):\n    return a + b\n\nresult = add(3, 4)\nprint(result)"
+        },
+        {
+          "type": "practice",
+          "title": "Practice",
+          "content": "Apply the lesson by changing the example, running it and explaining the output in your own words."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What is the best way to learn this concept?",
+          "options": {
+            "A": "Memorize without running code",
+            "B": "Run examples, change them, and explain the result",
+            "C": "Skip practice",
+            "D": "Only change colors"
+          },
+          "answerKey": "B",
+          "explain": "Running, changing and explaining examples helps learners understand programming concepts deeply."
+        }
+      ],
+      "project": {
+        "title": "Mini tính bằng hàm",
+        "description": "Complete a small task using the concept from this lesson and test it with at least two cases.",
+        "checklist": [
+          "Uses the lesson concept",
+          "Runs without errors",
+          "Has clear input and output"
+        ]
+      }
+    },
+    "pyf017": {
+      "title": "Debugging - finding and fixing errors",
+      "description": "Read errors, check steps and fix problems methodically.",
+      "objectives": [
+        "Understand the core concept of this lesson",
+        "Read and run a small Python example",
+        "Complete a short practice task independently"
+      ],
+      "blocks": [
+        {
+          "type": "concept",
+          "title": "Debug là kỹ năng cốt lõi",
+          "content": "This lesson introduces a core Python concept. Focus on what problem it solves and when to use it."
+        },
+        {
+          "type": "code",
+          "title": "Code example",
+          "language": "python",
+          "code": "total = 0\nprices = [10, 20, 30]\nfor price in prices:\n    total = total + price\n    print(\"Đang cộng:\", price, \"Tổng:\", total)\nprint(total)"
+        },
+        {
+          "type": "practice",
+          "title": "Practice",
+          "content": "Apply the lesson by changing the example, running it and explaining the output in your own words."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What is the best way to learn this concept?",
+          "options": {
+            "A": "Memorize without running code",
+            "B": "Run examples, change them, and explain the result",
+            "C": "Skip practice",
+            "D": "Only change colors"
+          },
+          "answerKey": "B",
+          "explain": "Running, changing and explaining examples helps learners understand programming concepts deeply."
+        }
+      ],
+      "project": {
+        "title": "Nhật ký debug",
+        "description": "Complete a small task using the concept from this lesson and test it with at least two cases.",
+        "checklist": [
+          "Uses the lesson concept",
+          "Runs without errors",
+          "Has clear input and output"
+        ]
+      }
+    },
+    "pyf018": {
+      "title": "Breaking down problems",
+      "description": "Split large requirements into smaller manageable parts.",
+      "objectives": [
+        "Understand the core concept of this lesson",
+        "Read and run a small Python example",
+        "Complete a short practice task independently"
+      ],
+      "blocks": [
+        {
+          "type": "concept",
+          "title": "Đừng làm tất cả cùng lúc",
+          "content": "This lesson introduces a core Python concept. Focus on what problem it solves and when to use it."
+        },
+        {
+          "type": "checkpoint",
+          "title": "Checkpoint",
+          "content": "Pause and check the input, process, output and any possible mistakes before continuing."
+        },
+        {
+          "type": "practice",
+          "title": "Practice",
+          "content": "Apply the lesson by changing the example, running it and explaining the output in your own words."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What is the best way to learn this concept?",
+          "options": {
+            "A": "Memorize without running code",
+            "B": "Run examples, change them, and explain the result",
+            "C": "Skip practice",
+            "D": "Only change colors"
+          },
+          "answerKey": "B",
+          "explain": "Running, changing and explaining examples helps learners understand programming concepts deeply."
+        }
+      ],
+      "project": {
+        "title": "Bản thiết kế project",
+        "description": "Complete a small task using the concept from this lesson and test it with at least two cases.",
+        "checklist": [
+          "Uses the lesson concept",
+          "Runs without errors",
+          "Has clear input and output"
+        ]
+      }
+    },
+    "pyf019": {
+      "title": "Basic file reading and writing",
+      "description": "Save data to files and read it back later.",
+      "objectives": [
+        "Understand the core concept of this lesson",
+        "Read and run a small Python example",
+        "Complete a short practice task independently"
+      ],
+      "blocks": [
+        {
+          "type": "concept",
+          "title": "Vì sao cần file?",
+          "content": "This lesson introduces a core Python concept. Focus on what problem it solves and when to use it."
+        },
+        {
+          "type": "code",
+          "title": "Code example",
+          "language": "python",
+          "code": "with open(\"notes.txt\", \"w\", encoding=\"utf-8\") as f:\n    f.write(\"Học Python\")\n\nwith open(\"notes.txt\", \"r\", encoding=\"utf-8\") as f:\n    content = f.read()\n    print(content)"
+        },
+        {
+          "type": "practice",
+          "title": "Practice",
+          "content": "Apply the lesson by changing the example, running it and explaining the output in your own words."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What is the best way to learn this concept?",
+          "options": {
+            "A": "Memorize without running code",
+            "B": "Run examples, change them, and explain the result",
+            "C": "Skip practice",
+            "D": "Only change colors"
+          },
+          "answerKey": "B",
+          "explain": "Running, changing and explaining examples helps learners understand programming concepts deeply."
+        }
+      ],
+      "project": {
+        "title": "Sổ ghi chú",
+        "description": "Complete a small task using the concept from this lesson and test it with at least two cases.",
+        "checklist": [
+          "Uses the lesson concept",
+          "Runs without errors",
+          "Has clear input and output"
+        ]
+      }
+    },
+    "pyf020": {
+      "title": "Thinking with table data",
+      "description": "Understand rows, columns and basic data checks.",
+      "objectives": [
+        "Understand the core concept of this lesson",
+        "Read and run a small Python example",
+        "Complete a short practice task independently"
+      ],
+      "blocks": [
+        {
+          "type": "concept",
+          "title": "Dữ liệu bảng là gì?",
+          "content": "This lesson introduces a core Python concept. Focus on what problem it solves and when to use it."
+        },
+        {
+          "type": "code",
+          "title": "Code example",
+          "language": "python",
+          "code": "students = [\n    {\"name\": \"An\", \"score\": 8},\n    {\"name\": \"Bình\", \"score\": 6}\n]\nfor student in students:\n    print(student[\"name\"], student[\"score\"])"
+        },
+        {
+          "type": "practice",
+          "title": "Practice",
+          "content": "Apply the lesson by changing the example, running it and explaining the output in your own words."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What is the best way to learn this concept?",
+          "options": {
+            "A": "Memorize without running code",
+            "B": "Run examples, change them, and explain the result",
+            "C": "Skip practice",
+            "D": "Only change colors"
+          },
+          "answerKey": "B",
+          "explain": "Running, changing and explaining examples helps learners understand programming concepts deeply."
+        }
+      ],
+      "project": {
+        "title": "Table điểm nhỏ",
+        "description": "Complete a small task using the concept from this lesson and test it with at least two cases.",
+        "checklist": [
+          "Uses the lesson concept",
+          "Runs without errors",
+          "Has clear input and output"
+        ]
+      }
+    },
+    "pyf021": {
+      "title": "Project: Number guessing game",
+      "description": "Combine input, conditions, loops and random to build a small game.",
+      "objectives": [
+        "Understand the core concept of this lesson",
+        "Read and run a small Python example",
+        "Complete a short practice task independently"
+      ],
+      "blocks": [
+        {
+          "type": "concept",
+          "title": "Luật chơi trước, code sau",
+          "content": "This lesson introduces a core Python concept. Focus on what problem it solves and when to use it."
+        },
+        {
+          "type": "code",
+          "title": "Code example",
+          "language": "python",
+          "code": "import random\nsecret = random.randint(1, 10)\nguess = 0\nwhile guess != secret:\n    guess = int(input(\"Đoán số 1-10: \"))\n    if guess < secret:\n        print(\"Cao hơn\")\n    elif guess > secret:\n        print(\"Thấp hơn\")\nprint(\"Đúng rồi!\")"
+        },
+        {
+          "type": "practice",
+          "title": "Practice",
+          "content": "Apply the lesson by changing the example, running it and explaining the output in your own words."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What is the best way to learn this concept?",
+          "options": {
+            "A": "Memorize without running code",
+            "B": "Run examples, change them, and explain the result",
+            "C": "Skip practice",
+            "D": "Only change colors"
+          },
+          "answerKey": "B",
+          "explain": "Running, changing and explaining examples helps learners understand programming concepts deeply."
+        }
+      ],
+      "project": {
+        "title": "Game đoán số hoàn chỉnh",
+        "description": "Complete a small task using the concept from this lesson and test it with at least two cases.",
+        "checklist": [
+          "Uses the lesson concept",
+          "Runs without errors",
+          "Has clear input and output"
+        ]
+      }
+    },
+    "pyf022": {
+      "title": "Project: Multiple-choice quiz",
+      "description": "Build a quiz with questions, answer checking and scoring.",
+      "objectives": [
+        "Understand the core concept of this lesson",
+        "Read and run a small Python example",
+        "Complete a short practice task independently"
+      ],
+      "blocks": [
+        {
+          "type": "concept",
+          "title": "Cấu trúc project quiz",
+          "content": "This lesson introduces a core Python concept. Focus on what problem it solves and when to use it."
+        },
+        {
+          "type": "code",
+          "title": "Code example",
+          "language": "python",
+          "code": "questions = [\n    {\"q\": \"2 + 3 = ?\", \"a\": \"5\"},\n    {\"q\": \"Python dùng print để làm gì?\", \"a\": \"hiển thị\"}\n]\nscore = 0\nfor item in questions:\n    answer = input(item[\"q\"] + \" \")\n    if answer.strip().lower() == item[\"a\"]:\n        score += 1\nprint(\"Điểm:\", score)"
+        },
+        {
+          "type": "practice",
+          "title": "Practice",
+          "content": "Apply the lesson by changing the example, running it and explaining the output in your own words."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What is the best way to learn this concept?",
+          "options": {
+            "A": "Memorize without running code",
+            "B": "Run examples, change them, and explain the result",
+            "C": "Skip practice",
+            "D": "Only change colors"
+          },
+          "answerKey": "B",
+          "explain": "Running, changing and explaining examples helps learners understand programming concepts deeply."
+        }
+      ],
+      "project": {
+        "title": "Quiz 5 câu",
+        "description": "Complete a small task using the concept from this lesson and test it with at least two cases.",
+        "checklist": [
+          "Uses the lesson concept",
+          "Runs without errors",
+          "Has clear input and output"
+        ]
+      }
+    },
+    "pyf023": {
+      "title": "Project: Student score manager",
+      "description": "Create a console app for student scores and averages.",
+      "objectives": [
+        "Understand the core concept of this lesson",
+        "Read and run a small Python example",
+        "Complete a short practice task independently"
+      ],
+      "blocks": [
+        {
+          "type": "concept",
+          "title": "Quản lý dữ liệu nhỏ",
+          "content": "This lesson introduces a core Python concept. Focus on what problem it solves and when to use it."
+        },
+        {
+          "type": "code",
+          "title": "Code example",
+          "language": "python",
+          "code": "students = [\n    {\"name\": \"An\", \"score\": 8},\n    {\"name\": \"Bình\", \"score\": 7}\n]\ntotal = 0\nfor student in students:\n    total += student[\"score\"]\nprint(\"Điểm trung bình:\", total / len(students))"
+        },
+        {
+          "type": "practice",
+          "title": "Practice",
+          "content": "Apply the lesson by changing the example, running it and explaining the output in your own words."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What is the best way to learn this concept?",
+          "options": {
+            "A": "Memorize without running code",
+            "B": "Run examples, change them, and explain the result",
+            "C": "Skip practice",
+            "D": "Only change colors"
+          },
+          "answerKey": "B",
+          "explain": "Running, changing and explaining examples helps learners understand programming concepts deeply."
+        }
+      ],
+      "project": {
+        "title": "Ứng dụng quản lý điểm",
+        "description": "Complete a small task using the concept from this lesson and test it with at least two cases.",
+        "checklist": [
+          "Uses the lesson concept",
+          "Runs without errors",
+          "Has clear input and output"
+        ]
+      }
+    },
+    "pyf024": {
+      "title": "Final project and review",
+      "description": "Complete a final project, review knowledge and present the product.",
+      "objectives": [
+        "Understand the core concept of this lesson",
+        "Read and run a small Python example",
+        "Complete a short practice task independently"
+      ],
+      "blocks": [
+        {
+          "type": "concept",
+          "title": "Một project tốt cần rõ ràng",
+          "content": "This lesson introduces a core Python concept. Focus on what problem it solves and when to use it."
+        },
+        {
+          "type": "checkpoint",
+          "title": "Checkpoint",
+          "content": "Pause and check the input, process, output and any possible mistakes before continuing."
+        },
+        {
+          "type": "practice",
+          "title": "Practice",
+          "content": "Apply the lesson by changing the example, running it and explaining the output in your own words."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What is the best way to learn this concept?",
+          "options": {
+            "A": "Memorize without running code",
+            "B": "Run examples, change them, and explain the result",
+            "C": "Skip practice",
+            "D": "Only change colors"
+          },
+          "answerKey": "B",
+          "explain": "Running, changing and explaining examples helps learners understand programming concepts deeply."
+        }
+      ],
+      "project": {
+        "title": "Project cuối khóa",
+        "description": "Complete a small task using the concept from this lesson and test it with at least two cases.",
+        "checklist": [
+          "Uses the lesson concept",
+          "Runs without errors",
+          "Has clear input and output"
+        ]
+      }
+    }
+  }
+}
