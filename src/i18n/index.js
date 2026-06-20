@@ -18,16 +18,16 @@ import enAuth from "./locales/en/auth.json";
 import enCourses from "./locales/en/courses.json";
 import enLessons from "./locales/en/lessons.json";
 
+const namespaces = ["common", "home", "test", "placement", "auth", "courses", "lessons"];
+
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
     fallbackLng: "vi",
     supportedLngs: ["vi", "en"],
-
-    ns: ["common", "home", "test", "placement", "auth", "courses", "lessons"],
+    ns: namespaces,
     defaultNS: "common",
-
     resources: {
       vi: {
         common: viCommon,
@@ -48,12 +48,10 @@ i18n
         lessons: enLessons,
       },
     },
-
     detection: {
       order: ["localStorage", "navigator"],
       caches: ["localStorage"],
     },
-
     interpolation: {
       escapeValue: false,
     },
