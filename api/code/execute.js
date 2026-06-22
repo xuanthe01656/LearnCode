@@ -43,10 +43,20 @@ function normalizeProviderOutput(data, provider) {
 }
 
 async function runWithPiston({ language, version, sourceCode, stdin }) {
-  const endpoint = process.env.PISTON_API_URL || "https://emkc.org/api/v2/execute";
+  const endpoint =
+    process.env.PISTON_API_URL || "https://emkc.org/api/v2/piston/execute";
+
+  const headers = {
+    "Content-Type": "application/json",
+  };
+
+  if (process.env.PISTON_AUTH_TOKEN) {
+    headers.Authorization = `Bearer ${process.env.PISTON_AUTH_TOKEN}`;
+  }
+
   const response = await fetch(endpoint, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers,
     body: JSON.stringify({
       language: language || "python",
       version: version || process.env.PISTON_PYTHON_VERSION || "3.10.0",
@@ -57,10 +67,29 @@ async function runWithPiston({ language, version, sourceCode, stdin }) {
     }),
   });
 
-  const data = await response.json().catch(() => ({}));
-  if (!response.ok) {
-    throw new Error(data?.message || "Piston execution failed");
+  const text = await response.text();
+
+  let data = {};
+  try {
+    data = JSON.parse(text);
+  } catch {
+    data = {};
   }
+
+  if (!response.ok) {
+    console.error("Piston API error:", {
+      status: response.status,
+      endpoint,
+      body: text,
+    });
+
+    throw new Error(
+      data?.message ||
+        data?.error ||
+        `Piston execution failed with status ${response.status}`
+    );
+  }
+
   return normalizeProviderOutput(data, "piston");
 }
 
