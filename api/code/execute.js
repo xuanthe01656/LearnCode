@@ -1,23 +1,17 @@
+const DEFAULT_WANDBOX_API_URL = "https://wandbox.org";
+const DEFAULT_MAX_SOURCE_CHARS = 20000;
+const DEFAULT_HTTP_TIMEOUT_MS = 15000;
+const DEFAULT_COMPILER_CACHE_TTL_MS = 60 * 60 * 1000;
+
+const compilerListCache = new Map();
+
 function sendJson(res, status, body) {
   res.statusCode = status;
   res.setHeader("Content-Type", "application/json; charset=utf-8");
   res.end(JSON.stringify(body));
 }
 
-async function readRawBody(req) {
-  return new Promise((resolve, reject) => {
-    let data = "";
-
-    req.on("data", (chunk) => {
-      data += chunk;
-    });
-
-    req.on("end", () => resolve(data));
-    req.on("error", reject);
-  });
-}
-
-async function parseBody(req) {
+function parseBody(req) {
   if (typeof req.body === "object" && req.body !== null) return req.body;
 
   if (typeof req.body === "string") {
@@ -28,362 +22,302 @@ async function parseBody(req) {
     }
   }
 
-  const rawBody = await readRawBody(req).catch(() => "");
-  if (!rawBody) return {};
+  return {};
+}
 
+function normalizeBaseUrl(value) {
+  return String(value || DEFAULT_WANDBOX_API_URL).replace(/\/+$/, "");
+}
+
+function parseNumber(value, fallback) {
+  const parsed = Number(value);
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : fallback;
+}
+
+function safeString(value, fallback = "") {
+  if (value === undefined || value === null) return fallback;
+  return String(value);
+}
+
+function parseMaybeJson(text) {
   try {
-    return JSON.parse(rawBody);
+    return JSON.parse(text);
   } catch {
-    return {};
+    return null;
   }
 }
 
-function toNumber(value, fallback) {
-  const number = Number(value);
-  return Number.isFinite(number) ? number : fallback;
-}
-
-function sleep(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
-function getJudge0BaseUrl() {
-  const baseUrl = process.env.JUDGE0_API_URL || "http://127.0.0.1:2358";
-  return baseUrl
-    .replace(/\/+$/, "")
-    .replace(/\/submissions\/?$/, "");
-}
-
-function getJudge0Headers() {
-  const headers = {
-    "Content-Type": "application/json",
-  };
-
-  // Judge0 self-host normally uses X-Auth-Token when authentication is enabled.
-  // You can override the header name if your Judge0 instance uses a custom one.
-  const authToken = process.env.JUDGE0_AUTH_TOKEN || process.env.JUDGE0_API_KEY;
-  const authHeader = process.env.JUDGE0_AUTH_HEADER || "X-Auth-Token";
-
-  if (authToken) {
-    headers[authHeader] = authToken;
+function createAbortSignal(timeoutMs) {
+  if (typeof AbortSignal !== "undefined" && typeof AbortSignal.timeout === "function") {
+    return AbortSignal.timeout(timeoutMs);
   }
 
-  // Optional authorization header for admin-only endpoints or custom deployments.
-  const authzToken = process.env.JUDGE0_AUTHZ_TOKEN;
-  const authzHeader = process.env.JUDGE0_AUTHZ_HEADER || "X-Auth-User";
-
-  if (authzToken) {
-    headers[authzHeader] = authzToken;
-  }
-
-  return headers;
-}
-
-function getHttpTimeoutMs() {
-  return toNumber(process.env.CODE_RUNNER_HTTP_TIMEOUT_MS, 10000);
-}
-
-async function fetchJson(url, options = {}) {
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), getHttpTimeoutMs());
-
-  try {
-    const response = await fetch(url, {
-      ...options,
-      signal: controller.signal,
-    });
-
-    const text = await response.text();
-    let data = {};
-
-    try {
-      data = text ? JSON.parse(text) : {};
-    } catch {
-      data = { raw: text };
-    }
-
-    if (!response.ok) {
-      const message =
-        data?.message ||
-        data?.error ||
-        data?.raw ||
-        response.statusText ||
-        "Judge0 request failed";
-
-      throw new Error(`Judge0 HTTP ${response.status}: ${message}`);
-    }
-
-    return data;
-  } catch (error) {
-    if (error?.name === "AbortError") {
-      throw new Error(`Judge0 request timed out after ${getHttpTimeoutMs()}ms`);
-    }
-
-    throw error;
-  } finally {
-    clearTimeout(timeout);
-  }
+  setTimeout(() => controller.abort(), timeoutMs);
+  return controller.signal;
 }
 
-let cachedLanguages = null;
-let cachedLanguagesAt = 0;
-
-function parseVersionFromName(name) {
-  const match = String(name || "").match(/(\d+)\.(\d+)(?:\.(\d+))?/);
+function getVersionParts(value) {
+  const match = String(value || "").match(/(\d+)\.(\d+)(?:\.(\d+))?/);
   if (!match) return [0, 0, 0];
+
   return [Number(match[1] || 0), Number(match[2] || 0), Number(match[3] || 0)];
 }
 
 function compareVersionDesc(a, b) {
-  const av = parseVersionFromName(a?.name);
-  const bv = parseVersionFromName(b?.name);
+  const left = getVersionParts(a?.version || a?.name || a?.["display-name"] || "");
+  const right = getVersionParts(b?.version || b?.name || b?.["display-name"] || "");
 
-  for (let i = 0; i < Math.max(av.length, bv.length); i += 1) {
-    const diff = (bv[i] || 0) - (av[i] || 0);
-    if (diff !== 0) return diff;
+  for (let index = 0; index < Math.max(left.length, right.length); index += 1) {
+    if ((right[index] || 0) !== (left[index] || 0)) {
+      return (right[index] || 0) - (left[index] || 0);
+    }
   }
 
-  return 0;
+  return String(a?.name || "").localeCompare(String(b?.name || ""));
 }
 
-async function getJudge0Languages(baseUrl, headers) {
-  const cacheTtlMs = toNumber(process.env.JUDGE0_LANGUAGE_CACHE_TTL_MS, 10 * 60 * 1000);
-  const now = Date.now();
-
-  if (cachedLanguages && now - cachedLanguagesAt < cacheTtlMs) {
-    return cachedLanguages;
-  }
-
-  const languages = await fetchJson(`${baseUrl}/languages`, {
-    method: "GET",
-    headers,
-  });
-
-  cachedLanguages = Array.isArray(languages) ? languages : [];
-  cachedLanguagesAt = now;
-
-  return cachedLanguages;
-}
-
-async function resolveJudge0LanguageId({ language, version, baseUrl, headers }) {
+function getLanguageNeedle(language) {
   const normalized = String(language || "python").toLowerCase();
 
-  const explicitMap = {
-    python: process.env.JUDGE0_PYTHON_LANGUAGE_ID,
-    py: process.env.JUDGE0_PYTHON_LANGUAGE_ID,
-    javascript: process.env.JUDGE0_JAVASCRIPT_LANGUAGE_ID,
-    js: process.env.JUDGE0_JAVASCRIPT_LANGUAGE_ID,
-    cpp: process.env.JUDGE0_CPP_LANGUAGE_ID,
-    cplusplus: process.env.JUDGE0_CPP_LANGUAGE_ID,
-    c: process.env.JUDGE0_C_LANGUAGE_ID,
-    java: process.env.JUDGE0_JAVA_LANGUAGE_ID,
-  };
+  if (normalized.includes("python")) return "python";
+  if (normalized.includes("javascript") || normalized === "js") return "javascript";
+  if (normalized.includes("typescript") || normalized === "ts") return "typescript";
+  if (normalized.includes("cpp") || normalized.includes("c++")) return "c++";
+  if (normalized === "c") return "c";
 
-  const explicitId = explicitMap[normalized];
-  if (explicitId) return Number(explicitId);
+  return normalized;
+}
 
-  if (process.env.JUDGE0_AUTO_DETECT_LANGUAGE_ID === "false") {
-    return 71;
-  }
+function isCompilerForLanguage(item, language) {
+  const needle = getLanguageNeedle(language);
+  const languageName = String(item?.language || "").toLowerCase();
+  const compilerName = String(item?.name || "").toLowerCase();
+  const displayName = String(item?.["display-name"] || "").toLowerCase();
 
-  const languages = await getJudge0Languages(baseUrl, headers);
-  const requestedVersion = String(version || "").trim();
-
-  if (normalized === "python" || normalized === "py") {
-    const pythonCandidates = languages
-      .filter((item) => /python/i.test(item?.name || ""))
-      .filter((item) => !/python\s*\(2\./i.test(item?.name || ""));
-
-    const exact = pythonCandidates.find((item) =>
-      requestedVersion ? String(item?.name || "").includes(requestedVersion) : false
+  if (needle === "python") {
+    return (
+      languageName.includes("python") ||
+      compilerName.includes("python") ||
+      compilerName.includes("cpython") ||
+      compilerName.includes("pypy") ||
+      displayName.includes("python") ||
+      displayName.includes("cpython") ||
+      displayName.includes("pypy")
     );
-
-    if (exact?.id) return Number(exact.id);
-
-    const latestPython3 = [...pythonCandidates].sort(compareVersionDesc)[0];
-    if (latestPython3?.id) return Number(latestPython3.id);
   }
 
-  if (normalized === "javascript" || normalized === "js") {
-    const candidate = [...languages]
-      .filter((item) => /javascript|node\.js/i.test(item?.name || ""))
-      .sort(compareVersionDesc)[0];
-    if (candidate?.id) return Number(candidate.id);
+  if (needle === "javascript") {
+    return languageName.includes("javascript") || compilerName.includes("node") || compilerName.includes("javascript");
   }
 
-  if (normalized === "cpp" || normalized === "cplusplus") {
-    const candidate = [...languages]
-      .filter((item) => /c\+\+/i.test(item?.name || ""))
-      .sort(compareVersionDesc)[0];
-    if (candidate?.id) return Number(candidate.id);
+  if (needle === "typescript") {
+    return languageName.includes("typescript") || compilerName.includes("typescript") || compilerName.includes("tsc");
   }
 
-  if (normalized === "c") {
-    const candidate = [...languages]
-      .filter((item) => /^c\s*\(/i.test(item?.name || ""))
-      .sort(compareVersionDesc)[0];
-    if (candidate?.id) return Number(candidate.id);
+  if (needle === "c++") {
+    return languageName === "c++" || compilerName.includes("clang") || compilerName.includes("gcc");
   }
 
-  if (normalized === "java") {
-    const candidate = [...languages]
-      .filter((item) => /java\s*\(/i.test(item?.name || ""))
-      .sort(compareVersionDesc)[0];
-    if (candidate?.id) return Number(candidate.id);
-  }
-
-  return 71;
+  return languageName.includes(needle) || compilerName.includes(needle) || displayName.includes(needle);
 }
 
-function isJudge0Pending(data) {
-  const statusId = Number(data?.status?.id || 0);
+function scoreCompiler(item, language, version) {
+  const needle = getLanguageNeedle(language);
+  const desiredVersion = String(version || "").trim();
+  const desiredMajorMinor = desiredVersion.split(".").slice(0, 2).join(".");
+  const languageName = String(item?.language || "").toLowerCase();
+  const compilerName = String(item?.name || "").toLowerCase();
+  const displayName = String(item?.["display-name"] || "").toLowerCase();
+  const versionText = String(item?.version || "").toLowerCase();
+  const combined = `${compilerName} ${displayName} ${versionText}`;
 
-  // Judge0 status 1 = In Queue, 2 = Processing.
-  if (statusId === 1 || statusId === 2) return true;
+  let score = 0;
 
-  // wait=false returns only a token at first.
-  const keys = Object.keys(data || {});
-  return Boolean(data?.token && keys.length <= 1);
+  if (languageName.includes(needle)) score += 100;
+  if (compilerName.includes(needle) || displayName.includes(needle)) score += 40;
+
+  if (needle === "python") {
+    if (compilerName.includes("cpython") || displayName.includes("cpython")) score += 70;
+    if (compilerName.includes("python") || displayName.includes("python")) score += 50;
+    if (compilerName.includes("pypy") || displayName.includes("pypy")) score -= 20;
+  }
+
+  if (desiredVersion && combined.includes(desiredVersion.toLowerCase())) score += 120;
+  if (desiredMajorMinor && combined.includes(desiredMajorMinor.toLowerCase())) score += 80;
+  if (combined.includes("head")) score -= 10;
+  if (combined.includes("experimental")) score -= 15;
+
+  return score;
 }
 
-function normalizeJudge0Output(data) {
-  const statusId = data?.status?.id ?? null;
-  const statusDescription = data?.status?.description || "finished";
-  let stderr = data?.stderr || data?.compile_output || data?.message || "";
+async function fetchCompilerList(baseUrl, timeoutMs) {
+  const cacheTtlMs = parseNumber(process.env.WANDBOX_COMPILER_CACHE_TTL_MS, DEFAULT_COMPILER_CACHE_TTL_MS);
+  const cacheKey = baseUrl;
+  const now = Date.now();
+  const cached = compilerListCache.get(cacheKey);
 
-  if (statusId && Number(statusId) !== 3 && !stderr) {
-    stderr = statusDescription;
+  if (cached && cached.expiresAt > now) {
+    return cached.items;
+  }
+
+  const endpoint = `${baseUrl}/api/list.json`;
+  const response = await fetch(endpoint, {
+    method: "GET",
+    headers: { Accept: "application/json" },
+    signal: createAbortSignal(timeoutMs),
+  });
+
+  const text = await response.text();
+  const data = parseMaybeJson(text);
+
+  if (!response.ok || !Array.isArray(data)) {
+    throw new Error(
+      `Wandbox compiler list failed with HTTP ${response.status}. ${text.slice(0, 300)}`.trim()
+    );
+  }
+
+  compilerListCache.set(cacheKey, {
+    expiresAt: now + cacheTtlMs,
+    items: data,
+  });
+
+  return data;
+}
+
+async function resolveWandboxCompiler({ baseUrl, language, version, timeoutMs }) {
+  const explicitCompiler = safeString(process.env.WANDBOX_COMPILER || "").trim();
+  if (explicitCompiler) return explicitCompiler;
+
+  const compilerList = await fetchCompilerList(baseUrl, timeoutMs);
+  const candidates = compilerList.filter((item) => isCompilerForLanguage(item, language));
+
+  if (candidates.length === 0) {
+    throw new Error(`No Wandbox compiler found for language: ${language || "python"}`);
+  }
+
+  return [...candidates]
+    .sort((a, b) => {
+      const scoreDiff = scoreCompiler(b, language, version) - scoreCompiler(a, language, version);
+      if (scoreDiff !== 0) return scoreDiff;
+      return compareVersionDesc(a, b);
+    })[0].name;
+}
+
+function normalizeWandboxOutput(data, compiler) {
+  const rawStatus = data?.status ?? null;
+  const parsedExitCode = Number(rawStatus);
+  const exitCode = Number.isFinite(parsedExitCode) ? parsedExitCode : null;
+  const success = exitCode === 0 || rawStatus === "0";
+
+  const programOutput = safeString(data?.program_output);
+  const programMessage = safeString(data?.program_message);
+  const compilerError = safeString(data?.compiler_error);
+  const compilerMessage = safeString(data?.compiler_message);
+  const programError = safeString(data?.program_error);
+
+  const stdout = programOutput || (success ? programMessage : "");
+  let stderr = programError || compilerError;
+
+  if (!success && !stderr) {
+    stderr = programMessage || compilerMessage || safeString(data?.message);
   }
 
   return {
-    provider: "judge0-self-host",
-    status: statusDescription,
-    statusId,
-    stdout: data?.stdout || "",
+    provider: "wandbox",
+    compiler,
+    status: success ? "success" : "failed",
+    stdout,
     stderr,
-    output: data?.stdout || stderr || "",
-    exitCode: data?.exit_code ?? null,
-    exitSignal: data?.exit_signal ?? null,
-    time: data?.time ?? null,
-    wallTime: data?.wall_time ?? null,
-    memory: data?.memory ?? null,
-    token: data?.token || null,
-    rawStatus: data?.status || null,
+    output: stdout || stderr || programMessage || compilerMessage,
+    exitCode,
+    rawStatus,
+    compilerMessage,
+    programMessage,
+    permalink: data?.permlink || null,
   };
 }
 
-async function pollJudge0Submission({ baseUrl, headers, token }) {
-  const startedAt = Date.now();
-  const timeoutMs = toNumber(process.env.JUDGE0_POLL_TIMEOUT_MS, 10000);
-  const intervalMs = toNumber(process.env.JUDGE0_POLL_INTERVAL_MS, 300);
-  const fields = [
-    "stdout",
-    "stderr",
-    "compile_output",
-    "message",
-    "status",
-    "exit_code",
-    "exit_signal",
-    "time",
-    "wall_time",
-    "memory",
-    "token",
-  ].join(",");
+async function runWithWandbox({ language, version, sourceCode, stdin, compiler }) {
+  const baseUrl = normalizeBaseUrl(process.env.WANDBOX_API_URL);
+  const timeoutMs = parseNumber(process.env.WANDBOX_HTTP_TIMEOUT_MS, DEFAULT_HTTP_TIMEOUT_MS);
+  const endpoint = `${baseUrl}/api/compile.json`;
+  const selectedCompiler =
+    safeString(compiler).trim() ||
+    (await resolveWandboxCompiler({
+      baseUrl,
+      language: language || "python",
+      version: version || "3.10.0",
+      timeoutMs,
+    }));
 
-  while (Date.now() - startedAt < timeoutMs) {
-    const data = await fetchJson(
-      `${baseUrl}/submissions/${encodeURIComponent(token)}?base64_encoded=false&fields=${fields}`,
-      {
-        method: "GET",
-        headers,
-      }
+  const body = {
+    compiler: selectedCompiler,
+    code: sourceCode,
+    stdin: stdin || "",
+    options: safeString(process.env.WANDBOX_OPTIONS),
+    "compiler-option-raw": safeString(process.env.WANDBOX_COMPILER_OPTION_RAW),
+    "runtime-option-raw": safeString(process.env.WANDBOX_RUNTIME_OPTION_RAW),
+    save: false,
+  };
+
+  const response = await fetch(endpoint, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body),
+    signal: createAbortSignal(timeoutMs),
+  });
+
+  const text = await response.text();
+  const data = parseMaybeJson(text) || {};
+
+  if (!response.ok) {
+    throw new Error(
+      (data?.message || data?.error || `Wandbox execution failed with HTTP ${response.status}. ${text.slice(0, 300)}`).trim()
     );
-
-    if (!isJudge0Pending(data)) return data;
-    await sleep(intervalMs);
   }
 
-  throw new Error(`Judge0 execution timeout while waiting for token ${token}`);
-}
-
-async function runWithJudge0({ language, version, sourceCode, stdin }) {
-  const baseUrl = getJudge0BaseUrl();
-  const headers = getJudge0Headers();
-  const languageId = await resolveJudge0LanguageId({
-    language,
-    version,
-    baseUrl,
-    headers,
-  });
-
-  const wait = process.env.JUDGE0_WAIT === "false" ? "false" : "true";
-  const endpoint = `${baseUrl}/submissions?base64_encoded=false&wait=${wait}`;
-
-  const submission = await fetchJson(endpoint, {
-    method: "POST",
-    headers,
-    body: JSON.stringify({
-      language_id: languageId,
-      source_code: sourceCode,
-      stdin: stdin || "",
-      cpu_time_limit: toNumber(process.env.JUDGE0_CPU_TIME_LIMIT, 3),
-      cpu_extra_time: toNumber(process.env.JUDGE0_CPU_EXTRA_TIME, 1),
-      wall_time_limit: toNumber(process.env.JUDGE0_WALL_TIME_LIMIT, 10),
-      memory_limit: toNumber(process.env.JUDGE0_MEMORY_LIMIT, 128000),
-      stack_limit: toNumber(process.env.JUDGE0_STACK_LIMIT, 64000),
-      max_file_size: toNumber(process.env.JUDGE0_MAX_FILE_SIZE, 1024),
-    }),
-  });
-
-  const finalSubmission = isJudge0Pending(submission)
-    ? await pollJudge0Submission({
-        baseUrl,
-        headers,
-        token: submission.token,
-      })
-    : submission;
-
-  return normalizeJudge0Output(finalSubmission);
+  return normalizeWandboxOutput(data, selectedCompiler);
 }
 
 module.exports = async function handler(req, res) {
-  if (req.method === "OPTIONS") {
-    res.setHeader("Allow", "POST, OPTIONS");
-    return sendJson(res, 204, {});
-  }
-
   if (req.method !== "POST") {
     res.setHeader("Allow", "POST");
     return sendJson(res, 405, { error: "Method not allowed" });
   }
 
-  const body = await parseBody(req);
-  const sourceCode = String(body.sourceCode || "");
+  const body = parseBody(req);
+  const sourceCode = safeString(body.sourceCode);
+  const maxSourceChars = parseNumber(process.env.CODE_RUNNER_MAX_CHARS, DEFAULT_MAX_SOURCE_CHARS);
 
   if (!sourceCode.trim()) {
     return sendJson(res, 400, { error: "sourceCode is required" });
   }
 
-  if (sourceCode.length > toNumber(process.env.CODE_RUNNER_MAX_CHARS, 20000)) {
-    return sendJson(res, 413, { error: "Source code is too large" });
+  if (sourceCode.length > maxSourceChars) {
+    return sendJson(res, 413, { error: `Source code is too large. Max ${maxSourceChars} characters.` });
   }
 
   try {
-    const result = await runWithJudge0({
+    const result = await runWithWandbox({
       language: body.language || "python",
       version: body.version || "3.10.0",
+      compiler: body.compiler,
       sourceCode,
-      stdin: String(body.stdin || ""),
+      stdin: safeString(body.stdin),
     });
 
     return sendJson(res, 200, result);
   } catch (error) {
-    console.error("Judge0 self-host execution error:", error);
+    const message = error?.name === "AbortError" ? "Wandbox request timed out" : error?.message;
 
     return sendJson(res, 500, {
-      error: error?.message || "Judge0 execution failed",
-      provider: "judge0-self-host",
-      hint: "Check JUDGE0_API_URL, Judge0 auth token, /languages endpoint, and whether your backend can reach the self-hosted Judge0 server.",
+      error: message || "Code execution failed",
+      provider: "wandbox",
+      hint: "Check WANDBOX_API_URL, WANDBOX_COMPILER, network access from the server, and Wandbox rate limits.",
     });
   }
 };

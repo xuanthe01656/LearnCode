@@ -13,11 +13,17 @@ export function normalizeOutput(value = "") {
     .trim();
 }
 
-export async function executeCode({ language = "python", version = "3.10.0", sourceCode, stdin = "" }) {
+export async function executeCode({
+  language = "python",
+  version = "3.10.0",
+  compiler = "",
+  sourceCode,
+  stdin = "",
+}) {
   const response = await fetch(getEndpoint(), {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ language, version, sourceCode, stdin }),
+    body: JSON.stringify({ language, version, compiler, sourceCode, stdin }),
   });
 
   let payload;
@@ -30,14 +36,14 @@ export async function executeCode({ language = "python", version = "3.10.0", sou
   if (!response.ok) {
     const message = payload?.error || payload?.message || "Code runner request failed";
     const error = new Error(message);
-    error.payload = payload;
+    error.details = payload;
     throw error;
   }
 
   return payload;
 }
 
-export async function runCodeTests({ language = "python", version = "3.10.0", sourceCode, testCases = [] }) {
+export async function runCodeTests({ language = "python", version = "3.10.0", compiler = "", sourceCode, testCases = [] }) {
   const results = [];
 
   for (const testCase of testCases) {
@@ -45,6 +51,7 @@ export async function runCodeTests({ language = "python", version = "3.10.0", so
     const run = await executeCode({
       language,
       version,
+      compiler,
       sourceCode,
       stdin: testCase.stdin || "",
     });
@@ -52,7 +59,7 @@ export async function runCodeTests({ language = "python", version = "3.10.0", so
     const actual = normalizeOutput(run.stdout || run.output || "");
     const expected = normalizeOutput(testCase.expectedOutput || "");
     const stderr = run.stderr || "";
-    const passed = !stderr && actual === expected;
+    const exitCode = run.exitCode;
 
     results.push({
       ...testCase,
@@ -60,10 +67,11 @@ export async function runCodeTests({ language = "python", version = "3.10.0", so
       expectedOutput: expected,
       stderr,
       status: run.status || "finished",
-      statusId: run.statusId ?? null,
-      exitCode: run.exitCode,
+      exitCode,
+      compiler: run.compiler || compiler || "",
+      provider: run.provider || "wandbox",
       durationMs: Date.now() - startedAt,
-      passed,
+      passed: !stderr && (exitCode === 0 || exitCode === null) && actual === expected,
       raw: run,
     });
   }
