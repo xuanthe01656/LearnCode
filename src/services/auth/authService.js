@@ -1,16 +1,6 @@
-import { localAuthProvider } from "./localAuthProvider.js";
+import { firebaseAuthProvider } from "./firebaseAuthProvider.js";
 
-// Provider contract for future Firebase / database integration:
-// getCurrentUser(): Promise<User | null>
-// login({ email, password, remember }): Promise<User>
-// register({ name, email, password, learnerGroup }): Promise<User>
-// updateProfile(updates): Promise<User>
-// logout(): Promise<void>
-//
-// When you add Firebase later, create a firebaseAuthProvider with the same
-// methods and replace the provider below. Pages and components will not need
-// to change because they only call authService through AuthContext.
-let activeAuthProvider = localAuthProvider;
+let activeAuthProvider = firebaseAuthProvider;
 
 export function setAuthProvider(provider) {
   activeAuthProvider = provider;
@@ -21,6 +11,10 @@ export function getAuthProvider() {
 }
 
 export const authService = {
+  subscribe(callback, onError) {
+    return activeAuthProvider.subscribe(callback, onError);
+  },
+
   getCurrentUser() {
     return activeAuthProvider.getCurrentUser();
   },
@@ -29,12 +23,28 @@ export const authService = {
     return activeAuthProvider.login(credentials);
   },
 
+  loginWithEmail(credentials) {
+    return activeAuthProvider.loginWithEmail(credentials);
+  },
+
+  loginWithGoogleStudent(payload) {
+    return activeAuthProvider.loginWithGoogleStudent(payload);
+  },
+
+  registerStudentWithGoogle(payload) {
+    return activeAuthProvider.registerStudentWithGoogle(payload);
+  },
+
   register(payload) {
     return activeAuthProvider.register(payload);
   },
 
   updateProfile(updates) {
     return activeAuthProvider.updateProfile(updates);
+  },
+
+  getIdToken(forceRefresh = false) {
+    return activeAuthProvider.getIdToken(forceRefresh);
   },
 
   logout() {

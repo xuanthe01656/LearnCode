@@ -1,269 +1,212 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   ArrowRight,
-  Code2,
-  Eye,
-  EyeOff,
+  BookOpen,
+  GraduationCap,
+  KeyRound,
   LockKeyhole,
   Mail,
   ShieldCheck,
-  Sparkles,
-  UserPlus,
+  UserRound,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useAuth } from "../context/AuthContext.jsx";
-import { DEMO_ACCOUNT } from "../services/auth/localAuthProvider.js";
 
-function isValidEmail(email) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+function getErrorMessage(t, error) {
+  const code = String(error?.code || error?.message || "");
+
+  if (code.includes("auth/invalid-credential") || code.includes("auth/wrong-password") || code.includes("auth/user-not-found")) {
+    return t("errors.invalidCredentials");
+  }
+
+  if (code.includes("account_disabled")) return t("errors.accountDisabled");
+  if (code.includes("missing_role")) return t("errors.missingRole");
+  if (code.includes("gmail_required")) return t("errors.gmailRequired");
+  if (code.includes("role_conflict")) return t("errors.roleConflict");
+  if (code.includes("popup-closed-by-user")) return t("errors.popupClosed");
+
+  return error?.message || t("errors.generic");
 }
 
 export default function Login() {
-  const { t } = useTranslation(["common", "auth"]);
+  const { t } = useTranslation("auth");
   const navigate = useNavigate();
   const location = useLocation();
-  const { login, isAuthenticated, loading } = useAuth();
+  const { loginWithEmail, loginWithGoogleStudent } = useAuth();
 
   const redirectTo = location.state?.from?.pathname || "/profile";
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [remember, setRemember] = useState(true);
-  const [showPassword, setShowPassword] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
+  const [submittingEmail, setSubmittingEmail] = useState(false);
+  const [submittingGoogle, setSubmittingGoogle] = useState(false);
   const [error, setError] = useState("");
 
-  const benefits = useMemo(() => {
-    const value = t("auth:login.benefits", { returnObjects: true });
-    return Array.isArray(value) ? value : [];
-  }, [t]);
+  const loginNotes = useMemo(() => t("login.notes", { returnObjects: true }), [t]);
 
-  useEffect(() => {
-    if (!loading && isAuthenticated) {
-      navigate(redirectTo, { replace: true });
-    }
-  }, [isAuthenticated, loading, navigate, redirectTo]);
-
-  const getErrorMessage = (authError) => {
-    if (!authError?.code) return t("auth:errors.generic");
-    return t(`auth:errors.${authError.code}`, {
-      defaultValue: t("auth:errors.generic"),
-    });
-  };
-
-  const validateForm = () => {
-    if (!email.trim() || !password) {
-      return t("auth:errors.required");
-    }
-
-    if (!isValidEmail(email.trim())) {
-      return t("auth:errors.invalid_email");
-    }
-
-    return "";
-  };
-
-  const handleSubmit = async (event) => {
+  const handleEmailLogin = async (event) => {
     event.preventDefault();
+    setError("");
 
-    const validationError = validateForm();
-    if (validationError) {
-      setError(validationError);
+    if (!email.trim() || !password) {
+      setError(t("errors.requiredLogin"));
       return;
     }
 
     try {
-      setSubmitting(true);
-      setError("");
-      await login({ email, password, remember });
+      setSubmittingEmail(true);
+      await loginWithEmail({ email, password });
       navigate(redirectTo, { replace: true });
-    } catch (authError) {
-      setError(getErrorMessage(authError));
+    } catch (loginError) {
+      setError(getErrorMessage(t, loginError));
     } finally {
-      setSubmitting(false);
+      setSubmittingEmail(false);
     }
   };
 
-  const fillDemoAccount = () => {
-    setEmail(DEMO_ACCOUNT.email);
-    setPassword(DEMO_ACCOUNT.password);
-    setRemember(true);
+  const handleGoogleStudent = async () => {
     setError("");
+
+    try {
+      setSubmittingGoogle(true);
+      await loginWithGoogleStudent({ learnerGroup: "student" });
+      navigate(redirectTo, { replace: true });
+    } catch (loginError) {
+      setError(getErrorMessage(t, loginError));
+    } finally {
+      setSubmittingGoogle(false);
+    }
   };
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,#dbeafe,transparent_30%),radial-gradient(circle_at_top_right,#e0e7ff,transparent_32%),linear-gradient(to_bottom,#f8fafc,#eef2ff)] text-slate-900">
-      <div className="mx-auto grid min-h-[calc(100vh-80px)] max-w-7xl gap-8 px-4 py-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-        <section className="relative overflow-hidden rounded-[2rem] bg-slate-950 p-8 text-white shadow-2xl shadow-indigo-950/20 md:p-10">
-          <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-indigo-500/30 blur-3xl" />
-          <div className="absolute -bottom-28 left-10 h-72 w-72 rounded-full bg-sky-400/20 blur-3xl" />
-
-          <div className="relative z-10">
-            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-bold text-white/90 backdrop-blur">
-              <Sparkles size={16} />
-              {t("auth:login.badge")}
+    <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,#e0e7ff,transparent_32%),radial-gradient(circle_at_top_right,#cffafe,transparent_28%),linear-gradient(to_bottom,#f8fafc,#eef2ff)] px-4 py-10 text-slate-900">
+      <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-stretch">
+        <section className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-slate-950 via-indigo-950 to-sky-900 p-7 text-white shadow-2xl shadow-indigo-950/20 md:p-10">
+          <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
+          <div className="absolute -bottom-24 left-10 h-72 w-72 rounded-full bg-cyan-300/20 blur-3xl" />
+          <div className="relative z-10 flex h-full flex-col justify-between gap-10">
+            <div>
+              <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-black backdrop-blur">
+                <ShieldCheck size={16} />
+                {t("login.badge")}
+              </div>
+              <h1 className="text-4xl font-black leading-tight tracking-tight md:text-6xl">
+                {t("login.title")}
+              </h1>
+              <p className="mt-5 max-w-2xl text-lg leading-8 text-white/78">
+                {t("login.subtitle")}
+              </p>
             </div>
 
-            <div className="flex items-center gap-4">
-              <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-gradient-to-br from-indigo-500 to-sky-400 text-white shadow-xl">
-                <Code2 size={28} />
-              </div>
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-sky-200">
-                  {t("common:appName")}
-                </p>
-                <h1 className="mt-1 text-3xl font-black leading-tight md:text-5xl">
-                  {t("auth:login.title")}
-                </h1>
-              </div>
-            </div>
-
-            <p className="mt-6 max-w-2xl text-base leading-8 text-slate-300 md:text-lg">
-              {t("auth:login.subtitle")}
-            </p>
-
-            <div className="mt-8 grid gap-4 md:grid-cols-3">
-              {benefits.map((benefit) => (
-                <div
-                  key={benefit}
-                  className="rounded-3xl border border-white/10 bg-white/10 p-4 backdrop-blur"
-                >
-                  <ShieldCheck className="text-sky-200" size={20} />
-                  <p className="mt-3 text-sm font-semibold leading-6 text-white/90">
-                    {benefit}
-                  </p>
+            <div className="grid gap-3">
+              {Array.isArray(loginNotes) && loginNotes.map((item) => (
+                <div key={item} className="flex items-start gap-3 rounded-3xl border border-white/10 bg-white/10 p-4 text-sm font-semibold leading-6 backdrop-blur">
+                  <BookOpen className="mt-0.5 shrink-0 text-sky-200" size={18} />
+                  <span>{item}</span>
                 </div>
               ))}
-            </div>
-
-            <div className="mt-8 rounded-3xl border border-white/10 bg-white/10 p-5 backdrop-blur">
-              <p className="font-black text-white">{t("auth:login.futureTitle")}</p>
-              <p className="mt-2 text-sm leading-6 text-slate-300">
-                {t("auth:login.futureDesc")}
-              </p>
             </div>
           </div>
         </section>
 
-        <section className="rounded-[2rem] border border-white bg-white/90 p-6 shadow-2xl shadow-slate-200/70 ring-1 ring-slate-200/70 backdrop-blur md:p-8">
-          <div className="mb-6">
-            <h2 className="text-2xl font-black text-slate-950 md:text-3xl">
-              {t("auth:login.formTitle")}
-            </h2>
-            <p className="mt-2 text-sm leading-6 text-slate-500">
-              {t("auth:login.formSubtitle")}
-            </p>
+        <section className="rounded-[2rem] border border-white bg-white/90 p-6 shadow-xl shadow-slate-200/70 ring-1 ring-slate-200/70 backdrop-blur md:p-8">
+          <div className="mb-6 flex items-start gap-3">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-indigo-50 text-indigo-700">
+              <LockKeyhole size={22} />
+            </div>
+            <div>
+              <h2 className="text-2xl font-black text-slate-950">{t("login.formTitle")}</h2>
+              <p className="mt-1 text-sm leading-6 text-slate-500">{t("login.formDesc")}</p>
+            </div>
           </div>
 
           {error && (
-            <div className="mb-5 rounded-2xl border border-red-100 bg-red-50 px-4 py-3 text-sm font-semibold text-red-700">
+            <div className="mb-5 rounded-2xl border border-red-100 bg-red-50 px-4 py-3 text-sm font-bold text-red-700">
               {error}
             </div>
           )}
 
-          <form className="space-y-5" onSubmit={handleSubmit}>
+          <form onSubmit={handleEmailLogin} className="grid gap-4">
             <label className="block">
-              <span className="text-sm font-bold text-slate-700">
-                {t("auth:login.email")}
-              </span>
+              <span className="text-sm font-black text-slate-700">{t("fields.email")}</span>
               <div className="mt-2 flex items-center gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-sm transition focus-within:border-indigo-500 focus-within:ring-4 focus-within:ring-indigo-100">
-                <Mail className="shrink-0 text-slate-400" size={20} />
+                <Mail size={18} className="text-slate-400" />
                 <input
                   value={email}
                   onChange={(event) => setEmail(event.target.value)}
                   type="email"
                   autoComplete="email"
-                  className="w-full bg-transparent text-slate-900 outline-none placeholder:text-slate-400"
-                  placeholder={t("auth:login.emailPlaceholder")}
+                  className="w-full bg-transparent text-slate-900 outline-none"
+                  placeholder={t("fields.emailPlaceholder")}
                 />
               </div>
             </label>
 
             <label className="block">
-              <span className="text-sm font-bold text-slate-700">
-                {t("auth:login.password")}
-              </span>
+              <span className="text-sm font-black text-slate-700">{t("fields.password")}</span>
               <div className="mt-2 flex items-center gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-sm transition focus-within:border-indigo-500 focus-within:ring-4 focus-within:ring-indigo-100">
-                <LockKeyhole className="shrink-0 text-slate-400" size={20} />
+                <KeyRound size={18} className="text-slate-400" />
                 <input
                   value={password}
                   onChange={(event) => setPassword(event.target.value)}
-                  type={showPassword ? "text" : "password"}
+                  type="password"
                   autoComplete="current-password"
-                  className="w-full bg-transparent text-slate-900 outline-none placeholder:text-slate-400"
-                  placeholder={t("auth:login.passwordPlaceholder")}
+                  className="w-full bg-transparent text-slate-900 outline-none"
+                  placeholder={t("fields.passwordPlaceholder")}
                 />
-                <button
-                  type="button"
-                  onClick={() => setShowPassword((value) => !value)}
-                  className="rounded-xl p-1 text-slate-400 transition hover:bg-slate-100 hover:text-slate-700"
-                  aria-label={
-                    showPassword
-                      ? t("auth:login.hidePassword")
-                      : t("auth:login.showPassword")
-                  }
-                >
-                  {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
-                </button>
               </div>
             </label>
 
-            <div className="flex flex-col gap-3 text-sm sm:flex-row sm:items-center sm:justify-between">
-              <label className="inline-flex items-center gap-2 font-semibold text-slate-600">
-                <input
-                  type="checkbox"
-                  checked={remember}
-                  onChange={(event) => setRemember(event.target.checked)}
-                  className="h-4 w-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500"
-                />
-                {t("auth:login.remember")}
-              </label>
-              <span className="font-medium text-slate-400">
-                {t("auth:login.forgotHint")}
-              </span>
-            </div>
-
             <button
               type="submit"
-              disabled={submitting}
-              className="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-indigo-600 to-sky-500 px-6 py-4 font-black text-white shadow-xl shadow-indigo-200 transition hover:-translate-y-0.5 hover:from-indigo-700 hover:to-sky-600 disabled:cursor-not-allowed disabled:opacity-60"
+              disabled={submittingEmail}
+              className="mt-2 inline-flex items-center justify-center gap-2 rounded-2xl bg-indigo-600 px-5 py-3 font-black text-white shadow-lg shadow-indigo-100 transition hover:-translate-y-0.5 hover:bg-indigo-700 disabled:cursor-not-allowed disabled:bg-slate-300"
             >
-              {submitting ? t("auth:login.submitting") : t("auth:login.submit")}
-              <ArrowRight size={18} />
+              <UserRound size={18} />
+              {submittingEmail ? t("login.signingIn") : t("login.emailButton")}
             </button>
           </form>
 
-          <div className="mt-5 rounded-3xl border border-indigo-100 bg-indigo-50/80 p-4">
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-              <div>
-                <p className="text-sm font-black text-indigo-950">
-                  {t("auth:login.demoTitle")}
-                </p>
-                <p className="mt-1 text-xs text-indigo-800">
-                  {DEMO_ACCOUNT.email} · {DEMO_ACCOUNT.password}
-                </p>
-              </div>
-              <button
-                type="button"
-                onClick={fillDemoAccount}
-                className="rounded-2xl bg-white px-4 py-2 text-sm font-black text-indigo-700 shadow-sm ring-1 ring-indigo-100 transition hover:-translate-y-0.5"
-              >
-                {t("auth:login.useDemo")}
-              </button>
-            </div>
+          <div className="my-6 flex items-center gap-3">
+            <div className="h-px flex-1 bg-slate-200" />
+            <span className="text-xs font-black uppercase tracking-wide text-slate-400">{t("login.or")}</span>
+            <div className="h-px flex-1 bg-slate-200" />
           </div>
 
-          <div className="mt-6 flex flex-col gap-3 rounded-3xl bg-slate-50 p-4 text-center sm:flex-row sm:items-center sm:justify-center">
-            <span className="text-sm font-semibold text-slate-500">
-              {t("auth:login.noAccount")}
-            </span>
-            <Link
-              to="/register"
-              className="inline-flex items-center justify-center gap-2 text-sm font-black text-indigo-700 hover:text-indigo-900"
+          <div className="rounded-3xl border border-emerald-100 bg-emerald-50 p-5">
+            <div className="mb-3 flex items-center gap-3">
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-emerald-700 shadow-sm">
+                <GraduationCap size={21} />
+              </div>
+              <div>
+                <h3 className="font-black text-emerald-950">{t("login.studentTitle")}</h3>
+                <p className="text-sm text-emerald-900/70">{t("login.studentDesc")}</p>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              onClick={handleGoogleStudent}
+              disabled={submittingGoogle}
+              className="flex w-full items-center justify-center gap-2 rounded-2xl bg-white px-5 py-3 font-black text-slate-800 shadow-sm ring-1 ring-emerald-100 transition hover:-translate-y-0.5 hover:bg-slate-50 disabled:cursor-not-allowed disabled:bg-slate-100"
             >
-              <UserPlus size={16} />
-              {t("auth:login.createAccount")}
+              <span className="text-lg">G</span>
+              {submittingGoogle ? t("login.signingIn") : t("login.googleStudentButton")}
+            </button>
+          </div>
+
+          <div className="mt-6 rounded-3xl bg-slate-50 p-5 text-sm leading-6 text-slate-600">
+            <b className="text-slate-900">{t("login.noStaffRegisterTitle")}</b>{" "}
+            {t("login.noStaffRegisterDesc")}
+          </div>
+
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <Link to="/register" className="inline-flex items-center gap-2 font-black text-indigo-700 hover:text-indigo-900">
+              {t("login.studentRegisterLink")}
+              <ArrowRight size={16} />
+            </Link>
+            <Link to="/" className="font-bold text-slate-500 hover:text-slate-900">
+              {t("login.backHome")}
             </Link>
           </div>
         </section>

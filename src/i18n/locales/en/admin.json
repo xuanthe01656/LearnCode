@@ -1,0 +1,67 @@
+{
+  "loading": "Loading data...",
+  "status": {
+    "active": "Active",
+    "invited": "Invited",
+    "disabled": "Disabled"
+  },
+  "dashboard": {
+    "badge": "Admin panel",
+    "title": "Programming learning system administration",
+    "subtitle": "Manage roles, teacher accounts, and access permissions. Students self-register with Gmail; teachers receive accounts created by admins.",
+    "manageTeachers": "Manage teachers",
+    "stats": {
+      "admins": "Admins",
+      "teachers": "Teachers",
+      "students": "Students"
+    },
+    "actions": {
+      "teachers": {
+        "title": "Create and manage teacher accounts",
+        "desc": "Provide email/password accounts for teachers, track the teacher list, and keep teacher registration admin-only."
+      },
+      "teacherGuide": {
+        "title": "Open Python Foundation teacher guides",
+        "desc": "Access teacher-facing lesson guides for online or offline instruction."
+      }
+    }
+  },
+  "teachers": {
+    "badge": "Teacher management",
+    "title": "Provision teacher accounts",
+    "subtitle": "Teachers do not self-register. Admins create email/password accounts and hand them to each teacher privately.",
+    "backToAdmin": "Back to admin",
+    "total": "Total teachers",
+    "active": "Active",
+    "createTitle": "Create a new teacher",
+    "createDesc": "The password is shown only once after creation. Send it to the teacher through a secure channel.",
+    "createdSuccess": "Teacher account created. Copy the credentials below and send them privately to the teacher.",
+    "copyCredentials": "Copy credentials",
+    "generatePassword": "Generate strong password",
+    "createButton": "Create teacher account",
+    "creating": "Creating...",
+    "listTitle": "Teacher list",
+    "listDesc": "This list is loaded from Firestore by teacher role.",
+    "refresh": "Refresh",
+    "empty": "No teachers yet.",
+    "createdAt": "Created at",
+    "credentials": {
+      "email": "Email",
+      "password": "Temporary password"
+    },
+    "fields": {
+      "name": "Teacher full name",
+      "namePlaceholder": "Example: Alex Nguyen",
+      "email": "Login email",
+      "emailPlaceholder": "teacher@example.com",
+      "password": "Temporary password",
+      "passwordPlaceholder": "At least 8 characters"
+    }
+  },
+  "errors": {
+    "loadDashboard": "Could not load admin statistics.",
+    "loadTeachers": "Could not load teachers. Check Firestore rules or admin permission.",
+    "requiredTeacherFields": "Please enter name, email, and password.",
+    "createTeacher": "Could not create teacher account."
+  }
+}

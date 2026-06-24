@@ -1,0 +1,67 @@
+{
+  "loading": "Đang tải dữ liệu...",
+  "status": {
+    "active": "Đang hoạt động",
+    "invited": "Đã mời",
+    "disabled": "Đã khóa"
+  },
+  "dashboard": {
+    "badge": "Trang quản trị",
+    "title": "Quản trị hệ thống học lập trình",
+    "subtitle": "Quản lý vai trò, tài khoản giáo viên và quyền truy cập. Học viên được tự đăng ký bằng Gmail; giáo viên do admin tạo tài khoản.",
+    "manageTeachers": "Quản lý giáo viên",
+    "stats": {
+      "admins": "Admin",
+      "teachers": "Giáo viên",
+      "students": "Học viên"
+    },
+    "actions": {
+      "teachers": {
+        "title": "Tạo và quản lý tài khoản giáo viên",
+        "desc": "Cấp email/mật khẩu cho giáo viên, theo dõi danh sách giáo viên và đảm bảo chỉ admin mới tạo được tài khoản này."
+      },
+      "teacherGuide": {
+        "title": "Mở giáo án Python Foundation",
+        "desc": "Truy cập giáo án dành cho giáo viên để hướng dẫn học viên online hoặc offline."
+      }
+    }
+  },
+  "teachers": {
+    "badge": "Quản lý giáo viên",
+    "title": "Cấp tài khoản giáo viên",
+    "subtitle": "Giáo viên không tự đăng ký. Admin tạo tài khoản email/mật khẩu và bàn giao riêng cho từng giáo viên.",
+    "backToAdmin": "Quay lại quản trị",
+    "total": "Tổng giáo viên",
+    "active": "Đang hoạt động",
+    "createTitle": "Tạo giáo viên mới",
+    "createDesc": "Mật khẩu chỉ hiển thị một lần sau khi tạo. Hãy gửi cho giáo viên qua kênh an toàn.",
+    "createdSuccess": "Đã tạo tài khoản giáo viên. Hãy sao chép thông tin bên dưới và gửi riêng cho giáo viên.",
+    "copyCredentials": "Sao chép thông tin đăng nhập",
+    "generatePassword": "Tạo mật khẩu mạnh",
+    "createButton": "Tạo tài khoản giáo viên",
+    "creating": "Đang tạo...",
+    "listTitle": "Danh sách giáo viên",
+    "listDesc": "Danh sách này lấy từ Firestore theo role teacher.",
+    "refresh": "Tải lại",
+    "empty": "Chưa có giáo viên nào.",
+    "createdAt": "Ngày tạo",
+    "credentials": {
+      "email": "Email",
+      "password": "Mật khẩu tạm"
+    },
+    "fields": {
+      "name": "Họ tên giáo viên",
+      "namePlaceholder": "Ví dụ: Nguyễn Văn An",
+      "email": "Email đăng nhập",
+      "emailPlaceholder": "teacher@example.com",
+      "password": "Mật khẩu tạm",
+      "passwordPlaceholder": "Tối thiểu 8 ký tự"
+    }
+  },
+  "errors": {
+    "loadDashboard": "Không tải được thống kê quản trị.",
+    "loadTeachers": "Không tải được danh sách giáo viên. Hãy kiểm tra Firestore rules hoặc quyền admin.",
+    "requiredTeacherFields": "Vui lòng nhập đủ họ tên, email và mật khẩu.",
+    "createTeacher": "Không tạo được tài khoản giáo viên."
+  }
+}

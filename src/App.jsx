@@ -1,28 +1,35 @@
 import React from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
 import Header from "./components/Header.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import { AuthProvider } from "./context/AuthContext.jsx";
+import { USER_ROLES } from "./components/constants/roles.js";
+
 import Home from "./pages/Home.jsx";
 import LanguageSelect from "./pages/LanguageSelect.jsx";
 import CourseList from "./pages/CourseList.jsx";
 import CourseDetail from "./pages/CourseDetail.jsx";
 import Roadmap from "./pages/Roadmap.jsx";
-import TeacherDashboard from "./pages/teacher/TeacherDashboard.jsx";
-import TeacherCourseGuide from "./pages/teacher/TeacherCourseGuide.jsx";
-import TeacherLessonGuide from "./pages/teacher/TeacherLessonGuide.jsx";
 import LessonDetail from "./pages/LessonDetail.jsx";
 import ThinkingTest from "./pages/ThinkingTest.jsx";
 import Placement from "./pages/PlacementTest.jsx";
 import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
 import Profile from "./pages/Profile.jsx";
+import Unauthorized from "./pages/Unauthorized.jsx";
+import AdminDashboard from "./pages/admin/AdminDashboard.jsx";
+import AdminTeachers from "./pages/admin/AdminTeachers.jsx";
+import TeacherDashboard from "./pages/teacher/TeacherDashboard.jsx";
+import TeacherCourseGuide from "./pages/teacher/TeacherCourseGuide.jsx";
+import TeacherLessonGuide from "./pages/teacher/TeacherLessonGuide.jsx";
+
+const STAFF_ROLES = [USER_ROLES.admin, USER_ROLES.teacher];
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <AuthProvider>
+    <AuthProvider>
+      <BrowserRouter>
         <div className="min-h-screen bg-slate-50 text-slate-900">
           <Header />
 
@@ -37,8 +44,10 @@ export default function App() {
               <Route path="/lessons/:lessonId" element={<LessonDetail />} />
               <Route path="/test" element={<ThinkingTest />} />
               <Route path="/placement" element={<Placement />} />
+
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
+              <Route path="/unauthorized" element={<Unauthorized />} />
               <Route
                 path="/profile"
                 element={
@@ -47,10 +56,28 @@ export default function App() {
                   </ProtectedRoute>
                 }
               />
+
+              <Route
+                path="/admin"
+                element={
+                  <ProtectedRoute allowedRoles={[USER_ROLES.admin]}>
+                    <AdminDashboard />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/admin/teachers"
+                element={
+                  <ProtectedRoute allowedRoles={[USER_ROLES.admin]}>
+                    <AdminTeachers />
+                  </ProtectedRoute>
+                }
+              />
+
               <Route
                 path="/teacher"
                 element={
-                  <ProtectedRoute>
+                  <ProtectedRoute allowedRoles={STAFF_ROLES}>
                     <TeacherDashboard />
                   </ProtectedRoute>
                 }
@@ -58,7 +85,7 @@ export default function App() {
               <Route
                 path="/teacher/course/:courseId"
                 element={
-                  <ProtectedRoute>
+                  <ProtectedRoute allowedRoles={STAFF_ROLES}>
                     <TeacherCourseGuide />
                   </ProtectedRoute>
                 }
@@ -66,16 +93,17 @@ export default function App() {
               <Route
                 path="/teacher/lessons/:lessonId"
                 element={
-                  <ProtectedRoute>
+                  <ProtectedRoute allowedRoles={STAFF_ROLES}>
                     <TeacherLessonGuide />
                   </ProtectedRoute>
                 }
               />
+
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </main>
         </div>
-      </AuthProvider>
-    </BrowserRouter>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }

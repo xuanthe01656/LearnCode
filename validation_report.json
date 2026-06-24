@@ -1,52 +1,34 @@
 {
-  "checkedAt": "2026-06-24T07:23:20.878Z",
-  "files": [
-    {
-      "file": "src/i18n/locales/vi/home.json",
-      "ok": true,
-      "type": "json"
-    },
-    {
-      "file": "src/i18n/locales/en/home.json",
-      "ok": true,
-      "type": "json"
-    },
-    {
-      "file": "src/i18n/locales/vi/courses.json",
-      "ok": true,
-      "type": "json"
-    },
-    {
-      "file": "src/i18n/locales/en/courses.json",
-      "ok": true,
-      "type": "json"
-    },
-    {
-      "file": "src/data/courses.js",
-      "ok": true,
-      "type": "js"
-    },
-    {
-      "file": "src/pages/Home.jsx",
-      "ok": true,
-      "type": "jsx-transpile"
-    },
-    {
-      "file": "src/components/CourseCard.jsx",
-      "ok": true,
-      "type": "jsx-transpile"
-    },
-    {
-      "file": "src/pages/CourseDetail.jsx",
-      "ok": true,
-      "type": "jsx-transpile"
-    },
-    {
-      "file": "src/pages/CourseList.jsx",
-      "ok": true,
-      "type": "jsx-transpile"
-    }
+  "module": "firebase-auth-rbac-admin-teacher-student",
+  "status": "passed",
+  "roles": ["admin", "teacher", "student"],
+  "studentSelfRegistration": "Google/Gmail only",
+  "staffRegistration": "disabled on public UI; teacher accounts are created by admin API",
+  "adminCreation": "server bootstrap script only",
+  "serverApis": [
+    "/api/auth/register-student",
+    "/api/admin/create-teacher",
+    "/api/admin/update-user-status"
   ],
-  "validationErrors": [],
-  "status": "passed"
+  "frontendRoutesAdded": [
+    "/login",
+    "/register",
+    "/profile",
+    "/unauthorized",
+    "/admin",
+    "/admin/teachers"
+  ],
+  "protectedTeacherRoutes": [
+    "/teacher",
+    "/teacher/course/:courseId",
+    "/teacher/lessons/:lessonId"
+  ],
+  "checks": {
+    "jsonParse": true,
+    "nodeSyntaxCheck": true,
+    "jsxTranspileCheck": true,
+    "firestoreRulesIncluded": true,
+    "firebaseAdminBootstrapScriptIncluded": true
+  },
+  "validationErrors": []
 }
