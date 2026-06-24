@@ -28,7 +28,10 @@ export async function executeCode({ language = "python", version = "3.10.0", sou
   }
 
   if (!response.ok) {
-    throw new Error(payload?.error || "Code runner request failed");
+    const message = payload?.error || payload?.message || "Code runner request failed";
+    const error = new Error(message);
+    error.payload = payload;
+    throw error;
   }
 
   return payload;
@@ -48,16 +51,19 @@ export async function runCodeTests({ language = "python", version = "3.10.0", so
 
     const actual = normalizeOutput(run.stdout || run.output || "");
     const expected = normalizeOutput(testCase.expectedOutput || "");
+    const stderr = run.stderr || "";
+    const passed = !stderr && actual === expected;
 
     results.push({
       ...testCase,
       actualOutput: actual,
       expectedOutput: expected,
-      stderr: run.stderr || "",
+      stderr,
       status: run.status || "finished",
+      statusId: run.statusId ?? null,
       exitCode: run.exitCode,
       durationMs: Date.now() - startedAt,
-      passed: !run.stderr && actual === expected,
+      passed,
       raw: run,
     });
   }
