@@ -1,0 +1,20 @@
+{
+  "ui": {
+    "runWithInput": "Run with input",
+    "runTests": "Run tests",
+    "standardInput": "Standard input",
+    "inputRequired": "Input expected",
+    "inputOptional": "Input optional",
+    "stdinPlaceholderWithSample": "Example input from a test case will be placed here. Edit it and run again.",
+    "stdinPlaceholder": "Leave empty if the program does not use input().",
+    "useSampleInput": "Use sample {{index}}",
+    "runThisInput": "Run this input",
+    "runFinished": "Run finished",
+    "runFinishedWithError": "Run finished with an error",
+    "inputNoteTitle": "How input() is handled:",
+    "inputNoteBody": "Type all input lines before running. Each line in the Standard input box will be read by one input() call in order.",
+    "testCasesDesc": "The system runs your code once per test case and sends each case's input through stdin.",
+    "noTestCases": "This exercise has no automatic test cases yet. Use manual input to run code.",
+    "testCase": "Test case {{index}}"
+  }
+}

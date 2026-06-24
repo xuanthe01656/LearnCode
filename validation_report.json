@@ -1,20 +1,20 @@
 {
-  "totalLanguages": 5,
-  "totalCourses": 10,
-  "availableCourses": 1,
-  "totalLessons": 24,
-  "totalRoadmaps": 4,
-  "pythonFoundationLessons": 24,
-  "namespacesAdded": [
-    "courses",
-    "lessons"
+  "patchName": "code_runner_input_flow_patch",
+  "mainChanges": [
+    "Added manual standard input mode before running tests",
+    "Added sample input buttons from test cases",
+    "Kept automatic test mode with stdin per test case",
+    "Improved result display: stdin, expected output, actual output, stderr, provider and compiler",
+    "Kept Wandbox backend and stdin forwarding",
+    "Changed LessonDetail to render CodeRunner whenever codeExercise.enabled is true"
   ],
-  "newRoutes": [
-    "/courses",
-    "/courses/:languageId",
-    "/course/:courseId",
-    "/roadmap",
-    "/lessons/:lessonId"
-  ],
+  "checks": {
+    "codeRunnerServiceNodeCheck": true,
+    "executeApiNodeCheck": true,
+    "jsxTranspileCheck": true,
+    "usesWandbox": true,
+    "manualInputSupported": true,
+    "testCasesStillUseStdin": true
+  },
   "validationErrors": []
 }

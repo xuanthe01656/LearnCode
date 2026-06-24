@@ -71,7 +71,7 @@ export default function LessonDetail() {
   const timePlan = asArray(t(`${baseKey}.timePlan`, { returnObjects: true }));
   const teacherGuide = asObject(t(`${baseKey}.teacherGuide`, { returnObjects: true }));
   const codeExercise = asObject(t(`${baseKey}.codeExercise`, { returnObjects: true }));
-  const hasCodeExercise = Boolean(codeExercise?.enabled && asArray(codeExercise?.testCases).length > 0);
+  const hasCodeExercise = Boolean(codeExercise?.enabled);
 
   return (
     <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,#e0e7ff,transparent_28%),linear-gradient(to_bottom,#f8fafc,#eef2ff)] text-slate-900">

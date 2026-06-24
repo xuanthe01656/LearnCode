@@ -1,0 +1,20 @@
+{
+  "ui": {
+    "runWithInput": "Chạy thử với input",
+    "runTests": "Chạy test code",
+    "standardInput": "Input tiêu chuẩn",
+    "inputRequired": "Cần input",
+    "inputOptional": "Input tùy chọn",
+    "stdinPlaceholderWithSample": "Input mẫu từ test case đã được điền sẵn. Hãy sửa nếu muốn thử trường hợp khác.",
+    "stdinPlaceholder": "Để trống nếu chương trình không dùng input().",
+    "useSampleInput": "Dùng input mẫu {{index}}",
+    "runThisInput": "Chạy với input này",
+    "runFinished": "Đã chạy xong",
+    "runFinishedWithError": "Chạy xong nhưng có lỗi",
+    "inputNoteTitle": "Cách input() hoạt động:",
+    "inputNoteBody": "Nhập tất cả dòng input trước khi chạy. Mỗi dòng trong ô Input tiêu chuẩn sẽ được đọc bởi một lệnh input() theo đúng thứ tự.",
+    "testCasesDesc": "Hệ thống chạy code một lần cho mỗi test case và gửi input của từng case qua stdin.",
+    "noTestCases": "Bài này chưa có test case tự động. Hãy dùng chế độ chạy thử với input.",
+    "testCase": "Test case {{index}}"
+  }
+}
