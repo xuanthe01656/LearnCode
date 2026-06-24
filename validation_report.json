@@ -1,46 +1,52 @@
 {
-  "teacherModule": "teacher-pages-python-foundation",
-  "metadataLessonCount": 24,
-  "viTeacherLessonCount": 24,
-  "enTeacherLessonCount": 24,
-  "routesAdded": [
-    "/teacher",
-    "/teacher/course/:courseId",
-    "/teacher/lessons/:lessonId"
-  ],
-  "namespaceAdded": "teacher",
-  "teacherLessonSectionsPerLesson": [
-    "beforeClass",
-    "hook",
-    "flow",
-    "teachingScript",
-    "liveCoding",
-    "activities",
-    "questions",
-    "homework",
-    "assessment",
-    "commonMisconceptions",
-    "differentiation",
-    "solution"
-  ],
-  "allTimePlansMatchLessonDuration": true,
-  "jsSyntaxChecks": [
+  "checkedAt": "2026-06-24T07:23:20.878Z",
+  "files": [
     {
-      "cmd": "node --check",
+      "file": "src/i18n/locales/vi/home.json",
       "ok": true,
-      "stderr": ""
+      "type": "json"
     },
     {
-      "cmd": "node --check",
+      "file": "src/i18n/locales/en/home.json",
       "ok": true,
-      "stderr": ""
+      "type": "json"
     },
     {
-      "cmd": "node /mnt/data/check_jsx.js",
+      "file": "src/i18n/locales/vi/courses.json",
       "ok": true,
-      "stderr": ""
+      "type": "json"
+    },
+    {
+      "file": "src/i18n/locales/en/courses.json",
+      "ok": true,
+      "type": "json"
+    },
+    {
+      "file": "src/data/courses.js",
+      "ok": true,
+      "type": "js"
+    },
+    {
+      "file": "src/pages/Home.jsx",
+      "ok": true,
+      "type": "jsx-transpile"
+    },
+    {
+      "file": "src/components/CourseCard.jsx",
+      "ok": true,
+      "type": "jsx-transpile"
+    },
+    {
+      "file": "src/pages/CourseDetail.jsx",
+      "ok": true,
+      "type": "jsx-transpile"
+    },
+    {
+      "file": "src/pages/CourseList.jsx",
+      "ok": true,
+      "type": "jsx-transpile"
     }
   ],
   "validationErrors": [],
-  "status": "pass"
+  "status": "passed"
 }

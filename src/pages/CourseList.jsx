@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import CourseCard from "../components/CourseCard.jsx";
 import { courses } from "../data/courses.js";
 import { getLessonsByCourse } from "../data/lessons.js";
-import { getLanguageById, languages } from "../data/languages.js";
+import { getLanguageById } from "../data/languages.js";
 
 const STATUS_FILTERS = ["all", "available", "planned"];
 
@@ -85,8 +85,8 @@ export default function CourseList() {
                   <div className="text-xs text-white/70">{t("coursePage.stats.available")}</div>
                 </div>
                 <div className="rounded-3xl bg-white/10 p-4">
-                  <div className="text-3xl font-black">{languages.length}</div>
-                  <div className="text-xs text-white/70">{t("coursePage.stats.languages")}</div>
+                  <div className="text-3xl font-black">{courses.filter((course) => course.contentStatus === "completed").length}</div>
+                  <div className="text-xs text-white/70">{t("coursePage.stats.completed")}</div>
                 </div>
               </div>
             </div>

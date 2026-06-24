@@ -12,13 +12,37 @@ import {
   PlayCircle,
   Rocket,
   Sparkles,
+  TerminalSquare,
   Trophy,
   Users,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { getCourseById } from "../data/courses.js";
+import { getLessonStatsByCourse } from "../data/lessons.js";
+
+function asArray(value) {
+  return Array.isArray(value) ? value : [];
+}
+
+function StatCard({ value, label, tone = "white" }) {
+  const toneClass =
+    tone === "dark"
+      ? "border-slate-800 bg-slate-900 text-white"
+      : "border-white/10 bg-white/10 text-white backdrop-blur";
+
+  return (
+    <div className={`rounded-2xl border p-4 ${toneClass}`}>
+      <div className="text-2xl font-black">{value}</div>
+      <div className="mt-1 text-sm opacity-75">{label}</div>
+    </div>
+  );
+}
 
 export default function Home() {
   const { t } = useTranslation(["common", "home"]);
+
+  const pythonCourse = getCourseById("python-foundation");
+  const pythonStats = getLessonStatsByCourse("python-foundation");
 
   const audiences = [
     {
@@ -47,9 +71,26 @@ export default function Home() {
     },
   ];
 
-  const features = t("home:features", { returnObjects: true });
-  const learningPaths = t("home:learningPaths", { returnObjects: true });
-  const steps = t("home:steps", { returnObjects: true });
+  const features = asArray(t("home:features", { returnObjects: true }));
+  const learningPaths = asArray(t("home:learningPaths", { returnObjects: true }));
+  const steps = asArray(t("home:steps", { returnObjects: true }));
+  const pythonHighlights = asArray(t("home:pythonFoundation.highlights", { returnObjects: true }));
+  const pythonIncludes = asArray(t("home:pythonFoundation.includes", { returnObjects: true }));
+
+  const heroStats = [
+    {
+      value: pythonStats.totalLessons || pythonCourse?.lessonIds?.length || 24,
+      label: t("home:stats.lessons"),
+    },
+    {
+      value: pythonStats.quizQuestions || 178,
+      label: t("home:stats.quizQuestions"),
+    },
+    {
+      value: pythonStats.codeExercises || 22,
+      label: t("home:stats.codeExercises"),
+    },
+  ];
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
@@ -59,9 +100,9 @@ export default function Home() {
 
         <div className="relative mx-auto grid max-w-7xl gap-12 px-4 py-20 lg:grid-cols-2 lg:items-center">
           <div>
-            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-white/90 backdrop-blur">
-              <Sparkles size={16} />
-              {t("home:badge")}
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-emerald-300/30 bg-emerald-400/10 px-4 py-2 text-sm font-black text-emerald-100 backdrop-blur">
+              <BadgeCheck size={16} />
+              {t("home:pythonFoundation.statusLabel")}
             </div>
 
             <h1 className="text-4xl font-black leading-tight tracking-tight md:text-6xl">
@@ -74,43 +115,26 @@ export default function Home() {
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
-                to="/test"
+                to="/course/python-foundation"
                 className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-6 py-3 font-bold text-slate-950 shadow-xl transition hover:-translate-y-0.5 hover:bg-slate-100"
               >
-                {t("common:startTest")}
+                {t("home:heroCta.openPython")}
                 <ArrowRight size={18} />
               </Link>
 
               <Link
-                to="/languages"
+                to="/placement"
                 className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/20 bg-white/10 px-6 py-3 font-bold text-white backdrop-blur transition hover:bg-white/20"
               >
-                {t("common:viewCourses")}
+                {t("home:heroCta.takePlacement")}
                 <PlayCircle size={18} />
               </Link>
             </div>
 
             <div className="mt-10 grid max-w-xl grid-cols-3 gap-4">
-              <div className="rounded-2xl border border-white/10 bg-white/10 p-4 backdrop-blur">
-                <div className="text-2xl font-black">50+</div>
-                <div className="mt-1 text-sm text-slate-300">
-                  {t("home:stats.questions")}
-                </div>
-              </div>
-
-              <div className="rounded-2xl border border-white/10 bg-white/10 p-4 backdrop-blur">
-                <div className="text-2xl font-black">0→1</div>
-                <div className="mt-1 text-sm text-slate-300">
-                  {t("home:stats.roadmap")}
-                </div>
-              </div>
-
-              <div className="rounded-2xl border border-white/10 bg-white/10 p-4 backdrop-blur">
-                <div className="text-2xl font-black">4+</div>
-                <div className="mt-1 text-sm text-slate-300">
-                  {t("home:stats.audiences")}
-                </div>
-              </div>
+              {heroStats.map((item) => (
+                <StatCard key={item.label} value={item.value} label={item.label} />
+              ))}
             </div>
           </div>
 
@@ -127,19 +151,21 @@ export default function Home() {
               <p className="mt-3">
                 <span className="text-pink-300">print</span>
                 <span>(</span>
-                <span className="text-green-300">
-                  "{t("home:codeCard.message")}"
-                </span>
+                <span className="text-green-300">"{t("home:codeCard.messageMuted")}"</span>
+                <span>)</span>
+              </p>
+
+              <p className="mt-3">
+                <span className="text-pink-300">print</span>
+                <span>(</span>
+                <span className="text-green-300">"{t("home:codeCard.statusMessage")}"</span>
                 <span>)</span>
               </p>
 
               <div className="mt-6 rounded-2xl bg-slate-900 p-4">
-                <p className="text-slate-400">
-                  {t("home:codeCard.resultLabel")}
-                </p>
-                <p className="mt-2 text-green-300">
-                  {t("home:codeCard.message")}
-                </p>
+                <p className="text-slate-400">{t("home:codeCard.resultLabel")}</p>
+                <p className="mt-2 text-green-300">{t("home:codeCard.messageMuted")}</p>
+                <p className="text-green-300">{t("home:codeCard.statusMessage")}</p>
               </div>
             </div>
 
@@ -149,12 +175,8 @@ export default function Home() {
                   <Trophy size={16} />
                   {t("home:badgeCard.label")}
                 </div>
-                <div className="mt-2 text-lg font-black">
-                  {t("home:badgeCard.title")}
-                </div>
-                <p className="mt-1 text-sm text-slate-500">
-                  {t("home:badgeCard.desc")}
-                </p>
+                <div className="mt-2 text-lg font-black">{t("home:badgeCard.title")}</div>
+                <p className="mt-1 text-sm text-slate-500">{t("home:badgeCard.desc")}</p>
               </div>
 
               <div className="rounded-3xl bg-white p-5 text-slate-900">
@@ -162,9 +184,9 @@ export default function Home() {
                   {t("home:progressCard.label")}
                 </div>
                 <div className="mt-3 h-3 rounded-full bg-slate-200">
-                  <div className="h-3 w-2/3 rounded-full bg-indigo-600" />
+                  <div className="h-3 w-full rounded-full bg-emerald-600" />
                 </div>
-                <div className="mt-2 text-sm font-bold">
+                <div className="mt-2 text-sm font-bold text-emerald-700">
                   {t("home:progressCard.value")}
                 </div>
               </div>
@@ -174,40 +196,102 @@ export default function Home() {
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-16">
+        <div className="overflow-hidden rounded-[2rem] border border-emerald-100 bg-white shadow-xl shadow-emerald-100/50">
+          <div className="grid gap-8 p-6 md:p-8 lg:grid-cols-[1fr_390px] lg:items-center">
+            <div>
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-emerald-50 px-4 py-2 text-sm font-black text-emerald-700 ring-1 ring-emerald-100">
+                <BadgeCheck size={16} />
+                {t("home:pythonFoundation.badge")}
+              </div>
+
+              <h2 className="text-3xl font-black text-slate-950 md:text-4xl">
+                {t("home:pythonFoundation.title")}
+              </h2>
+
+              <p className="mt-4 max-w-3xl leading-8 text-slate-600">
+                {t("home:pythonFoundation.desc")}
+              </p>
+
+              <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                {pythonHighlights.map((item) => (
+                  <div key={item} className="flex items-start gap-3 rounded-2xl bg-slate-50 px-4 py-3 text-sm font-semibold leading-6 text-slate-700">
+                    <CheckCircle2 className="mt-0.5 shrink-0 text-emerald-600" size={18} />
+                    {item}
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+                <Link
+                  to="/course/python-foundation"
+                  className="inline-flex items-center justify-center gap-2 rounded-2xl bg-slate-950 px-6 py-3 font-black text-white transition hover:bg-indigo-700"
+                >
+                  {t("home:pythonFoundation.openCourse")}
+                  <ArrowRight size={18} />
+                </Link>
+                <Link
+                  to="/lessons/pyf-001"
+                  className="inline-flex items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white px-6 py-3 font-black text-slate-700 transition hover:bg-slate-50"
+                >
+                  {t("home:pythonFoundation.startLesson")}
+                  <PlayCircle size={18} />
+                </Link>
+                <Link
+                  to="/teacher/course/python-foundation"
+                  className="inline-flex items-center justify-center gap-2 rounded-2xl border border-indigo-100 bg-indigo-50 px-6 py-3 font-black text-indigo-700 transition hover:bg-indigo-100"
+                >
+                  {t("home:pythonFoundation.teacherGuide")}
+                  <BookOpen size={18} />
+                </Link>
+              </div>
+            </div>
+
+            <div className="rounded-[2rem] bg-slate-950 p-5 text-white">
+              <div className="grid grid-cols-2 gap-3">
+                <StatCard tone="dark" value={pythonStats.totalLessons || 24} label={t("home:pythonFoundation.stats.lessons")} />
+                <StatCard tone="dark" value={pythonCourse?.durationSessions || 24} label={t("home:pythonFoundation.stats.sessions")} />
+                <StatCard tone="dark" value={pythonStats.quizQuestions || 178} label={t("home:pythonFoundation.stats.quiz")} />
+                <StatCard tone="dark" value={pythonStats.codeExercises || 22} label={t("home:pythonFoundation.stats.code")} />
+              </div>
+
+              <div className="mt-4 rounded-3xl bg-white p-5 text-slate-950">
+                <h3 className="font-black">{t("home:pythonFoundation.includesTitle")}</h3>
+                <div className="mt-3 grid gap-2">
+                  {pythonIncludes.map((item) => (
+                    <div key={item} className="flex items-center gap-2 text-sm font-semibold text-slate-700">
+                      <CheckCircle2 size={16} className="text-emerald-600" />
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 pb-16">
         <div className="max-w-3xl">
           <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-indigo-50 px-4 py-2 text-sm font-bold text-indigo-700">
             <Users size={16} />
             {t("home:audienceSection.badge")}
           </div>
 
-          <h2 className="text-3xl font-black md:text-4xl">
-            {t("home:audienceSection.title")}
-          </h2>
+          <h2 className="text-3xl font-black md:text-4xl">{t("home:audienceSection.title")}</h2>
 
-          <p className="mt-4 text-slate-600">
-            {t("home:audienceSection.desc")}
-          </p>
+          <p className="mt-4 text-slate-600">{t("home:audienceSection.desc")}</p>
         </div>
 
         <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           {audiences.map((item) => (
-            <div
-              key={item.title}
-              className="group rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-xl"
-            >
+            <div key={item.title} className="group rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-xl">
               <div className="mb-5 flex items-center justify-between">
-                <div className="inline-flex rounded-2xl bg-indigo-50 p-3 text-indigo-700">
-                  {item.icon}
-                </div>
-                <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-slate-500">
-                  {item.tag}
-                </span>
+                <div className="inline-flex rounded-2xl bg-indigo-50 p-3 text-indigo-700">{item.icon}</div>
+                <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-slate-500">{item.tag}</span>
               </div>
 
               <h3 className="text-xl font-black">{item.title}</h3>
-              <p className="mt-3 text-sm leading-6 text-slate-600">
-                {item.desc}
-              </p>
+              <p className="mt-3 text-sm leading-6 text-slate-600">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -221,13 +305,9 @@ export default function Home() {
               {t("home:pathSection.badge")}
             </div>
 
-            <h2 className="text-3xl font-black md:text-4xl">
-              {t("home:pathSection.title")}
-            </h2>
+            <h2 className="text-3xl font-black md:text-4xl">{t("home:pathSection.title")}</h2>
 
-            <p className="mt-4 leading-7 text-slate-600">
-              {t("home:pathSection.desc")}
-            </p>
+            <p className="mt-4 leading-7 text-slate-600">{t("home:pathSection.desc")}</p>
 
             <div className="mt-8 grid gap-3">
               {features.map((feature) => (
@@ -241,22 +321,21 @@ export default function Home() {
 
           <div className="grid gap-4">
             {learningPaths.map((path) => (
-              <div
+              <Link
                 key={path.title}
-                className="rounded-3xl border border-slate-200 bg-slate-50 p-6 transition hover:border-indigo-200 hover:bg-indigo-50/40"
+                to={path.href || "/roadmap"}
+                className="rounded-3xl border border-slate-200 bg-slate-50 p-6 transition hover:-translate-y-0.5 hover:border-indigo-200 hover:bg-indigo-50/40 hover:shadow-lg"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <h3 className="text-xl font-black">{path.title}</h3>
-                    <p className="mt-2 text-sm leading-6 text-slate-600">
-                      {path.desc}
-                    </p>
+                    <p className="mt-2 text-sm leading-6 text-slate-600">{path.desc}</p>
                   </div>
                   <span className="shrink-0 rounded-full bg-white px-3 py-1 text-xs font-bold text-indigo-700 ring-1 ring-indigo-100">
                     {path.status}
                   </span>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -269,28 +348,19 @@ export default function Home() {
             {t("home:methodSection.badge")}
           </div>
 
-          <h2 className="text-3xl font-black md:text-4xl">
-            {t("home:methodSection.title")}
-          </h2>
+          <h2 className="text-3xl font-black md:text-4xl">{t("home:methodSection.title")}</h2>
 
-          <p className="mx-auto mt-4 max-w-2xl text-slate-600">
-            {t("home:methodSection.desc")}
-          </p>
+          <p className="mx-auto mt-4 max-w-2xl text-slate-600">{t("home:methodSection.desc")}</p>
         </div>
 
         <div className="mt-10 grid gap-5 md:grid-cols-4">
           {steps.map((step, index) => (
-            <div
-              key={step.title}
-              className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200"
-            >
+            <div key={step.title} className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
               <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-600 text-lg font-black text-white">
                 {index + 1}
               </div>
               <h3 className="text-lg font-black">{step.title}</h3>
-              <p className="mt-3 text-sm leading-6 text-slate-600">
-                {step.desc}
-              </p>
+              <p className="mt-3 text-sm leading-6 text-slate-600">{step.desc}</p>
             </div>
           ))}
         </div>
@@ -301,32 +371,30 @@ export default function Home() {
           <div className="grid gap-8 md:grid-cols-2 md:items-center">
             <div>
               <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-sm font-bold backdrop-blur">
-                <BadgeCheck size={16} />
+                <TerminalSquare size={16} />
                 {t("home:cta.badge")}
               </div>
 
-              <h2 className="text-3xl font-black md:text-4xl">
-                {t("home:cta.title")}
-              </h2>
+              <h2 className="text-3xl font-black md:text-4xl">{t("home:cta.title")}</h2>
 
               <p className="mt-4 text-white/85">{t("home:cta.desc")}</p>
             </div>
 
             <div className="flex flex-col gap-3 sm:flex-row md:justify-end">
               <Link
-                to="/test"
+                to="/course/python-foundation"
                 className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-6 py-3 font-bold text-indigo-700 shadow transition hover:bg-slate-100"
               >
-                {t("common:startTest")}
+                {t("home:cta.openCourse")}
                 <ArrowRight size={18} />
               </Link>
 
               <Link
-                to="/languages"
+                to="/test"
                 className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/30 bg-white/10 px-6 py-3 font-bold text-white backdrop-blur transition hover:bg-white/20"
               >
-                {t("common:viewCourses")}
-                <BookOpen size={18} />
+                {t("home:cta.takeThinking")}
+                <Sparkles size={18} />
               </Link>
             </div>
           </div>

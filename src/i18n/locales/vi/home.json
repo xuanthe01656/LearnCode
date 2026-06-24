@@ -1,114 +1,154 @@
 {
-  "badge": "Nền tảng học lập trình cho mọi người",
-  "title": "Học lập trình từ con số 0 đến làm được sản phẩm thật",
-  "subtitle": "Code Explorer là nền tảng học lập trình hiện đại dành cho học sinh, sinh viên, người mới bắt đầu, người đi làm và người muốn chuyển ngành. Bắt đầu bằng tư duy, học bằng thực hành, tiến tới dự án thực tế.",
+  "badge": "Python Foundation đã hoàn thiện",
+  "title": "Học lập trình Python từ tư duy đến project thực tế",
+  "subtitle": "Nền tảng học lập trình dành cho học sinh, người mới bắt đầu, người đi làm và người chuyển ngành. Khóa Python Foundation hiện đã có đầy đủ bài học, quiz, code runner, project và giáo án giáo viên.",
+  "heroCta": {
+    "openPython": "Vào Python Foundation",
+    "takePlacement": "Làm placement test"
+  },
   "stats": {
-    "questions": "câu test tư duy",
-    "roadmap": "lộ trình nhập môn",
-    "audiences": "nhóm người học"
+    "lessons": "bài học hoàn chỉnh",
+    "quizQuestions": "câu quiz nhanh",
+    "codeExercises": "bài code có test"
   },
   "codeCard": {
-    "comment": "# Bài học đầu tiên",
-    "message": "Tôi có thể học lập trình!",
-    "resultLabel": "Kết quả:"
+    "comment": "# Khóa học đầu tiên đã sẵn sàng",
+    "message": "Tôi có thể học Python từ con số 0",
+    "messageMuted": "Tôi có thể học Python từ con số 0",
+    "statusMessage": "Python Foundation: ready",
+    "resultLabel": "Kết quả"
   },
   "badgeCard": {
-    "label": "Huy hiệu",
-    "title": "Logic Explorer",
-    "desc": "Hoàn thành test đầu vào"
+    "label": "Trạng thái khóa học",
+    "title": "Đã hoàn thành nội dung",
+    "desc": "Có đủ lesson học viên, quiz, code exercise, project và giáo án giáo viên."
   },
   "progressCard": {
-    "label": "Tiến độ học",
-    "value": "8/12 bài đầu tiên"
+    "label": "Tiến độ biên soạn",
+    "value": "100% sẵn sàng học"
+  },
+  "pythonFoundation": {
+    "statusLabel": "Python Foundation đã hoàn thành",
+    "badge": "Khóa học đang mở",
+    "title": "Python Foundation đã sẵn sàng để học và giảng dạy",
+    "desc": "Khóa học được thiết kế theo lộ trình từ dễ đến khó: tư duy Input - Process - Output, print, biến, input, kiểu dữ liệu, điều kiện, vòng lặp, list, dictionary, function, debugging, file/data và project cuối khóa.",
+    "highlights": [
+      "24 bài học dành cho học viên, không còn là nội dung demo",
+      "Quiz nhanh 5-10 câu theo độ khó từng bài",
+      "22 bài thực hành code có test tự động và ô nhập input",
+      "Giáo án giáo viên riêng cho dạy online/offline"
+    ],
+    "includesTitle": "Bộ nội dung đã có",
+    "includes": [
+      "Lesson học viên",
+      "Quiz và giải thích",
+      "Code runner",
+      "Mini project",
+      "Final project",
+      "Teacher guide"
+    ],
+    "stats": {
+      "lessons": "bài học",
+      "sessions": "buổi học",
+      "quiz": "câu quiz",
+      "code": "bài code"
+    },
+    "openCourse": "Xem chi tiết khóa học",
+    "startLesson": "Bắt đầu bài 1",
+    "teacherGuide": "Xem giáo án"
   },
   "audienceSection": {
-    "badge": "Ai có thể học?",
-    "title": "Không chỉ cho học sinh, nền tảng phù hợp với nhiều mục tiêu học tập",
-    "desc": "Mỗi nhóm người học sẽ có cách tiếp cận khác nhau: học sinh cần trực quan, người mới cần dễ hiểu, người đi làm cần ứng dụng thực tế, người chuyển ngành cần lộ trình rõ."
+    "badge": "Phù hợp nhiều nhóm học viên",
+    "title": "Một lộ trình Python nền tảng cho nhiều mục tiêu học",
+    "desc": "Trước khi học, học viên có thể làm test tư duy và placement test để giáo viên chọn tốc độ học, độ khó bài tập và cách hướng dẫn phù hợp."
   },
   "audiences": {
     "students": {
       "title": "Học sinh lớp 6-12",
-      "desc": "Học từ tư duy logic, làm quen lập trình và tạo sản phẩm nhỏ.",
-      "tag": "Kids & Teens"
+      "desc": "Học tư duy lập trình, làm quen thuật toán, luyện giải quyết vấn đề và tạo sản phẩm nhỏ bằng Python.",
+      "tag": "School"
     },
     "beginners": {
-      "title": "Người mới bắt đầu",
-      "desc": "Không cần nền tảng trước, học từng bước từ con số 0.",
+      "title": "Người mới hoàn toàn",
+      "desc": "Bắt đầu từ số 0 với ví dụ đời sống, bài học rõ ràng, quiz kiểm tra nhanh và code runner ngay trên web.",
       "tag": "Beginner"
     },
     "workingAdults": {
       "title": "Người đi làm",
-      "desc": "Học Python, automation, xử lý Excel, dữ liệu và công cụ thực tế.",
-      "tag": "Working Adults"
+      "desc": "Xây nền tảng Python để đi tiếp automation, xử lý file, dữ liệu bảng và công việc lặp lại.",
+      "tag": "Work"
     },
     "careerSwitchers": {
-      "title": "Người muốn chuyển ngành",
-      "desc": "Có lộ trình nền tảng để tiến tới Web, AI, Data hoặc Automation.",
-      "tag": "Career Switch"
+      "title": "Người chuyển ngành",
+      "desc": "Xây nền tảng lập trình có cấu trúc trước khi chọn hướng web, data, automation hoặc AI.",
+      "tag": "Career"
     }
   },
   "pathSection": {
-    "badge": "Hệ thống học theo lộ trình",
-    "title": "Từ tư duy lập trình đến Python, Web, AI và Automation",
-    "desc": "Trang học được thiết kế để mở rộng nhiều ngôn ngữ và nhiều khóa học. Sau này bạn có thể thêm JavaScript, C++, Java, SQL, AI hoặc khóa học xử lý dữ liệu mà không cần thay đổi toàn bộ cấu trúc."
+    "badge": "Lộ trình học",
+    "title": "Bắt đầu đúng điểm, học theo lộ trình rõ ràng",
+    "desc": "Người học nên đi từ test tư duy, placement test, Python Foundation, sau đó mới chọn hướng project, automation, web hoặc data/AI."
   },
   "features": [
-    "Test tư duy đầu vào trước khi học",
-    "Lộ trình học theo từng cấp độ",
-    "Bài học ngắn, dễ hiểu, có ví dụ trực quan",
-    "Quiz và bài tập sau mỗi bài",
-    "Theo dõi tiến độ học tập",
-    "Mở rộng nhiều ngôn ngữ lập trình"
+    "Có test đầu vào theo từng nhóm học viên",
+    "Có lesson học viên và giáo án giáo viên tách riêng",
+    "Có code runner hỗ trợ nhập input và chạy test tự động",
+    "Có quiz, project, checklist và rubric để đánh giá tiến độ"
   ],
   "learningPaths": [
     {
-      "title": "Python Foundation",
-      "desc": "Biến, điều kiện, vòng lặp, hàm, list, file và project cơ bản.",
-      "status": "Đang xây dựng"
+      "title": "1. Test tư duy lập trình",
+      "desc": "Đánh giá logic, pattern, điều kiện, thuật toán, dữ liệu và debugging mindset trước khi học code.",
+      "status": "Nên làm trước",
+      "href": "/test"
     },
     {
-      "title": "JavaScript Web",
-      "desc": "HTML, CSS, JavaScript, React và xây dựng website hiện đại.",
-      "status": "Sắp có"
+      "title": "2. Placement Test Python Foundation",
+      "desc": "Xác định học viên nên vào lớp chính, học chậm hơn hay cần củng cố tư duy trước.",
+      "status": "Đã có 400 câu",
+      "href": "/placement"
     },
     {
-      "title": "Data & Automation",
-      "desc": "Xử lý Excel, file, dữ liệu, tự động hóa công việc văn phòng.",
-      "status": "Sắp có"
+      "title": "3. Python Foundation",
+      "desc": "Khóa học nền tảng đã hoàn thiện 24 bài, 178 câu quiz và 22 bài code có test.",
+      "status": "Hoàn thành",
+      "href": "/course/python-foundation"
     },
     {
-      "title": "AI Beginner",
-      "desc": "Nền tảng Python, dữ liệu, machine learning và ứng dụng AI đơn giản.",
-      "status": "Sắp có"
+      "title": "4. Project / Automation / Data",
+      "desc": "Sau Python Foundation, học viên có thể đi tiếp theo mục tiêu ứng dụng hoặc nghề nghiệp.",
+      "status": "Tiếp theo",
+      "href": "/roadmap"
     }
   ],
   "methodSection": {
-    "badge": "Cách học hiệu quả",
-    "title": "Học lập trình không bắt đầu bằng học thuộc cú pháp",
-    "desc": "Người học được dẫn dắt theo quy trình: hiểu vấn đề, chia nhỏ, viết thử, kiểm tra kết quả và cải thiện sản phẩm."
+    "badge": "Cách học",
+    "title": "Học theo vòng lặp: hiểu - làm - kiểm tra - sửa lỗi",
+    "desc": "Mỗi bài học được thiết kế để học viên đọc lý thuyết ngắn, xem ví dụ, tự nhập input, chạy code, chạy test, làm quiz và hoàn thành bài tập nhỏ."
   },
   "steps": [
     {
-      "title": "Đánh giá đầu vào",
-      "desc": "Làm bài test tư duy để xác định khả năng logic và hướng học phù hợp."
+      "title": "Hiểu bài",
+      "desc": "Đọc mục tiêu, khái niệm và ví dụ trước khi viết code."
     },
     {
-      "title": "Chọn lộ trình",
-      "desc": "Chọn Python, Web, AI, Automation hoặc ngôn ngữ khác theo mục tiêu."
+      "title": "Viết code",
+      "desc": "Thực hành ngay với code runner trên web hoặc VS Code."
     },
     {
-      "title": "Học và thực hành",
-      "desc": "Học từng bài, làm quiz, viết code và hoàn thành bài tập nhỏ."
+      "title": "Chạy test",
+      "desc": "Nhập input mẫu, xem output thật và so sánh với test case."
     },
     {
-      "title": "Làm dự án",
-      "desc": "Tạo sản phẩm thật để củng cố kiến thức và có portfolio cá nhân."
+      "title": "Tổng kết",
+      "desc": "Làm quiz, sửa lỗi thường gặp và hoàn thành project nhỏ."
     }
   ],
   "cta": {
-    "badge": "Bắt đầu đúng trình độ",
-    "title": "Chưa biết bắt đầu từ đâu? Hãy làm test tư duy trước",
-    "desc": "Bài test giúp xác định người học nên bắt đầu từ tư duy cơ bản, Python Foundation hay lộ trình tăng tốc."
+    "badge": "Sẵn sàng bắt đầu",
+    "title": "Bắt đầu với Python Foundation ngay hôm nay",
+    "desc": "Nếu học viên chưa chắc nên học tốc độ nào, hãy làm test trước. Nếu đã sẵn sàng, có thể vào thẳng bài 1 của Python Foundation.",
+    "openCourse": "Vào khóa Python",
+    "takeThinking": "Làm test tư duy"
   }
 }

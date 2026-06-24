@@ -12,10 +12,11 @@
     "hours": "{{count}} hours",
     "lessons": "{{count}} lessons",
     "openCourse": "Open course",
-    "viewPlannedCourse": "View planned course"
+    "viewPlannedCourse": "View planned course",
+    "completedCourseNote": "The course content is complete: lessons, quizzes, code runner, projects and teacher guides are ready."
   },
   "status": {
-    "available": "Available",
+    "available": "Open for learning",
     "planned": "Planned",
     "coming-soon": "Coming soon"
   },
@@ -60,7 +61,8 @@
     "stats": {
       "matched": "matched",
       "available": "available",
-      "languages": "directions"
+      "languages": "directions",
+      "completed": "completed"
     },
     "searchPlaceholder": "Search courses, skills, projects...",
     "statusFilter": "Status",
@@ -86,7 +88,14 @@
     "lessonRoadmapDesc": "Lessons progress from programming thinking and basic syntax to data handling and final mini projects.",
     "plannedTitle": "This course is planned",
     "plannedDesc": "Detailed content will be opened later. Learners can start with the thinking test, placement test or Python Foundation first.",
-    "relatedCourses": "Related courses"
+    "relatedCourses": "Related courses",
+    "openTeacherGuide": "Teacher guide",
+    "quizQuestions": "quiz questions",
+    "codeExercises": "code exercises",
+    "teacherGuides": "teacher guides",
+    "completedBadge": "Content completed",
+    "completedTitle": "Python Foundation is ready for learners and teachers",
+    "completedDesc": "The course now includes 24 learner-facing lessons, quick quizzes for each lesson, code exercises with automated tests, final projects, and separate teacher guides for online/offline teaching."
   },
   "roadmapPage": {
     "badge": "Learning Roadmap",
@@ -166,32 +175,36 @@
   "courses": {
     "pythonFoundation": {
       "title": "Python Foundation",
-      "subtitle": "Learn Python from zero",
-      "description": "A foundation course that helps learners understand programming thinking, write basic Python programs, use conditions, loops, functions, lists, files and complete mini projects.",
-      "target": "Grades 6-12 students, absolute beginners, learners with weak foundations and working adults who want a structured Python start.",
+      "subtitle": "Complete Python foundation course",
+      "description": "A complete course that helps learners start from programming thinking, learn basic Python syntax, practice code directly on the web, take quick quizzes lesson by lesson, and complete mini projects at the end.",
+      "target": "Grades 6-12 students, absolute beginners, learners with weak foundations, working adults, or anyone who wants a solid Python base before automation, data, AI, or backend learning.",
       "outcomes": [
-        "Understand Input - Process - Output",
-        "Write basic Python programs",
-        "Use variables, data types, conditions and loops",
-        "Use lists, dictionaries and functions",
-        "Debug basic errors",
-        "Complete a final mini project"
+        "Understand Input - Process - Output and how computers execute instructions",
+        "Write basic Python programs using variables, data types, input and print",
+        "Use conditions, loops, lists, dictionaries and functions to solve small problems",
+        "Read errors, debug step by step and compare expected output with actual output",
+        "Read/write files, handle basic table-like data and prepare for automation/data learning",
+        "Complete small projects and a final project to consolidate knowledge"
       ],
       "prerequisites": [
         "Basic computer skills",
         "No prior coding experience required",
-        "Thinking Test or Placement Test is recommended"
+        "Thinking Test and Placement Test are recommended to choose the right pace"
       ],
       "projects": [
-        "Multiple-choice quiz",
+        "Self-introduction program",
+        "Mini calculator",
         "Number guessing game",
+        "Multiple-choice quiz",
         "Student score manager",
-        "Final project"
+        "Final integrated project"
       ],
       "tools": [
         "Python 3",
-        "VS Code or online Python runner",
-        "Basic terminal"
+        "In-browser code runner with stdin input",
+        "VS Code or Python editor",
+        "Basic .txt/.csv files",
+        "Teacher guides for online/offline classes"
       ]
     },
     "pythonProjects": {
@@ -704,5 +717,10 @@
         }
       ]
     }
+  },
+  "contentStatus": {
+    "completed": "Content completed",
+    "in-progress": "In production",
+    "planned": "Not written yet"
   }
 }

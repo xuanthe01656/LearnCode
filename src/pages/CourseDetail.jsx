@@ -3,6 +3,7 @@ import { Link, Navigate, useParams } from "react-router-dom";
 import {
   ArrowLeft,
   ArrowRight,
+  BadgeCheck,
   BookOpen,
   CheckCircle2,
   Clock,
@@ -17,7 +18,7 @@ import { useTranslation } from "react-i18next";
 import LessonCard from "../components/LessonCard.jsx";
 import CourseCard from "../components/CourseCard.jsx";
 import { courses, getCourseById } from "../data/courses.js";
-import { getLessonsByCourse } from "../data/lessons.js";
+import { getLessonsByCourse, getLessonStatsByCourse } from "../data/lessons.js";
 import { getLanguageById } from "../data/languages.js";
 
 function asArray(value) {
@@ -33,6 +34,8 @@ export default function CourseDetail() {
 
   const language = getLanguageById(course.languageId);
   const lessons = getLessonsByCourse(course.id);
+  const lessonStats = getLessonStatsByCourse(course.id);
+  const isContentCompleted = course.contentStatus === "completed";
   const relatedCourses = courses
     .filter((item) => item.languageId === course.languageId && item.id !== course.id)
     .slice(0, 3);
@@ -67,6 +70,10 @@ export default function CourseDetail() {
                   </span>
                   <span className="rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-black backdrop-blur">
                     {t(`status.${course.status}`)}
+                  </span>
+                  <span className="inline-flex items-center gap-2 rounded-full border border-emerald-300/25 bg-emerald-400/10 px-4 py-2 text-sm font-black text-emerald-100 backdrop-blur">
+                    <BadgeCheck size={16} />
+                    {t(`contentStatus.${course.contentStatus || "planned"}`)}
                   </span>
                   <span className="rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-black backdrop-blur">
                     {course.level}
@@ -109,11 +116,21 @@ export default function CourseDetail() {
                     {t("courseDetail.viewRoadmap")}
                     <ArrowRight size={18} />
                   </Link>
+
+                  {isContentCompleted && (
+                    <Link
+                      to={`/teacher/course/${course.id}`}
+                      className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/20 bg-emerald-400/10 px-6 py-3 font-black text-white transition hover:bg-white/20"
+                    >
+                      <BookOpen size={18} />
+                      {t("courseDetail.openTeacherGuide")}
+                    </Link>
+                  )}
                 </div>
               </div>
 
               <div className="rounded-[2rem] border border-white/10 bg-white/10 p-5 backdrop-blur">
-                <div className="grid grid-cols-3 gap-3 text-center">
+                <div className="grid grid-cols-2 gap-3 text-center sm:grid-cols-3">
                   <div className="rounded-3xl bg-white/10 p-4">
                     <Clock className="mx-auto mb-2" size={18} />
                     <div className="text-2xl font-black">{course.durationSessions}</div>
@@ -129,6 +146,16 @@ export default function CourseDetail() {
                     <div className="text-2xl font-black">{lessons.length || course.lessonIds.length}</div>
                     <div className="text-xs text-white/70">{t("courseDetail.lessons")}</div>
                   </div>
+                  <div className="rounded-3xl bg-white/10 p-4">
+                    <Target className="mx-auto mb-2" size={18} />
+                    <div className="text-2xl font-black">{lessonStats.quizQuestions || 0}</div>
+                    <div className="text-xs text-white/70">{t("courseDetail.quizQuestions")}</div>
+                  </div>
+                  <div className="rounded-3xl bg-white/10 p-4">
+                    <Sparkles className="mx-auto mb-2" size={18} />
+                    <div className="text-2xl font-black">{lessonStats.codeExercises || 0}</div>
+                    <div className="text-xs text-white/70">{t("courseDetail.codeExercises")}</div>
+                  </div>
                 </div>
 
                 <div className="mt-5 rounded-3xl bg-white p-5 text-slate-900">
@@ -140,6 +167,41 @@ export default function CourseDetail() {
           </div>
         </div>
       </section>
+
+      {isContentCompleted && (
+        <section className="mx-auto max-w-7xl px-4 pb-10">
+          <div className="rounded-[2rem] border border-emerald-100 bg-emerald-50 p-6 shadow-sm">
+            <div className="grid gap-5 lg:grid-cols-[1fr_auto] lg:items-center">
+              <div>
+                <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-black text-emerald-700 ring-1 ring-emerald-100">
+                  <BadgeCheck size={16} />
+                  {t("courseDetail.completedBadge")}
+                </div>
+                <h2 className="text-2xl font-black text-emerald-950">{t("courseDetail.completedTitle")}</h2>
+                <p className="mt-2 max-w-4xl leading-7 text-emerald-900/80">{t("courseDetail.completedDesc")}</p>
+              </div>
+              <div className="grid grid-cols-2 gap-3 text-center sm:grid-cols-4 lg:w-[520px]">
+                <div className="rounded-2xl bg-white p-4 shadow-sm">
+                  <div className="text-2xl font-black text-slate-950">{lessonStats.totalLessons}</div>
+                  <div className="text-xs font-bold text-slate-500">{t("courseDetail.lessons")}</div>
+                </div>
+                <div className="rounded-2xl bg-white p-4 shadow-sm">
+                  <div className="text-2xl font-black text-slate-950">{lessonStats.quizQuestions}</div>
+                  <div className="text-xs font-bold text-slate-500">{t("courseDetail.quizQuestions")}</div>
+                </div>
+                <div className="rounded-2xl bg-white p-4 shadow-sm">
+                  <div className="text-2xl font-black text-slate-950">{lessonStats.codeExercises}</div>
+                  <div className="text-xs font-bold text-slate-500">{t("courseDetail.codeExercises")}</div>
+                </div>
+                <div className="rounded-2xl bg-white p-4 shadow-sm">
+                  <div className="text-2xl font-black text-slate-950">24</div>
+                  <div className="text-xs font-bold text-slate-500">{t("courseDetail.teacherGuides")}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="mx-auto grid max-w-7xl gap-6 px-4 pb-10 lg:grid-cols-3">
         <div className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm">

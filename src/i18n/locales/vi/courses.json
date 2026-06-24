@@ -12,10 +12,11 @@
     "hours": "{{count}} giờ",
     "lessons": "{{count}} bài",
     "openCourse": "Vào khóa học",
-    "viewPlannedCourse": "Xem lộ trình khóa này"
+    "viewPlannedCourse": "Xem lộ trình khóa này",
+    "completedCourseNote": "Nội dung khóa học đã hoàn chỉnh: bài học, quiz, code runner, project và giáo án giáo viên đã sẵn sàng."
   },
   "status": {
-    "available": "Đang mở",
+    "available": "Đang mở học",
     "planned": "Sắp triển khai",
     "coming-soon": "Sắp có"
   },
@@ -60,7 +61,8 @@
     "stats": {
       "matched": "phù hợp",
       "available": "đang mở",
-      "languages": "hướng học"
+      "languages": "hướng học",
+      "completed": "đã hoàn chỉnh"
     },
     "searchPlaceholder": "Tìm khóa học, kỹ năng, dự án...",
     "statusFilter": "Trạng thái",
@@ -86,7 +88,14 @@
     "lessonRoadmapDesc": "Các bài được sắp xếp từ tư duy nền tảng, cú pháp cơ bản, xử lý dữ liệu đến mini project cuối khóa.",
     "plannedTitle": "Khóa học đang trong lộ trình triển khai",
     "plannedDesc": "Nội dung chi tiết sẽ được mở sau. Người học có thể bắt đầu bằng test tư duy, placement test hoặc Python Foundation trước.",
-    "relatedCourses": "Khóa học liên quan"
+    "relatedCourses": "Khóa học liên quan",
+    "openTeacherGuide": "Giáo án giáo viên",
+    "quizQuestions": "câu quiz",
+    "codeExercises": "bài code",
+    "teacherGuides": "giáo án",
+    "completedBadge": "Nội dung đã hoàn thành",
+    "completedTitle": "Python Foundation đã sẵn sàng cho học viên và giáo viên",
+    "completedDesc": "Khóa học hiện có đủ 24 bài học dành cho học viên, quiz nhanh theo từng bài, bài thực hành code có test tự động, project cuối khóa và giáo án riêng cho giáo viên dạy online/offline."
   },
   "roadmapPage": {
     "badge": "Learning Roadmap",
@@ -166,32 +175,36 @@
   "courses": {
     "pythonFoundation": {
       "title": "Python Foundation",
-      "subtitle": "Học Python từ con số 0",
-      "description": "Khóa nền tảng giúp người học hiểu tư duy lập trình, viết chương trình Python cơ bản, xử lý điều kiện, vòng lặp, hàm, danh sách, file và hoàn thành mini project.",
-      "target": "Học sinh lớp 6-12, người mới bắt đầu, người mất gốc, người đi làm muốn học Python bài bản.",
+      "subtitle": "Khóa Python nền tảng đã hoàn thiện",
+      "description": "Khóa học hoàn chỉnh giúp học viên bắt đầu từ tư duy lập trình, học cú pháp Python căn bản, luyện code trực tiếp trên web, làm quiz nhanh theo từng bài và hoàn thành các mini project cuối khóa.",
+      "target": "Học sinh lớp 6-12, người mới bắt đầu, người mất gốc, người đi làm hoặc người muốn có nền tảng Python chắc trước khi học automation, data, AI hoặc web/backend.",
       "outcomes": [
-        "Hiểu mô hình Input - Process - Output",
-        "Viết được chương trình Python cơ bản",
-        "Dùng biến, kiểu dữ liệu, điều kiện và vòng lặp",
-        "Biết dùng list, dictionary và function",
-        "Biết debug lỗi cơ bản",
-        "Hoàn thành mini project cuối khóa"
+        "Hiểu tư duy Input - Process - Output và cách máy tính thực thi lệnh",
+        "Viết được chương trình Python cơ bản với biến, kiểu dữ liệu, input và print",
+        "Sử dụng điều kiện, vòng lặp, list, dictionary và function để giải bài toán nhỏ",
+        "Biết đọc lỗi, debug từng bước và so sánh expected output với actual output",
+        "Đọc ghi file, xử lý dữ liệu dạng bảng cơ bản và chuẩn bị cho automation/data",
+        "Hoàn thành các project nhỏ và final project để tổng hợp kiến thức"
       ],
       "prerequisites": [
         "Biết sử dụng máy tính cơ bản",
-        "Không cần biết lập trình trước",
-        "Nên làm Thinking Test hoặc Placement Test trước khi học"
+        "Không yêu cầu biết lập trình trước",
+        "Nên làm Thinking Test và Placement Test để chọn tốc độ học phù hợp"
       ],
       "projects": [
-        "Quiz trắc nghiệm",
+        "Chương trình giới thiệu bản thân",
+        "Máy tính mini",
         "Game đoán số",
+        "Quiz trắc nghiệm",
         "Quản lý điểm học sinh",
-        "Project tổng kết cuối khóa"
+        "Final project tổng hợp"
       ],
       "tools": [
         "Python 3",
-        "VS Code hoặc trình chạy Python online",
-        "Terminal cơ bản"
+        "Code runner trực tiếp trên web có ô nhập stdin",
+        "VS Code hoặc trình soạn thảo Python",
+        "File .txt/.csv cơ bản",
+        "Giáo án giáo viên cho dạy online/offline"
       ]
     },
     "pythonProjects": {
@@ -704,5 +717,10 @@
         }
       ]
     }
+  },
+  "contentStatus": {
+    "completed": "Đã hoàn thành nội dung",
+    "in-progress": "Đang biên soạn",
+    "planned": "Chưa biên soạn"
   }
 }

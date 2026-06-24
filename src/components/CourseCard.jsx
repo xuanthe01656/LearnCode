@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Clock, Layers3, Lock, PlayCircle, Target } from "lucide-react";
+import { ArrowRight, BadgeCheck, Clock, Layers3, Lock, PlayCircle, Target } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 function StatusBadge({ status }) {
@@ -18,11 +18,31 @@ function StatusBadge({ status }) {
   );
 }
 
+function ContentStatusBadge({ contentStatus }) {
+  const { t } = useTranslation("courses");
+  const status = contentStatus || "planned";
+
+  const className =
+    status === "completed"
+      ? "bg-indigo-50 text-indigo-700 ring-indigo-100"
+      : status === "in-progress"
+        ? "bg-sky-50 text-sky-700 ring-sky-100"
+        : "bg-slate-100 text-slate-600 ring-slate-200";
+
+  return (
+    <span className={`inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-black ring-1 ${className}`}>
+      {status === "completed" && <BadgeCheck size={13} />}
+      {t(`contentStatus.${status}`)}
+    </span>
+  );
+}
+
 export default function CourseCard({ course, lessonCount = 0, compact = false }) {
   const { t } = useTranslation("courses");
   const baseKey = `courses:${course.i18nKey}`;
   const outcomes = t(`${baseKey}.outcomes`, { returnObjects: true });
-  const linkTo = course.status === "available" ? `/course/${course.id}` : `/course/${course.id}`;
+  const linkTo = `/course/${course.id}`;
+  const isCompleted = course.contentStatus === "completed";
 
   return (
     <article className="group overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:border-indigo-200 hover:shadow-xl">
@@ -30,23 +50,20 @@ export default function CourseCard({ course, lessonCount = 0, compact = false })
 
       <div className="p-6">
         <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
-          <StatusBadge status={course.status} />
+          <div className="flex flex-wrap gap-2">
+            <StatusBadge status={course.status} />
+            <ContentStatusBadge contentStatus={course.contentStatus} />
+          </div>
           <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-black text-slate-600">
             {course.level}
           </span>
         </div>
 
-        <h2 className="text-2xl font-black text-slate-950">
-          {t(`${baseKey}.title`)}
-        </h2>
+        <h2 className="text-2xl font-black text-slate-950">{t(`${baseKey}.title`)}</h2>
 
-        <p className="mt-2 text-sm font-bold text-indigo-700">
-          {t(`${baseKey}.subtitle`)}
-        </p>
+        <p className="mt-2 text-sm font-bold text-indigo-700">{t(`${baseKey}.subtitle`)}</p>
 
-        <p className="mt-4 text-sm leading-6 text-slate-600">
-          {t(`${baseKey}.description`)}
-        </p>
+        <p className="mt-4 text-sm leading-6 text-slate-600">{t(`${baseKey}.description`)}</p>
 
         {!compact && Array.isArray(outcomes) && outcomes.length > 0 && (
           <div className="mt-5 space-y-2">
@@ -56,6 +73,12 @@ export default function CourseCard({ course, lessonCount = 0, compact = false })
                 <span>{item}</span>
               </div>
             ))}
+          </div>
+        )}
+
+        {isCompleted && (
+          <div className="mt-5 rounded-2xl border border-emerald-100 bg-emerald-50 px-4 py-3 text-sm font-bold leading-6 text-emerald-800">
+            {t("ui.completedCourseNote")}
           </div>
         )}
 
@@ -74,7 +97,7 @@ export default function CourseCard({ course, lessonCount = 0, compact = false })
             ) : (
               <Lock className="mx-auto mb-1 text-amber-600" size={16} />
             )}
-            {t("ui.lessons", { count: lessonCount })}
+            {t("ui.lessons", { count: lessonCount || course.lessonIds?.length || 0 })}
           </div>
         </div>
 

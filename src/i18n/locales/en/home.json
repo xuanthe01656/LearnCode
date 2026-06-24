@@ -1,114 +1,154 @@
 {
-  "badge": "A coding platform for everyone",
-  "title": "Learn programming from zero to real-world projects",
-  "subtitle": "Code Explorer is a modern programming learning platform for students, beginners, working professionals, and career switchers. Start with logical thinking, learn through practice, and build real projects.",
+  "badge": "Python Foundation completed",
+  "title": "Learn Python programming from thinking to real projects",
+  "subtitle": "A programming foundation for students, absolute beginners, working adults and career switchers. Python Foundation now includes complete learner lessons, quizzes, code runner, projects and teacher guides.",
+  "heroCta": {
+    "openPython": "Open Python Foundation",
+    "takePlacement": "Take placement test"
+  },
   "stats": {
-    "questions": "thinking test questions",
-    "roadmap": "beginner roadmaps",
-    "audiences": "learner groups"
+    "lessons": "complete lessons",
+    "quizQuestions": "quick quiz questions",
+    "codeExercises": "tested code exercises"
   },
   "codeCard": {
-    "comment": "# First lesson",
-    "message": "I can learn programming!",
-    "resultLabel": "Output:"
+    "comment": "# The first course is ready",
+    "message": "I can learn Python from zero",
+    "messageMuted": "I can learn Python from zero",
+    "statusMessage": "Python Foundation: ready",
+    "resultLabel": "Output"
   },
   "badgeCard": {
-    "label": "Badge",
-    "title": "Logic Explorer",
-    "desc": "Completed the placement test"
+    "label": "Course status",
+    "title": "Content completed",
+    "desc": "Learner lessons, quizzes, code exercises, projects and teacher guides are ready."
   },
   "progressCard": {
-    "label": "Learning Progress",
-    "value": "8/12 lessons completed"
+    "label": "Content production progress",
+    "value": "100% ready to learn"
+  },
+  "pythonFoundation": {
+    "statusLabel": "Python Foundation is complete",
+    "badge": "Open course",
+    "title": "Python Foundation is ready for learning and teaching",
+    "desc": "The course follows a clear path from easy to hard: Input - Process - Output thinking, print, variables, input, data types, conditions, loops, lists, dictionaries, functions, debugging, file/data basics and final projects.",
+    "highlights": [
+      "24 learner-facing lessons, no demo placeholders",
+      "5-10 quick quiz questions based on lesson difficulty",
+      "22 code exercises with automated tests and stdin input",
+      "Separate teacher guides for online/offline teaching"
+    ],
+    "includesTitle": "Included content",
+    "includes": [
+      "Learner lessons",
+      "Quiz and explanations",
+      "Code runner",
+      "Mini projects",
+      "Final project",
+      "Teacher guide"
+    ],
+    "stats": {
+      "lessons": "lessons",
+      "sessions": "sessions",
+      "quiz": "quiz questions",
+      "code": "code exercises"
+    },
+    "openCourse": "View course detail",
+    "startLesson": "Start lesson 1",
+    "teacherGuide": "View teacher guide"
   },
   "audienceSection": {
-    "badge": "Who can learn?",
-    "title": "Not just for students, this platform supports many learning goals",
-    "desc": "Each learner group needs a different approach: students need visual learning, beginners need simple explanations, working adults need practical applications, and career switchers need a clear roadmap."
+    "badge": "For multiple learner groups",
+    "title": "One Python foundation path for different learning goals",
+    "desc": "Before learning, students can take the thinking test and placement test so teachers can choose the right pace, exercise level and guidance style."
   },
   "audiences": {
     "students": {
-      "title": "Students (Grades 6-12)",
-      "desc": "Learn logical thinking, programming basics, and build small projects.",
-      "tag": "Kids & Teens"
+      "title": "Grades 6-12 students",
+      "desc": "Build programming thinking, algorithmic habits, problem-solving skills and small products with Python.",
+      "tag": "School"
     },
     "beginners": {
-      "title": "Absolute Beginners",
-      "desc": "Start from zero with step-by-step guidance and no prior experience required.",
+      "title": "Absolute beginners",
+      "desc": "Start from zero with everyday examples, clear lessons, quick quizzes and an in-browser code runner.",
       "tag": "Beginner"
     },
     "workingAdults": {
-      "title": "Working Professionals",
-      "desc": "Learn Python, automation, Excel processing, data analysis, and practical tools.",
-      "tag": "Working Adults"
+      "title": "Working adults",
+      "desc": "Build a Python base before automation, file handling, table data and repetitive work tasks.",
+      "tag": "Work"
     },
     "careerSwitchers": {
-      "title": "Career Switchers",
-      "desc": "Build a solid foundation before moving into Web Development, AI, Data, or Automation.",
-      "tag": "Career Switch"
+      "title": "Career switchers",
+      "desc": "Build structured programming fundamentals before choosing web, data, automation or AI.",
+      "tag": "Career"
     }
   },
   "pathSection": {
-    "badge": "Structured Learning Paths",
-    "title": "From Computational Thinking to Python, Web Development, AI, and Automation",
-    "desc": "The platform is designed to support multiple programming languages and courses. In the future, you can add JavaScript, C++, Java, SQL, AI, or Data courses without changing the overall architecture."
+    "badge": "Learning path",
+    "title": "Start at the right point and follow a clear roadmap",
+    "desc": "Learners should go from thinking test to placement test, then Python Foundation, and later choose projects, automation, web or data/AI."
   },
   "features": [
-    "Placement test before starting",
-    "Level-based learning paths",
-    "Short and easy-to-understand lessons",
-    "Quizzes and exercises after every lesson",
-    "Track learning progress",
-    "Support for multiple programming languages"
+    "Entry tests for each learner group",
+    "Separate learner lessons and teacher guides",
+    "Code runner with stdin input and automated tests",
+    "Quizzes, projects, checklists and rubrics for progress assessment"
   ],
   "learningPaths": [
     {
-      "title": "Python Foundation",
-      "desc": "Variables, conditions, loops, functions, lists, files, and beginner projects.",
-      "status": "In Development"
+      "title": "1. Programming Thinking Test",
+      "desc": "Assess logic, patterns, conditions, algorithms, data reasoning and debugging mindset before coding.",
+      "status": "Recommended first",
+      "href": "/test"
     },
     {
-      "title": "JavaScript Web",
-      "desc": "HTML, CSS, JavaScript, React, and modern web application development.",
-      "status": "Coming Soon"
+      "title": "2. Python Foundation Placement Test",
+      "desc": "Decide whether the learner should enter the main class, learn more slowly, or strengthen thinking first.",
+      "status": "400 questions ready",
+      "href": "/placement"
     },
     {
-      "title": "Data & Automation",
-      "desc": "Excel processing, file handling, data analysis, and office automation.",
-      "status": "Coming Soon"
+      "title": "3. Python Foundation",
+      "desc": "A completed foundation course with 24 lessons, 178 quiz questions and 22 tested code exercises.",
+      "status": "Completed",
+      "href": "/course/python-foundation"
     },
     {
-      "title": "AI Beginner",
-      "desc": "Python fundamentals, data handling, machine learning basics, and AI applications.",
-      "status": "Coming Soon"
+      "title": "4. Projects / Automation / Data",
+      "desc": "After Python Foundation, learners can continue based on application or career goals.",
+      "status": "Next stage",
+      "href": "/roadmap"
     }
   ],
   "methodSection": {
-    "badge": "Effective Learning Method",
-    "title": "Programming does not start with memorizing syntax",
-    "desc": "Learners are guided through understanding problems, breaking them into smaller tasks, writing solutions, testing results, and improving their projects."
+    "badge": "Learning method",
+    "title": "Learn through the cycle: understand - build - test - debug",
+    "desc": "Each lesson is designed for learners to read concise theory, view examples, enter stdin, run code, run tests, take a quiz and finish a small task."
   },
   "steps": [
     {
-      "title": "Placement Assessment",
-      "desc": "Take a thinking test to evaluate logic skills and identify the most suitable learning path."
+      "title": "Understand",
+      "desc": "Read objectives, concepts and examples before writing code."
     },
     {
-      "title": "Choose a Learning Path",
-      "desc": "Select Python, Web Development, AI, Automation, or another programming track."
+      "title": "Write code",
+      "desc": "Practice immediately with the in-browser code runner or VS Code."
     },
     {
-      "title": "Learn and Practice",
-      "desc": "Study lessons, complete quizzes, write code, and solve practical exercises."
+      "title": "Run tests",
+      "desc": "Enter sample input, view real output and compare it with test cases."
     },
     {
-      "title": "Build Projects",
-      "desc": "Create real projects to reinforce knowledge and build your personal portfolio."
+      "title": "Wrap up",
+      "desc": "Complete the quiz, fix common mistakes and finish a small project."
     }
   ],
   "cta": {
-    "badge": "Start at the Right Level",
-    "title": "Not sure where to begin? Take the thinking test first",
-    "desc": "The placement test helps determine whether a learner should start with logical thinking fundamentals, Python Foundation, or an accelerated learning path."
+    "badge": "Ready to start",
+    "title": "Start Python Foundation today",
+    "desc": "If the learner is unsure about pace, take the tests first. If ready, go directly to lesson 1 of Python Foundation.",
+    "openCourse": "Open Python course",
+    "takeThinking": "Take thinking test"
   }
 }
