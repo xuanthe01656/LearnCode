@@ -9,6 +9,9 @@ import LanguageSelect from "./pages/LanguageSelect.jsx";
 import CourseList from "./pages/CourseList.jsx";
 import CourseDetail from "./pages/CourseDetail.jsx";
 import Roadmap from "./pages/Roadmap.jsx";
+import TeacherDashboard from "./pages/teacher/TeacherDashboard.jsx";
+import TeacherCourseGuide from "./pages/teacher/TeacherCourseGuide.jsx";
+import TeacherLessonGuide from "./pages/teacher/TeacherLessonGuide.jsx";
 import LessonDetail from "./pages/LessonDetail.jsx";
 import ThinkingTest from "./pages/ThinkingTest.jsx";
 import Placement from "./pages/PlacementTest.jsx";
@@ -41,6 +44,30 @@ export default function App() {
                 element={
                   <ProtectedRoute>
                     <Profile />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/teacher"
+                element={
+                  <ProtectedRoute>
+                    <TeacherDashboard />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/teacher/course/:courseId"
+                element={
+                  <ProtectedRoute>
+                    <TeacherCourseGuide />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/teacher/lessons/:lessonId"
+                element={
+                  <ProtectedRoute>
+                    <TeacherLessonGuide />
                   </ProtectedRoute>
                 }
               />

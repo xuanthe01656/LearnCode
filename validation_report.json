@@ -1,40 +1,46 @@
 {
+  "teacherModule": "teacher-pages-python-foundation",
   "metadataLessonCount": 24,
-  "metadataLessonIds": [
-    "pyf-001",
-    "pyf-002",
-    "pyf-003",
-    "...",
-    "pyf-022",
-    "pyf-023",
-    "pyf-024"
+  "viTeacherLessonCount": 24,
+  "enTeacherLessonCount": 24,
+  "routesAdded": [
+    "/teacher",
+    "/teacher/course/:courseId",
+    "/teacher/lessons/:lessonId"
   ],
-  "viLessonCount": 24,
-  "viQuizTotal": 178,
-  "viCodeExerciseCount": 22,
-  "enLessonCount": 24,
-  "enQuizTotal": 178,
-  "enCodeExerciseCount": 22,
+  "namespaceAdded": "teacher",
+  "teacherLessonSectionsPerLesson": [
+    "beforeClass",
+    "hook",
+    "flow",
+    "teachingScript",
+    "liveCoding",
+    "activities",
+    "questions",
+    "homework",
+    "assessment",
+    "commonMisconceptions",
+    "differentiation",
+    "solution"
+  ],
+  "allTimePlansMatchLessonDuration": true,
+  "jsSyntaxChecks": [
+    {
+      "cmd": "node --check",
+      "ok": true,
+      "stderr": ""
+    },
+    {
+      "cmd": "node --check",
+      "ok": true,
+      "stderr": ""
+    },
+    {
+      "cmd": "node /mnt/data/check_jsx.js",
+      "ok": true,
+      "stderr": ""
+    }
+  ],
   "validationErrors": [],
-  "quizContentRewrittenForLearners": true,
-  "teacherFacingTextScanPassed": true,
-  "nodeCheck": {
-    "api/code/execute.js": true,
-    "src/data/lessons.js": true,
-    "src/services/codeRunner/codeRunnerService.js": true
-  },
-  "jsxTranspileCheck": {
-    "src/pages/LessonDetail.jsx": true,
-    "src/components/LessonCard.jsx": true,
-    "src/components/CodeBlock.jsx": true,
-    "src/components/CodeRunner.jsx": true,
-    "src/components/QuizBox.jsx": true
-  },
-  "studentFacingContent": {
-    "teacherGuideRemoved": true,
-    "studentGuideAddedToAllLessons": true,
-    "quizContentRewrittenForLearners": true,
-    "codeRunnerManualInputSupported": true,
-    "automaticTestCasesKept": true
-  }
+  "status": "pass"
 }

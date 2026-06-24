@@ -9,6 +9,7 @@ import viPlacement from "./locales/vi/placement.json";
 import viAuth from "./locales/vi/auth.json";
 import viCourses from "./locales/vi/courses.json";
 import viLessons from "./locales/vi/lessons.json";
+import viTeacher from "./locales/vi/teacher.json";
 
 import enCommon from "./locales/en/common.json";
 import enHome from "./locales/en/home.json";
@@ -17,8 +18,9 @@ import enPlacement from "./locales/en/placement.json";
 import enAuth from "./locales/en/auth.json";
 import enCourses from "./locales/en/courses.json";
 import enLessons from "./locales/en/lessons.json";
+import enTeacher from "./locales/en/teacher.json";
 
-const namespaces = ["common", "home", "test", "placement", "auth", "courses", "lessons"];
+const namespaces = ["common", "home", "test", "placement", "auth", "courses", "lessons", "teacher"];
 
 i18n
   .use(LanguageDetector)
@@ -37,6 +39,7 @@ i18n
         auth: viAuth,
         courses: viCourses,
         lessons: viLessons,
+        teacher: viTeacher,
       },
       en: {
         common: enCommon,
@@ -46,6 +49,7 @@ i18n
         auth: enAuth,
         courses: enCourses,
         lessons: enLessons,
+        teacher: enTeacher,
       },
     },
     detection: {
