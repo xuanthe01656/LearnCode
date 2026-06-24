@@ -369,7 +369,7 @@ export default function CodeRunner({ exercise, lessonId }) {
 
           {asArray(exercise.instructions).length > 0 && (
             <div className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-sky-100">
-              <h3 className="font-black text-slate-950">{tx("ui.teacherGuide", "Study guide")}</h3>
+              <h3 className="font-black text-slate-950">{tx("ui.practiceInstructions", "Practice instructions")}</h3>
               <ul className="mt-3 space-y-2 text-sm leading-6 text-slate-700">
                 {exercise.instructions.map((item) => (
                   <li key={item} className="flex gap-2">

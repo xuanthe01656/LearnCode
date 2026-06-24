@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, CheckCircle2, Clock, Code2, FileText, HelpCircle } from "lucide-react";
+import { ArrowRight, CheckCircle2, Clock, Code2, FileText, HelpCircle, Layers3 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 export default function LessonCard({ lesson }) {
@@ -26,24 +26,34 @@ export default function LessonCard({ lesson }) {
               <Clock size={13} />
               {t("ui.minutes", { count: lesson.durationMinutes })}
             </span>
-            <span className="rounded-full bg-violet-50 px-3 py-1 text-xs font-black text-violet-700">
-              {t("ui.difficulty", { level: lesson.difficulty || 1 })}
-            </span>
-            <span className="inline-flex items-center gap-1 rounded-full bg-amber-50 px-3 py-1 text-xs font-bold text-amber-700">
+            {lesson.difficulty && (
+              <span className="inline-flex items-center gap-1 rounded-full bg-violet-50 px-3 py-1 text-xs font-bold text-violet-700">
+                <Layers3 size={13} />
+                {t("ui.difficulty", { level: lesson.difficulty })}
+              </span>
+            )}
+          </div>
+
+          <h3 className="text-lg font-black text-slate-950">
+            {t(`${baseKey}.title`)}
+          </h3>
+
+          <p className="mt-2 text-sm leading-6 text-slate-600">
+            {t(`${baseKey}.description`)}
+          </p>
+
+          <div className="mt-4 flex flex-wrap gap-2 text-xs font-black">
+            <span className="inline-flex items-center gap-1 rounded-full bg-indigo-50 px-3 py-1 text-indigo-700">
               <HelpCircle size={13} />
               {t("ui.quizCount", { count: lesson.quizQuestionCount || 0 })}
             </span>
             {lesson.hasCodeExercise && (
-              <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-700">
+              <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-3 py-1 text-emerald-700">
                 <Code2 size={13} />
                 {t("ui.codePractice")}
               </span>
             )}
           </div>
-
-          <h3 className="text-lg font-black text-slate-950">{t(`${baseKey}.title`)}</h3>
-
-          <p className="mt-2 text-sm leading-6 text-slate-600">{t(`${baseKey}.description`)}</p>
 
           <div className="mt-4 flex items-center justify-between text-sm font-black text-indigo-700">
             <span className="inline-flex items-center gap-2">

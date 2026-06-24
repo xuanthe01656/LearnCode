@@ -1,20 +1,40 @@
 {
-  "patchName": "code_runner_input_flow_patch",
-  "mainChanges": [
-    "Added manual standard input mode before running tests",
-    "Added sample input buttons from test cases",
-    "Kept automatic test mode with stdin per test case",
-    "Improved result display: stdin, expected output, actual output, stderr, provider and compiler",
-    "Kept Wandbox backend and stdin forwarding",
-    "Changed LessonDetail to render CodeRunner whenever codeExercise.enabled is true"
+  "metadataLessonCount": 24,
+  "metadataLessonIds": [
+    "pyf-001",
+    "pyf-002",
+    "pyf-003",
+    "...",
+    "pyf-022",
+    "pyf-023",
+    "pyf-024"
   ],
-  "checks": {
-    "codeRunnerServiceNodeCheck": true,
-    "executeApiNodeCheck": true,
-    "jsxTranspileCheck": true,
-    "usesWandbox": true,
-    "manualInputSupported": true,
-    "testCasesStillUseStdin": true
+  "viLessonCount": 24,
+  "viQuizTotal": 178,
+  "viCodeExerciseCount": 22,
+  "enLessonCount": 24,
+  "enQuizTotal": 178,
+  "enCodeExerciseCount": 22,
+  "validationErrors": [],
+  "quizContentRewrittenForLearners": true,
+  "teacherFacingTextScanPassed": true,
+  "nodeCheck": {
+    "api/code/execute.js": true,
+    "src/data/lessons.js": true,
+    "src/services/codeRunner/codeRunnerService.js": true
   },
-  "validationErrors": []
+  "jsxTranspileCheck": {
+    "src/pages/LessonDetail.jsx": true,
+    "src/components/LessonCard.jsx": true,
+    "src/components/CodeBlock.jsx": true,
+    "src/components/CodeRunner.jsx": true,
+    "src/components/QuizBox.jsx": true
+  },
+  "studentFacingContent": {
+    "teacherGuideRemoved": true,
+    "studentGuideAddedToAllLessons": true,
+    "quizContentRewrittenForLearners": true,
+    "codeRunnerManualInputSupported": true,
+    "automaticTestCasesKept": true
+  }
 }

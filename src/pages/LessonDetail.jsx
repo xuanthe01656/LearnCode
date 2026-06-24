@@ -5,11 +5,13 @@ import {
   ArrowRight,
   BookOpen,
   CheckCircle2,
+  CheckSquare,
   Clock,
   Code2,
   FileText,
   HelpCircle,
   Lightbulb,
+  ListChecks,
   PlayCircle,
   Target,
 } from "lucide-react";
@@ -34,6 +36,7 @@ function iconForBlock(type) {
   if (type === "story") return <BookOpen size={20} />;
   if (type === "guide") return <Lightbulb size={20} />;
   if (type === "mistake") return <HelpCircle size={20} />;
+  if (type === "checkpoint") return <CheckSquare size={20} />;
   return <Lightbulb size={20} />;
 }
 
@@ -42,13 +45,66 @@ function BlockList({ items }) {
   if (list.length === 0) return null;
   return (
     <div className="mt-4 grid gap-2">
-      {list.map((item) => (
-        <div key={item} className="flex items-start gap-3 rounded-2xl bg-slate-50 px-4 py-3 text-sm leading-6 text-slate-700">
+      {list.map((item, index) => (
+        <div key={`${item}-${index}`} className="flex items-start gap-3 rounded-2xl bg-slate-50 px-4 py-3 text-sm leading-6 text-slate-700">
           <CheckCircle2 className="mt-0.5 shrink-0 text-emerald-600" size={17} />
           <span>{item}</span>
         </div>
       ))}
     </div>
+  );
+}
+
+function StudentGuide({ guide }) {
+  const { t } = useTranslation("lessons");
+  if (!guide?.title) return null;
+
+  const steps = asArray(guide.steps);
+  const tips = asArray(guide.practiceTips);
+  const criteria = asArray(guide.completionCriteria);
+
+  return (
+    <section className="rounded-[2rem] border border-indigo-100 bg-white p-6 shadow-sm">
+      <div className="mb-4 flex items-center gap-3">
+        <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-indigo-50 text-indigo-700">
+          <Lightbulb size={20} />
+        </div>
+        <div>
+          <div className="text-xs font-black uppercase tracking-wide text-slate-400">
+            {t("ui.studentGuide")}
+          </div>
+          <h2 className="text-xl font-black text-slate-950">{guide.title}</h2>
+        </div>
+      </div>
+
+      {guide.summary && <p className="text-base leading-8 text-slate-700">{guide.summary}</p>}
+
+      {steps.length > 0 && (
+        <div className="mt-5 rounded-3xl bg-indigo-50 p-4">
+          <h3 className="mb-3 flex items-center gap-2 font-black text-indigo-950">
+            <ListChecks size={18} />
+            {t("ui.learningSteps")}
+          </h3>
+          <BlockList items={steps} />
+        </div>
+      )}
+
+      <div className="mt-5 grid gap-4 md:grid-cols-2">
+        {tips.length > 0 && (
+          <div className="rounded-3xl border border-amber-100 bg-amber-50 p-4">
+            <h3 className="font-black text-amber-950">{t("ui.practiceTips")}</h3>
+            <BlockList items={tips} />
+          </div>
+        )}
+
+        {criteria.length > 0 && (
+          <div className="rounded-3xl border border-emerald-100 bg-emerald-50 p-4">
+            <h3 className="font-black text-emerald-950">{t("ui.completionCriteria")}</h3>
+            <BlockList items={criteria} />
+          </div>
+        )}
+      </div>
+    </section>
   );
 }
 
@@ -69,7 +125,7 @@ export default function LessonDetail() {
   const checklist = asArray(project?.checklist);
   const rubric = asArray(project?.rubric);
   const timePlan = asArray(t(`${baseKey}.timePlan`, { returnObjects: true }));
-  const teacherGuide = asObject(t(`${baseKey}.teacherGuide`, { returnObjects: true }));
+  const studentGuide = asObject(t(`${baseKey}.studentGuide`, { returnObjects: true }));
   const codeExercise = asObject(t(`${baseKey}.codeExercise`, { returnObjects: true }));
   const hasCodeExercise = Boolean(codeExercise?.enabled);
 
@@ -130,8 +186,8 @@ export default function LessonDetail() {
             </div>
             <h2 className="text-xl font-black">{t("lessons:ui.objectives")}</h2>
             <div className="mt-4 space-y-3">
-              {objectives.map((item) => (
-                <div key={item} className="flex items-start gap-3 text-sm leading-6 text-slate-700">
+              {objectives.map((item, index) => (
+                <div key={`${item}-${index}`} className="flex items-start gap-3 text-sm leading-6 text-slate-700">
                   <CheckCircle2 className="mt-0.5 shrink-0 text-emerald-600" size={17} />
                   <span>{item}</span>
                 </div>
@@ -173,22 +229,7 @@ export default function LessonDetail() {
         </aside>
 
         <main className="space-y-6">
-          {teacherGuide?.title && (
-            <section className="rounded-[2rem] border border-indigo-100 bg-white p-6 shadow-sm">
-              <div className="mb-4 flex items-center gap-3">
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-indigo-50 text-indigo-700">
-                  <Lightbulb size={20} />
-                </div>
-                <div>
-                  <div className="text-xs font-black uppercase tracking-wide text-slate-400">{t("lessons:ui.teacherGuide")}</div>
-                  <h2 className="text-xl font-black text-slate-950">{teacherGuide.title}</h2>
-                </div>
-              </div>
-              {teacherGuide.summary && <p className="text-base leading-8 text-slate-700">{teacherGuide.summary}</p>}
-              <BlockList items={teacherGuide.steps} />
-              {teacherGuide.pace && <div className="mt-4 rounded-2xl bg-amber-50 p-4 text-sm font-semibold leading-6 text-amber-800">{teacherGuide.pace}</div>}
-            </section>
-          )}
+          <StudentGuide guide={studentGuide} />
 
           {blocks.map((block, index) => (
             <article key={`${block.title}-${index}`} className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm">
@@ -234,7 +275,7 @@ export default function LessonDetail() {
                 <div className="grid gap-5 p-6 md:grid-cols-2">
                   {checklist.length > 0 && (
                     <div className="rounded-3xl bg-white p-5 shadow-sm">
-                      <h3 className="font-black text-slate-950">Checklist</h3>
+                      <h3 className="font-black text-slate-950">{t("lessons:ui.checklist")}</h3>
                       <BlockList items={checklist} />
                     </div>
                   )}
