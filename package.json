@@ -11,6 +11,7 @@
     "node": "24.x"
   },
   "dependencies": {
+    "dotenv": "^17.4.2",
     "firebase": "^12.15.0",
     "firebase-admin": "^14.0.0",
     "i18next": "^26.3.1",

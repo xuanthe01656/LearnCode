@@ -22,7 +22,9 @@ function parseServiceAccount() {
 }
 
 function getAdminApp() {
-  if (admin.apps.length) return admin.app();
+  if (admin.getApps().length) {
+    return admin.app();
+  }
 
   const serviceAccount = parseServiceAccount();
 

@@ -1,3 +1,7 @@
+import 'dotenv/config';
+import { initializeApp, cert, getApps } from "firebase-admin/app";
+import { getAuth } from "firebase-admin/auth";
+import { getFirestore } from "firebase-admin/firestore";
 import admin from "firebase-admin";
 
 function parseServiceAccount() {
@@ -33,15 +37,15 @@ function getArg(name, fallback = "") {
 
 const serviceAccount = parseServiceAccount();
 
-if (!admin.apps.length) {
-  admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
-    projectId: serviceAccount.projectId || process.env.FIREBASE_PROJECT_ID,
+if (!getApps().length) {
+  initializeApp({
+    credential: cert(serviceAccount),
+    projectId: serviceAccount.projectId,
   });
 }
 
-const auth = admin.auth();
-const db = admin.firestore();
+const auth = getAuth();
+const db = getFirestore();
 
 const email = normalizeEmail(getArg("email", process.env.ADMIN_EMAIL));
 const password = getArg("password", process.env.ADMIN_PASSWORD);
@@ -88,8 +92,8 @@ await db.collection("users").doc(user.uid).set(
     status: "active",
     authProvider: "password",
     emailVerified: true,
-    updatedAt: admin.firestore.FieldValue.serverTimestamp(),
-    createdAt: admin.firestore.FieldValue.serverTimestamp(),
+    updatedAt: new Date(),
+    createdAt: new Date(),
     createdBy: "bootstrap-script",
   },
   { merge: true }
