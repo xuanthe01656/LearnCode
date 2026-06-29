@@ -8,12 +8,12 @@
     "preview": "vite preview"
   },
   "engines": {
-    "node": "22.x"
+    "node": "24.x"
   },
   "dependencies": {
     "dotenv": "^17.4.2",
     "firebase": "^12.15.0",
-    "firebase-admin": "13.10.0",
+    "firebase-admin": "^14.0.0",
     "i18next": "^26.3.1",
     "i18next-browser-languagedetector": "^8.2.1",
     "lucide-react": "^0.540.0",
