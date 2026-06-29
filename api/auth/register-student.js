@@ -1,7 +1,7 @@
 const {
-  admin,
-  adminAuth,
-  adminDb,
+  getAdminAuth,
+  getAdminDb,
+  getAdminFirestore,
   handleApiError,
   normalizeEmail,
   parseBody,
@@ -25,13 +25,25 @@ module.exports = async function handler(req, res) {
   }
 
   try {
-    const body = parseBody(req);
+    const body = await parseBody(req);
     requireFields(body, ["idToken"]);
 
-    const decoded = await adminAuth.verifyIdToken(String(body.idToken), true);
+    const auth = getAdminAuth();
+    const db = getAdminDb();
+    const { FieldValue } = getAdminFirestore();
+
+    const decoded = await auth.verifyIdToken(String(body.idToken), true);
     const uid = decoded.uid;
-    const userRecord = await adminAuth.getUser(uid);
+    const userRecord = await auth.getUser(uid);
     const email = normalizeEmail(userRecord.email || decoded.email);
+    const signInProvider = decoded.firebase?.sign_in_provider || "";
+
+    if (signInProvider !== "google.com") {
+      return sendJson(res, 403, {
+        error: "Student registration requires Google sign-in.",
+        code: "google_required",
+      });
+    }
 
     if (!email || !isGmailAddress(email)) {
       return sendJson(res, 403, {
@@ -47,7 +59,7 @@ module.exports = async function handler(req, res) {
       });
     }
 
-    const userRef = adminDb.collection("users").doc(uid);
+    const userRef = db.collection("users").doc(uid);
     const currentSnap = await userRef.get();
     const currentProfile = currentSnap.exists ? currentSnap.data() : null;
 
@@ -58,7 +70,14 @@ module.exports = async function handler(req, res) {
       });
     }
 
-    const now = admin.firestore.FieldValue.serverTimestamp();
+    await auth.setCustomUserClaims(uid, {
+      role: "student",
+      student: true,
+      status: "active",
+      roleVersion: 1,
+    });
+
+    const now = FieldValue.serverTimestamp();
     const payload = {
       uid,
       email,
@@ -78,20 +97,17 @@ module.exports = async function handler(req, res) {
       payload.createdBy = "self-registration";
     }
 
-    await adminAuth.setCustomUserClaims(uid, {
-      role: "student",
-      status: "active",
-      roleVersion: 1,
-    });
-
     await userRef.set(payload, { merge: true });
 
     return sendJson(res, 200, {
       user: {
-        ...payload,
-        createdAt: currentProfile?.createdAt || new Date().toISOString(),
-        updatedAt: new Date().toISOString(),
-        lastLoginAt: new Date().toISOString(),
+        uid,
+        email,
+        name: payload.name,
+        role: payload.role,
+        status: payload.status,
+        learnerGroup: payload.learnerGroup,
+        photoURL: payload.photoURL,
       },
     });
   } catch (error) {

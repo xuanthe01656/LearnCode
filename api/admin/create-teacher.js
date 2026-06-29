@@ -1,8 +1,8 @@
 const {
-  admin,
-  adminAuth,
-  adminDb,
   assertAdmin,
+  getAdminAuth,
+  getAdminDb,
+  getAdminFirestore,
   handleApiError,
   normalizeEmail,
   parseBody,
@@ -14,13 +14,27 @@ function validatePassword(password) {
   return String(password || "").length >= 8;
 }
 
-async function getUserByEmailOrNull(email) {
+async function getUserByEmailOrNull(auth, email) {
   try {
-    return await adminAuth.getUserByEmail(email);
+    return await auth.getUserByEmail(email);
   } catch (error) {
     if (error.code === "auth/user-not-found") return null;
     throw error;
   }
+}
+
+function publicUser(userRecord, profile, created, temporaryPassword) {
+  return {
+    uid: userRecord.uid,
+    email: profile.email,
+    name: profile.name,
+    role: profile.role,
+    status: profile.status,
+    authProvider: profile.authProvider,
+    emailVerified: Boolean(userRecord.emailVerified),
+    created,
+    temporaryPassword,
+  };
 }
 
 module.exports = async function handler(req, res) {
@@ -31,12 +45,20 @@ module.exports = async function handler(req, res) {
 
   try {
     const { decoded: adminUser } = await assertAdmin(req);
-    const body = parseBody(req);
+    const body = await parseBody(req);
     requireFields(body, ["name", "email", "password"]);
 
-    const name = String(body.name).trim();
+    const name = String(body.name || "").trim();
     const email = normalizeEmail(body.email);
-    const password = String(body.password);
+    const password = String(body.password || "");
+
+    if (!name) {
+      return sendJson(res, 400, { error: "Teacher name is required.", code: "name_required" });
+    }
+
+    if (!email || !email.includes("@")) {
+      return sendJson(res, 400, { error: "Teacher email is invalid.", code: "invalid_email" });
+    }
 
     if (!validatePassword(password)) {
       return sendJson(res, 400, {
@@ -45,37 +67,41 @@ module.exports = async function handler(req, res) {
       });
     }
 
-    const now = admin.firestore.FieldValue.serverTimestamp();
-    let userRecord = await getUserByEmailOrNull(email);
+    const auth = getAdminAuth();
+    const db = getAdminDb();
+    const { FieldValue } = getAdminFirestore();
+    const now = FieldValue.serverTimestamp();
+
+    let userRecord = await getUserByEmailOrNull(auth, email);
     let created = false;
 
     if (userRecord) {
-      const existingProfileSnap = await adminDb.collection("users").doc(userRecord.uid).get();
+      const existingProfileSnap = await db.collection("users").doc(userRecord.uid).get();
       const existingProfile = existingProfileSnap.exists ? existingProfileSnap.data() : null;
       const existingClaims = userRecord.customClaims || {};
-      const existingRole = existingProfile?.role || existingClaims.role;
+      const existingRole = existingProfile?.role || existingClaims.role || "";
 
-      if (existingRole === "admin") {
+      if (existingRole === "admin" || existingClaims.admin === true) {
         return sendJson(res, 409, {
           error: "This email already belongs to an admin account.",
           code: "admin_account_conflict",
         });
       }
 
-      if (existingRole === "student" && body.allowConvertStudent !== true) {
+      if ((existingRole === "student" || existingClaims.student === true) && body.allowConvertStudent !== true) {
         return sendJson(res, 409, {
           error: "This email already belongs to a student. Converting student accounts is disabled by default.",
           code: "student_account_conflict",
         });
       }
 
-      userRecord = await adminAuth.updateUser(userRecord.uid, {
+      userRecord = await auth.updateUser(userRecord.uid, {
         displayName: name,
         password,
         disabled: false,
       });
     } else {
-      userRecord = await adminAuth.createUser({
+      userRecord = await auth.createUser({
         email,
         password,
         displayName: name,
@@ -85,13 +111,14 @@ module.exports = async function handler(req, res) {
       created = true;
     }
 
-    await adminAuth.setCustomUserClaims(userRecord.uid, {
+    await auth.setCustomUserClaims(userRecord.uid, {
       role: "teacher",
+      teacher: true,
       status: "active",
       roleVersion: 1,
     });
 
-    const userPayload = {
+    const profilePayload = {
       uid: userRecord.uid,
       email,
       name,
@@ -104,20 +131,12 @@ module.exports = async function handler(req, res) {
       createdByEmail: adminUser.email || "",
     };
 
-    if (created) userPayload.createdAt = now;
+    if (created) profilePayload.createdAt = now;
 
-    await adminDb.collection("users").doc(userRecord.uid).set(userPayload, { merge: true });
+    await db.collection("users").doc(userRecord.uid).set(profilePayload, { merge: true });
 
     return sendJson(res, 200, {
-      user: {
-        uid: userRecord.uid,
-        email,
-        name,
-        role: "teacher",
-        status: "active",
-        authProvider: "password",
-        created,
-      },
+      user: publicUser(userRecord, profilePayload, created, password),
     });
   } catch (error) {
     return handleApiError(res, error);

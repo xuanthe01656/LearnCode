@@ -1,13 +1,26 @@
 const {
-  admin,
-  adminAuth,
-  adminDb,
   assertAdmin,
+  getAdminAuth,
+  getAdminDb,
+  getAdminFirestore,
   handleApiError,
   parseBody,
   requireFields,
   sendJson,
 } = require("../_utils/firebaseAdmin.js");
+
+const ALLOWED_STATUSES = new Set(["active", "disabled"]);
+
+function claimsForRole(role, status) {
+  return {
+    role,
+    admin: role === "admin",
+    teacher: role === "teacher",
+    student: role === "student",
+    status,
+    roleVersion: 1,
+  };
+}
 
 module.exports = async function handler(req, res) {
   if (req.method !== "POST") {
@@ -16,45 +29,55 @@ module.exports = async function handler(req, res) {
   }
 
   try {
-    await assertAdmin(req);
-    const body = parseBody(req);
+    const { decoded: adminUser } = await assertAdmin(req);
+    const body = await parseBody(req);
     requireFields(body, ["uid", "status"]);
 
-    const uid = String(body.uid);
-    const status = String(body.status);
+    const uid = String(body.uid || "").trim();
+    const status = String(body.status || "").trim();
 
-    if (!["active", "disabled"].includes(status)) {
+    if (!ALLOWED_STATUSES.has(status)) {
       return sendJson(res, 400, { error: "Invalid status.", code: "invalid_status" });
     }
 
-    const profileSnap = await adminDb.collection("users").doc(uid).get();
-    if (!profileSnap.exists) {
-      return sendJson(res, 404, { error: "User profile was not found.", code: "user_not_found" });
+    if (uid === adminUser.uid && status === "disabled") {
+      return sendJson(res, 409, {
+        error: "Admin cannot disable their own account.",
+        code: "cannot_disable_self",
+      });
     }
 
-    const profile = profileSnap.data();
-    if (profile.role === "admin") {
-      return sendJson(res, 403, { error: "Admin accounts cannot be disabled from this endpoint.", code: "cannot_disable_admin" });
-    }
+    const auth = getAdminAuth();
+    const db = getAdminDb();
+    const { FieldValue } = getAdminFirestore();
 
-    await adminAuth.updateUser(uid, { disabled: status === "disabled" });
-    await adminDb.collection("users").doc(uid).set(
+    const userRecord = await auth.getUser(uid);
+    const snap = await db.collection("users").doc(uid).get();
+    const profile = snap.exists ? snap.data() : null;
+    const role = profile?.role || userRecord.customClaims?.role || "student";
+
+    await auth.updateUser(uid, { disabled: status === "disabled" });
+    await auth.setCustomUserClaims(uid, claimsForRole(role, status));
+
+    await db.collection("users").doc(uid).set(
       {
         status,
-        updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+        role,
+        updatedAt: FieldValue.serverTimestamp(),
+        updatedBy: adminUser.uid,
+        updatedByEmail: adminUser.email || "",
       },
       { merge: true }
     );
 
-    const userRecord = await adminAuth.getUser(uid);
-    await adminAuth.setCustomUserClaims(uid, {
-      ...(userRecord.customClaims || {}),
-      status,
-      role: profile.role,
-      roleVersion: Date.now(),
+    return sendJson(res, 200, {
+      user: {
+        uid,
+        email: userRecord.email || profile?.email || "",
+        role,
+        status,
+      },
     });
-
-    return sendJson(res, 200, { uid, status });
   } catch (error) {
     return handleApiError(res, error);
   }

@@ -49,23 +49,16 @@ async function postJson(endpoint, body, token) {
     body: JSON.stringify(body),
   });
 
-  const text = await response.text();
   let payload;
-
   try {
-    payload = text ? JSON.parse(text) : {};
+    payload = await response.json();
   } catch {
-    payload = {
-      error: `Invalid server response from ${endpoint}. HTTP ${response.status}.`,
-      code: "invalid_server_response",
-      raw: text.slice(0, 800),
-    };
+    payload = { error: "Invalid server response" };
   }
 
   if (!response.ok) {
-    const message = payload?.error || payload?.message || `Request failed with HTTP ${response.status}.`;
-    const error = new Error(message);
-    error.details = { ...payload, httpStatus: response.status, endpoint };
+    const error = new Error(payload?.error || "Request failed");
+    error.details = payload;
     throw error;
   }
 
