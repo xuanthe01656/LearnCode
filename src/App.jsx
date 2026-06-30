@@ -4,7 +4,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Header from "./components/Header.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import { AuthProvider } from "./context/AuthContext.jsx";
-import { USER_ROLES } from "./components/constants/roles.js";
+import { USER_ROLES } from "./constants/roles.js";
 
 import Home from "./pages/Home.jsx";
 import LanguageSelect from "./pages/LanguageSelect.jsx";

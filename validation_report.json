@@ -1,34 +1,25 @@
 {
-  "module": "firebase-auth-rbac-admin-teacher-student",
+  "module": "responsive-role-aware-header",
   "status": "passed",
-  "roles": ["admin", "teacher", "student"],
-  "studentSelfRegistration": "Google/Gmail only",
-  "staffRegistration": "disabled on public UI; teacher accounts are created by admin API",
-  "adminCreation": "server bootstrap script only",
-  "serverApis": [
-    "/api/auth/register-student",
-    "/api/admin/create-teacher",
-    "/api/admin/update-user-status"
+  "updatedFiles": [
+    "src/components/Header.jsx",
+    "src/components/ProtectedRoute.jsx",
+    "src/constants/roles.js",
+    "src/components/constants/roles.js",
+    "src/App.jsx",
+    "src/i18n/locales/vi/auth.json",
+    "src/i18n/locales/en/auth.json"
   ],
-  "frontendRoutesAdded": [
-    "/login",
-    "/register",
-    "/profile",
-    "/unauthorized",
-    "/admin",
-    "/admin/teachers"
+  "rolesSupported": ["guest", "student", "teacher", "admin"],
+  "responsive": true,
+  "mobileDrawer": true,
+  "desktopAccountDropdown": true,
+  "roleBasedMenu": true,
+  "notes": [
+    "Student cannot see admin or teacher menus.",
+    "Teacher cannot see admin management menus.",
+    "Admin sees admin and teacher menus.",
+    "Guest sees login and student registration only."
   ],
-  "protectedTeacherRoutes": [
-    "/teacher",
-    "/teacher/course/:courseId",
-    "/teacher/lessons/:lessonId"
-  ],
-  "checks": {
-    "jsonParse": true,
-    "nodeSyntaxCheck": true,
-    "jsxTranspileCheck": true,
-    "firestoreRulesIncluded": true,
-    "firebaseAdminBootstrapScriptIncluded": true
-  },
   "validationErrors": []
 }
