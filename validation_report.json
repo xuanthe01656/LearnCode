@@ -1,25 +1,25 @@
 {
-  "module": "responsive-role-aware-header",
+  "module": "responsive-header-and-role-aware-home-ux",
   "status": "passed",
-  "updatedFiles": [
+  "changes": [
+    "Header desktop layout no longer wraps nav labels after logout",
+    "Guest desktop header shows only login and primary placement CTA to avoid overcrowding",
+    "Student register remains available in the mobile drawer and login/register flow",
+    "Header menu is filtered by role: guest, student, teacher, admin",
+    "Home page now renders a role-aware workspace section",
+    "Home hero CTA changes for guest, student, teacher and admin",
+    "Teacher guide CTA is shown only to admin/teacher on the public course highlight block"
+  ],
+  "files": [
     "src/components/Header.jsx",
-    "src/components/ProtectedRoute.jsx",
-    "src/constants/roles.js",
-    "src/components/constants/roles.js",
-    "src/App.jsx",
-    "src/i18n/locales/vi/auth.json",
-    "src/i18n/locales/en/auth.json"
+    "src/pages/Home.jsx"
   ],
-  "rolesSupported": ["guest", "student", "teacher", "admin"],
-  "responsive": true,
-  "mobileDrawer": true,
-  "desktopAccountDropdown": true,
-  "roleBasedMenu": true,
-  "notes": [
-    "Student cannot see admin or teacher menus.",
-    "Teacher cannot see admin management menus.",
-    "Admin sees admin and teacher menus.",
-    "Guest sees login and student registration only."
-  ],
+  "checks": {
+    "jsxTranspileHeader": true,
+    "jsxTranspileHome": true,
+    "usesExistingAuthContext": true,
+    "usesExistingRoutes": true,
+    "doesNotRequireNewDependencies": true
+  },
   "validationErrors": []
 }
